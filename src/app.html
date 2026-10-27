@@ -243,6 +243,8 @@ button, input, select { font: inherit; color: inherit; }
 .fuel-gauge svg { width: 24px; height: 24px; fill: none; stroke: var(--gauge, var(--muted)); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .fuel-gauge svg .win { fill: var(--gauge, var(--muted)); stroke: none; }
 .fuel-gauge { border-color: var(--gauge, var(--line)); }
+/* digits take the gauge colour, nudged toward the ink so amber stays readable on either theme */
+.fuel-gauge b { color: color-mix(in srgb, var(--gauge, var(--ink)) 78%, var(--ink)); }
 .chip {
   display: inline-flex;
   align-items: center;
