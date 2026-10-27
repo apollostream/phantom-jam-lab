@@ -279,3 +279,14 @@ npm test                      # includes the five fuel tests
 npm run analysis:fuel         # the results above, into analysis/results/fuel.json
 npm run build                 # the simulator with the fuel readouts, in dist/
 ```
+
+## Other changes on this branch
+
+**Regime map clicks hold the road length.** On `main`, clicking the regime map sets the delay R through
+the reaction time and the load Λ through the lap length. On this branch the lap length stays fixed, and
+the load is set by the number of cars instead: N = Λ × L ÷ (ℓ + s₀ + v₀T), rounded, between 2 and 300.
+
+- **Drivers who leave room:** their count is capped at the new N. Hand-picked drivers, such as scene 2's
+  car 30, are kept only while their car is still on the road.
+- **Everything else is held:** speed limit, following times, vehicle settings, distraction and taps.
+- **Resolution:** Λ moves in steps of one car, (ℓ + s₀ + v₀T) ÷ L. On scene 2's 860 m ring that is about 0.04.

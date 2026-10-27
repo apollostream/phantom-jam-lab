@@ -616,7 +616,7 @@ footer a { color: inherit; }
     <div class="panel regime">
       <div class="panel-head">
         <h2>Regime map</h2>
-        <span class="sub">Two ratios decide whether a road of tailgaters flows or jams. Load Λ compares the cars on the road with how many fit at the speed limit and following time. Delay R is reaction time over following time. Click the map to move this road there.</span>
+        <span class="sub">Two ratios decide whether a road of tailgaters flows or jams. Load Λ compares the cars on the road with how many fit at the speed limit and following time. Delay R is reaction time over following time. Click the map to move this road there: the reaction time sets R and the number of cars sets Λ, on the same length of road.</span>
       </div>
       <div class="regime-body">
         <svg id="regimeSvg" viewBox="0 0 560 300" role="img" aria-label="Regime map of delay number R against load number Λ, with this road marked"></svg>
@@ -1650,7 +1650,16 @@ footer a { color: inherit; }
     if (lambda < LMIN || lambda > LMAX || R < 0 || R > RMAX) return;
     const c = state.cfg, v0 = c.speedLimit / 3.6;
     c.reaction = Math.max(0.3, Math.min(1.6, Math.round(R * c.tailT / 0.05) * 0.05));
-    c.length = Math.max(150, Math.min(6000, Math.round(c.cars * (c.carLen + c.jamGap + v0 * c.tailT) / lambda / 10) * 10));
+    // prototype: hold the lap length and set the load with the number of cars
+    c.cars = Math.max(2, Math.min(300, Math.round(lambda * c.length / (c.carLen + c.jamGap + v0 * c.tailT))));
+    c.absorbers = Math.min(c.absorbers, c.cars);
+    if (c.manual) {
+      // keep hand-picked drivers who are still on the road
+      const kept = Object.fromEntries(Object.entries(c.manual).filter(([id]) => +id < c.cars));
+      c.manual = Object.keys(kept).length ? kept : null;
+    }
+    $('#absorbers').max = c.cars;
+    if (state.selected != null && state.selected >= c.cars) { state.selected = null; hideCard(); }
     markCustom();
     syncOutputs();
     buildSims();
