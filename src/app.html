@@ -349,6 +349,7 @@ kbd {
   align-items: baseline;
   gap: 8px;
 }
+.proto { font-family: var(--mono); font-weight: 400; font-size: var(--fs-xs); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-left: 6px; }
 .group h3 small { font-family: var(--mono); font-weight: 400; font-size: var(--fs-xs); color: var(--muted); }
 .field { display: grid; gap: 4px; }
 .field-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: var(--fs-sm); }
@@ -696,6 +697,14 @@ footer a { color: inherit; }
           <input type="range" id="decel" min="0.5" max="5" step="0.1">
           <span class="help">How tailgaters pick up speed and slow down when nothing is wrong. Emergency limits stay fixed at 9 m/s² braking and 2.5 m/s² acceleration.</span>
         </div>
+        <div class="field">
+          <div class="field-top"><label>Fuel model <small class="proto">prototype</small></label></div>
+          <div class="seg text" id="vehicleSeg" role="group" aria-label="Vehicle for the fuel estimate">
+            <button data-v="suv">Midsize SUV</button>
+            <button data-v="compact">Compact car</button>
+          </div>
+          <span class="help">Fuel efficiency is the fuel the cars would need in steady flow at this load, as a share of what they burn. 100% is the best this road allows. Braking wastes the fuel spent getting up to speed.</span>
+        </div>
       </div>
 
       <div class="group">
@@ -772,7 +781,7 @@ footer a { color: inherit; }
     tailT: 1.0, reaction: 1.0, distraction: 0,
     absorbT: 3.0, absorbWindow: 8,
     accel: 1.2, decel: 2.0, carLen: 4.5, jamGap: 2,
-    autoTaps: false, autoTapEvery: 20,
+    autoTaps: false, autoTapEvery: 20, vehicle: 'suv',
   };
   const SCENARIOS = [
     {
@@ -1428,6 +1437,10 @@ footer a { color: inherit; }
     });
   }
   bindSeg('#placementSeg', () => state.cfg.placement, (v) => { state.cfg.placement = v; state.cfg.manual = null; markCustom(); mixChanged(); });
+  bindSeg('#vehicleSeg', () => state.cfg.vehicle, (v) => {
+    state.cfg.vehicle = v;
+    for (const s of [simA, simB]) if (s) { s.cfg = { ...s.cfg, vehicle: v }; s.resetFuel(); }
+  });
   bindSeg('#viewSeg', () => state.view, (v) => { state.view = v; });
 
   const SPEEDS = [0.5, 1, 2, 4, 8];
@@ -1435,7 +1448,7 @@ footer a { color: inherit; }
   bindSeg('#speedSeg', () => state.speed, (v) => { state.speed = +v; });
 
   function syncSegs() {
-    for (const [id, val] of [['#placementSeg', state.cfg.placement], ['#viewSeg', state.view], ['#speedSeg', String(state.speed)]]) {
+    for (const [id, val] of [['#placementSeg', state.cfg.placement], ['#vehicleSeg', state.cfg.vehicle], ['#viewSeg', state.view], ['#speedSeg', String(state.speed)]]) {
       $(id).querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === String(val))));
     }
   }
@@ -1646,7 +1659,7 @@ footer a { color: inherit; }
   function loadScenario(key) {
     const s = SCENARIOS.find((x) => x.key === key);
     state.scenario = key;
-    state.cfg = { ...BASE, ...s.cfg, manual: s.cfg.manual ? { ...s.cfg.manual } : null };
+    state.cfg = { ...BASE, ...s.cfg, manual: s.cfg.manual ? { ...s.cfg.manual } : null, vehicle: state.cfg?.vehicle ?? BASE.vehicle };
     state.compare = s.compare;
     state.view = s.view;
     state.tapDepth = s.tapDepth;
@@ -1747,12 +1760,15 @@ footer a { color: inherit; }
     { key: 'waves', label: 'Jams on the road', unit: '', dp: 0, higher: false },
     { key: 'brakesPerMin', label: 'Hard brakes per min', unit: '', dp: 0, higher: false },
     { key: 'sdKmh', label: 'Speed spread (±)', unit: 'km/h', dp: 1, higher: false },
+    { key: 'fuelEff', label: 'Fuel efficiency', unit: '%', dp: 0, higher: true },
+    { key: 'fuelL100', label: 'Fuel per 100 km', unit: 'L', dp: 1, higher: false },
   ];
   const statsAcc = { A: null, B: null };
   function smoothStats(prev, cur) {
     if (!prev) return { ...cur };
     const o = {};
-    for (const k in cur) o[k] = k === 'brakesPerMin' || k === 'density' ? cur[k] : prev[k] + (cur[k] - prev[k]) * 0.35;
+    // fuel figures are already whole-run totals, so they are shown as they are
+    for (const k in cur) o[k] = k === 'brakesPerMin' || k === 'density' || k.startsWith('fuel') ? cur[k] : prev[k] + (cur[k] - prev[k]) * 0.35;
     return o;
   }
   function renderStats() {
@@ -1762,10 +1778,11 @@ footer a { color: inherit; }
     const a = statsAcc.A, b = statsAcc.B;
     $('#statBody').innerHTML = ROWS.map((r) => {
       const va = a[r.key], vb = b ? b[r.key] : null;
+      if (va == null) return '';
       let cls = '';
-      if (b && Math.abs(va - vb) > Math.max(0.5, Math.abs(vb) * 0.05)) cls = (va > vb) === r.higher ? 'better' : 'worse';
+      if (b && vb != null && Math.abs(va - vb) > Math.max(0.5, Math.abs(vb) * 0.05)) cls = (va > vb) === r.higher ? 'better' : 'worse';
       const f = (v) => (r.key === 'flow' ? Math.round(v).toLocaleString() : v.toFixed(r.dp));
-      return `<tr><td>${r.label}</td><td class="v ${cls}">${f(va)}<span class="u">${r.unit}</span></td>${b ? `<td class="v">${f(vb)}<span class="u">${r.unit}</span></td>` : ''}</tr>`;
+      return `<tr><td>${r.label}</td><td class="v ${cls}">${f(va)}<span class="u">${r.unit}</span></td>${b ? `<td class="v">${vb == null ? '–' : f(vb)}<span class="u">${r.unit}</span></td>` : ''}</tr>`;
     }).join('');
     // verdict
     const v = $('#verdict');

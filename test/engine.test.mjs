@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
 const src = readFileSync(new URL('../src/engine.js', import.meta.url), 'utf8');
-const { Sim } = new Function(src + '\nreturn { Sim };')();
+const { Sim, VEHICLES, fuelRate, cruiseFuelPerM } = new Function(src + '\nreturn { Sim, VEHICLES, fuelRate, cruiseFuelPerM };')();
 
 const base = {
   cars: 30, length: 900, speedLimit: 90, seed: 7,
@@ -124,4 +124,36 @@ test('changing settings mid-run keeps the engine defaults (no NaN)', () => {
   for (let k = 0; k < 400; k++) sim.step();
   assert.ok(Number.isFinite(sim.meanSpeed()), `mean speed ${sim.meanSpeed()}`);
   assert.ok(sim.cars.every((c) => Number.isFinite(c.x) && Number.isFinite(c.v)));
+});
+
+// Fuel (prototype): the power-based model and the efficiency score.
+test('fuel: steady cruise costs idle plus rolling plus drag, per km', () => {
+  const suv = VEHICLES.suv;
+  // 60 km/h: idle 1700 mL/h over 60 km, plus A, plus B * 60^2
+  const handCalc = 1700 / 60 + 19.5 + 0.0059 * 60 * 60;
+  assert.ok(Math.abs(cruiseFuelPerM(suv, 60 / 3.6) * 1000 - handCalc) < 1e-9);
+});
+
+test('fuel: braking burns only the idle rate', () => {
+  for (const veh of Object.values(VEHICLES)) {
+    assert.equal(fuelRate(veh, 20, -3), veh.idle / 3600);
+    assert.equal(fuelRate(veh, 0, 0), veh.idle / 3600);
+  }
+});
+
+test('fuel: a quiet road in steady flow scores 100%', () => {
+  for (const vehicle of ['suv', 'compact']) {
+    const e = run({ vehicle }, 300).snapshot().fuelEff;
+    assert.ok(Math.abs(e - 100) < 1, `${vehicle}: ${e}`);
+  }
+});
+
+test('fuel: a jam started by one tap wastes fuel', () => {
+  const sim = run({}, 300, s => { if (Math.abs(s.t - 4) < 0.025) s.tapBrakes(0, 0.5); });
+  assert.ok(sim.snapshot().fuelEff < 70, `${sim.snapshot().fuelEff}`);
+});
+
+test('fuel: a rescaled model reports no fuel', () => {
+  const sim = run({ unitL: 2, unitT: 2 }, 20);
+  assert.equal(sim.snapshot().fuelEff, null);
 });

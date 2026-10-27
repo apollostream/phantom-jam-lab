@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs';
 
 const src = readFileSync(new URL('../src/engine.js', import.meta.url), 'utf8');
-export const { Sim, DEFAULTS } = new Function(src + '\nreturn { Sim, DEFAULTS };')();
+export const { Sim, DEFAULTS, VEHICLES, fuelRate, cruiseFuelPerM } = new Function(src + '\nreturn { Sim, DEFAULTS, VEHICLES, fuelRate, cruiseFuelPerM };')();
 
 // Default vehicle constants of the tailgater model (src/engine.js)
 export const MODEL = { a: DEFAULTS.accel, b: DEFAULTS.decel, s0: DEFAULTS.jamGap, ell: DEFAULTS.carLen };

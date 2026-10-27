@@ -12,8 +12,36 @@ const DEFAULTS = {
   accel: 1.2, decel: 2.0, carLen: CAR_LEN, jamGap: 2, noiseMemory: 2,
   tapDecel: 4.5, tapHold: 4,    // a brake tap: braking rate (m/s^2) and longest hold (s)
   unitL: 1, unitT: 1,
+  vehicle: 'suv',
 };
 const HIST = 48;              // perception history steps (covers up to 2.4 s delay)
+
+// Fuel (prototype). Akcelik's power-based instantaneous model, in the form of Akcelik,
+// Smit & Besley (2012): while the engine pushes (tractive power P_T > 0) the fuel rate is
+// idle + b1*P_T + b2*a*P_I (the last only when speeding up); otherwise it is the idle
+// rate, so energy shed in the brakes earns nothing back. A and B are the fuel cost of
+// rolling resistance and of air drag per km. docs/fuel-prototype.md derives each value.
+const VEHICLES = {
+  compact: { label: 'Compact car', mass: 1250, pMax: 100, idle: 889, A: 12.2, B: 0.0036, b1: 0.0926, b2: 0.030 },
+  suv: { label: 'Midsize SUV', mass: 2000, pMax: 200, idle: 1700, A: 19.5, B: 0.0059, b1: 0.0926, b2: 0.030 },
+};
+// Rolling force (N) and drag coefficient (N per (m/s)^2) implied by A and B.
+function fuelForces(veh) {
+  return { roll: veh.A / veh.b1, drag: (veh.B / veh.b1) * 3.6 * 3.6 };
+}
+// Fuel rate in mL/s at speed v (m/s) and acceleration a (m/s^2), on level road.
+function fuelRate(veh, v, a) {
+  const f = fuelForces(veh);
+  const idle = veh.idle / 3600;
+  const pT = Math.min(veh.pMax, ((f.roll + f.drag * v * v + veh.mass * a) * v) / 1000);
+  if (pT <= 0) return idle;
+  const pI = (veh.mass * a * v) / 1000;
+  return idle + veh.b1 * pT + (a > 0 ? veh.b2 * a * pI : 0);
+}
+// Fuel per metre, in mL, cruising steadily at v (m/s).
+function cruiseFuelPerM(veh, v) {
+  return fuelRate(veh, v, 0) / v;
+}
 
 function mulberry32(seed) {
   return function () {
@@ -65,7 +93,7 @@ class Sim {
 
   // Settings can be swapped mid-run; anything left out keeps its default.
   get cfg() { return this._cfg; }
-  set cfg(cfg) { this._cfg = { ...DEFAULTS, ...cfg }; }
+  set cfg(cfg) { this._cfg = { ...DEFAULTS, ...cfg }; this._vEq = null; }
 
   reset() {
     const c = this.cfg;
@@ -110,6 +138,7 @@ class Sim {
       for (let k = 0; k < HIST; k++) car.hist.set([g, car.v, 0], k * 3);
     }
     this.stats = { hardBrakes: 0, nearMiss: 0, distance: 0, speedSeries: [], lastSample: 0 };
+    this.resetFuel();
     this.brakeLog = [];
     this.nextAutoTap = 6 * c.unitT;
   }
@@ -117,24 +146,8 @@ class Sim {
   // Space cars so that everyone can cruise at one common speed: tailgaters at their
   // IDM equilibrium gap, ample-distance drivers with their full buffer.
   placeAtEquilibrium(rng) {
-    const c = this.cfg, n = this.n;
-    const vlim = c.speedLimit / 3.6;
-    const tailGap = v => (c.jamGap + v * c.tailT) / Math.sqrt(Math.max(1e-6, 1 - Math.pow(v / vlim, 4)));
-    // "Ample" is relative to the traffic around you: a lone absorber takes its full
-    // buffer, while a road of only absorbers shares the space evenly.
-    const share = 1 - this.cars.filter(car => car.absorber).length / n;
-    const gapFor = (car, v) => {
-      const g = tailGap(v);
-      return car.absorber ? g + share * Math.max(0, c.jamGap + v * c.absorbT - g) : g;
-    };
-    const free = this.L - n * this.carLen;
-    let lo = 0, hi = vlim * 0.999;
-    for (let k = 0; k < 50; k++) {
-      const mid = (lo + hi) / 2;
-      const need = this.cars.reduce((sum, car) => sum + gapFor(car, mid), 0);
-      if (need < free) lo = mid; else hi = mid;
-    }
-    const v = n > 1 ? lo : vlim;
+    const v = this.equilibriumSpeed();
+    const gapFor = this.gapRule();
     let x = 0;
     for (const car of this.cars) {
       car.x = x;
@@ -146,6 +159,39 @@ class Sim {
     for (const car of this.cars) car.x *= stretch;
   }
 
+  // Start the fuel count afresh, as after switching vehicles mid-run.
+  resetFuel() { Object.assign(this.stats, { fuel: 0, fuelIdeal: 0, fuelDist: 0 }); }
+
+  // The gap each car keeps at a common cruising speed v.
+  gapRule() {
+    const c = this.cfg, n = this.n;
+    const vlim = c.speedLimit / 3.6;
+    const tailGap = v => (c.jamGap + v * c.tailT) / Math.sqrt(Math.max(1e-6, 1 - Math.pow(v / vlim, 4)));
+    // "Ample" is relative to the traffic around you: a lone absorber takes its full
+    // buffer, while a road of only absorbers shares the space evenly.
+    const share = 1 - this.cars.filter(car => car.absorber).length / n;
+    return (car, v) => {
+      const g = tailGap(v);
+      return car.absorber ? g + share * Math.max(0, c.jamGap + v * c.absorbT - g) : g;
+    };
+  }
+
+  // The one speed at which every car on the ring can cruise with its preferred gap.
+  equilibriumSpeed() {
+    if (this._vEq != null) return this._vEq;
+    const c = this.cfg, n = this.n;
+    const vlim = c.speedLimit / 3.6;
+    const gapFor = this.gapRule();
+    const free = this.L - n * this.carLen;
+    let lo = 0, hi = vlim * 0.999;
+    for (let k = 0; k < 50; k++) {
+      const mid = (lo + hi) / 2;
+      const need = this.cars.reduce((sum, car) => sum + gapFor(car, mid), 0);
+      if (need < free) lo = mid; else hi = mid;
+    }
+    return (this._vEq = n > 1 ? lo : vlim);
+  }
+
   applyMix() {
     const c = this.cfg;
     const rng = mulberry32(c.seed ^ 0x9e3779b9);
@@ -155,6 +201,7 @@ class Sim {
       if (want && !car.absorber) car.vAvg = car.v;
       car.absorber = want;
     }
+    this._vEq = null;
   }
 
   leaderOf(i) { return this.cars[(i + 1) % this.n]; }
@@ -182,6 +229,9 @@ class Sim {
     const dt = this.dt;
     const uL = c.unitL, uT = c.unitT, uV = uL / uT, uA = uL / (uT * uT);
     const acc = new Float32Array(n);
+    // Fuel is counted only in real units; a rescaled model has no physical car.
+    const veh = uL === 1 && uT === 1 ? VEHICLES[c.vehicle] : null;
+    const idealPerM = veh && this.equilibriumSpeed() > 1 ? cruiseFuelPerM(veh, this.equilibriumSpeed()) : 0;
 
     for (let i = 0; i < n; i++) {
       const car = this.cars[i];
@@ -250,6 +300,12 @@ class Sim {
       car.braking = a < -1.0 * uA;
       if (v < 1.4 * uV) car.stoppedTime += dt;
       this.stats.distance += Math.max(0, dx);
+      if (veh) {
+        // fuel over the step at its mean speed; the ideal is the same distance at the steady speed
+        this.stats.fuel += fuelRate(veh, Math.max(0, car.v + 0.5 * a * dt), a) * dt;
+        this.stats.fuelIdeal += idealPerM * Math.max(0, dx);
+        this.stats.fuelDist += Math.max(0, dx);
+      }
     }
     // commit, then enforce no overlap
     for (const car of this.cars) {
@@ -306,7 +362,13 @@ class Sim {
     for (let i = 0; i < n; i++) if (slow[i] && !slow[(i + 1) % n]) waves++;
     if (waves === 0 && slow.every(Boolean)) waves = 1;
     const density = n / (this.L / 1000);
+    const st = this.stats;
+    const fuelOn = st.fuelIdeal > 0 && st.fuelDist > 0;
     return {
+      // 100% = the fuel this distance needs in steady flow at the same load; lower is waste
+      fuelEff: fuelOn ? (st.fuelIdeal / st.fuel) * 100 : null,
+      // litres per 100 km, all cars together
+      fuelL100: fuelOn ? (st.fuel / st.fuelDist) * 100 : null,
       meanKmh: mean * 3.6,
       sdKmh: sd * 3.6,
       flow: density * mean * 3.6,
