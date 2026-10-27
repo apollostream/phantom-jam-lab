@@ -74,3 +74,7 @@ gives the details of the report pipeline.
 The project started from the YouTube short
 [Why Do Phantom Traffic Jams Happen?](https://www.youtube.com/shorts/jBTahEPAr-I) and from Sugiyama and
 colleagues' 2008 experiment, in which 22 cars on a circular track made a jam out of nothing.
+
+## License
+
+MIT. See [`LICENSE`](LICENSE).
