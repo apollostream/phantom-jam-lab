@@ -10,7 +10,8 @@
     "report:check": "node report/facts.mjs && node report/regime-chart.mjs && node report/check-sources.mjs",
     "report:media": "npm run build && node report/media.mjs",
     "report:build": "node report/build-html.mjs",
-    "report:test-page": "node report/test-page.mjs"
+    "report:test-page": "node report/test-page.mjs",
+    "analysis:fuel": "node analysis/fuel.mjs"
   },
   "devDependencies": {
     "katex": "^0.16.11",

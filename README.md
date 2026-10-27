@@ -34,6 +34,7 @@ Its source text, figures and build scripts are in [`report/`](report/).
 | `src/` | the traffic model (`engine.js`) and the app page (`app.html`) |
 | `test/` | tests of the traffic model |
 | `analysis/` | the dimensional analysis, stability theory and simulation sweeps; results in `analysis/results/` |
+| `docs/` | the fuel and stress scores and driver model B: research, parameters and results |
 | `report/` | the narrative report: source text, fact and citation checks, figures, filmed media, page builder |
 | `.claude/skills/documentary-report/` | a Claude Code skill that rebuilds or extends the report |
 
@@ -43,6 +44,20 @@ Each car is one of two kinds of driver.
 - **Tailgaters** follow the Human Driver Model: the Intelligent Driver Model with a reaction delay, a
   forward guess of the gap, and random wobble in speed.
 - **Drivers who leave room** match the smoothed speed of the traffic ahead and keep a wider gap.
+
+Drivers who leave room follow one of two models, chosen in the app under Drivers:
+- **Model A, classic (the default):** the original driver, which the report and the analysis describe.
+- **Model B, three-state:** closing in, the driver first coasts with the foot off both pedals, and brakes
+  only if coasting won't do.
+
+The second road can run the same drivers under the other model, to compare A and B side by side.
+
+Each road also shows two gauges:
+- **fuel efficiency**, where 100% is the fuel the road would burn in steady flow at its load;
+- **the average distance driven between stressful moments**, meaning firm braking or a close call.
+
+[`docs/fuel-stress-and-variant-b.md`](docs/fuel-stress-and-variant-b.md) gives the research behind both
+gauges and model B.
 
 The analysis reduces the road to dimensionless groups. Two decide the outcome:
 - **Λ (load):** how full the road is, compared with the space each car wants at its preferred speed.
@@ -58,6 +73,7 @@ npm install
 npm run build             # writes the simulator: dist/index.html (standalone) and dist/phantom-jam-lab.html (for claude.ai)
 npm test                  # tests of the traffic model
 npm run analysis          # reruns the analysis into analysis/results/ (about 2 minutes)
+npm run analysis:fuel     # fuel and stress for every scene, under both driver models
 npm run report:check      # checks every number in the report against the results, and citations against Crossref
 npm run report:media      # films the GIFs and stills from the simulator
 npm run report:build      # writes the report page to report/dist/

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
 const src = readFileSync(new URL('../src/engine.js', import.meta.url), 'utf8');
-const { Sim } = new Function(src + '\nreturn { Sim };')();
+const { Sim, VEHICLES, fuelRate, cruiseFuelPerM } = new Function(src + '\nreturn { Sim, VEHICLES, fuelRate, cruiseFuelPerM };')();
 
 const base = {
   cars: 30, length: 900, speedLimit: 90, seed: 7,
@@ -69,8 +69,9 @@ test('Sugiyama ring: a jam forms on its own from small driver noise', () => {
   assert.ok(s.sdKmh > 6, `speed spread ${s.sdKmh.toFixed(2)} km/h`);
 });
 
-test('absorbers in the mix lower speed variation under noise', () => {
-  const cfg = { cars: 40, length: 1000, speedLimit: 90, distraction: 0.6, autoTaps: true, autoTapEvery: 25 };
+// Mean speed spread (km/h) on a noisy road, with no absorbers and with four.
+function noisySpread(driverModel) {
+  const cfg = { cars: 40, length: 1000, speedLimit: 90, distraction: 0.6, autoTaps: true, autoTapEvery: 25, driverModel };
   let sdA = 0, sdB = 0, k = 0;
   const a = new Sim({ ...base, ...cfg });
   const b = new Sim({ ...base, ...cfg, absorbers: 4 });
@@ -78,7 +79,20 @@ test('absorbers in the mix lower speed variation under noise', () => {
     a.step(); b.step();
     if (i > 1200 && i % 20 === 0) { sdA += a.snapshot().sdKmh; sdB += b.snapshot().sdKmh; k++; }
   }
-  assert.ok(sdB / k < 0.75 * (sdA / k), `with absorbers ${(sdB / k).toFixed(1)} vs without ${(sdA / k).toFixed(1)} km/h`);
+  return { without: sdA / k, with: sdB / k };
+}
+
+test('absorbers in the mix lower speed variation under noise', () => {
+  const s = noisySpread('A');
+  assert.ok(s.with < 0.75 * s.without, `with absorbers ${s.with.toFixed(1)} vs without ${s.without.toFixed(1)} km/h`);
+});
+
+// Variant B's drivers coast where variant A's would brake, so under heavy noise they damp
+// less: 15.0 against 19.0 km/h here, where variant A reaches under three quarters.
+test('variant B: absorbers still lower speed variation under noise, by less than in variant A', () => {
+  const a = noisySpread('A'), b = noisySpread('B');
+  assert.ok(b.with < 0.85 * b.without, `variant B with absorbers ${b.with.toFixed(1)} vs without ${b.without.toFixed(1)} km/h`);
+  assert.ok(b.with / b.without > a.with / a.without, 'variant A damps more than variant B');
 });
 
 test('a full scale model (lengths x2, times x4) evolves bit for bit like the original', () => {
@@ -124,4 +138,65 @@ test('changing settings mid-run keeps the engine defaults (no NaN)', () => {
   for (let k = 0; k < 400; k++) sim.step();
   assert.ok(Number.isFinite(sim.meanSpeed()), `mean speed ${sim.meanSpeed()}`);
   assert.ok(sim.cars.every((c) => Number.isFinite(c.x) && Number.isFinite(c.v)));
+});
+
+// Fuel (prototype): the power-based model and the efficiency score.
+test('fuel: steady cruise costs idle plus rolling plus drag, per km', () => {
+  const suv = VEHICLES.suv;
+  // 60 km/h: idle 1700 mL/h over 60 km, plus A, plus B * 60^2
+  const handCalc = 1700 / 60 + 19.5 + 0.0059 * 60 * 60;
+  assert.ok(Math.abs(cruiseFuelPerM(suv, 60 / 3.6) * 1000 - handCalc) < 1e-9);
+});
+
+test('fuel: braking burns only the idle rate', () => {
+  for (const veh of Object.values(VEHICLES)) {
+    assert.equal(fuelRate(veh, 20, -3), veh.idle / 3600);
+    assert.equal(fuelRate(veh, 0, 0), veh.idle / 3600);
+  }
+});
+
+test('fuel: a quiet road in steady flow scores 100%', () => {
+  for (const vehicle of ['suv', 'compact']) {
+    const e = run({ vehicle }, 300).snapshot().fuelEff;
+    assert.ok(Math.abs(e - 100) < 1, `${vehicle}: ${e}`);
+  }
+});
+
+test('fuel: a jam started by one tap wastes fuel', () => {
+  const sim = run({}, 300, s => { if (Math.abs(s.t - 4) < 0.025) s.tapBrakes(0, 0.5); });
+  assert.ok(sim.snapshot().fuelEff < 70, `${sim.snapshot().fuelEff}`);
+});
+
+test('fuel: a rescaled model reports no fuel', () => {
+  const sim = run({ unitL: 2, unitT: 2 }, 20);
+  assert.equal(sim.snapshot().fuelEff, null);
+});
+
+// Stress: firm brakes (over 2 m/s^2) plus close calls (under 1.5 s to collision) per km.
+test('stress: a quiet road has no stressful moments', () => {
+  assert.equal(run({}, 120).snapshot().stressPerKm, 0);
+  assert.equal(run({ absorbers: 30, driverModel: 'B' }, 120).snapshot().stressPerKm, 0);
+});
+
+// Variant A keeps the original model, quirk included: on a road of only absorbers the panic
+// check fires at equal speeds, so drivers who leave room still log firm brakes.
+test('variant A: a quiet road of only absorbers still jolts (the original panic threshold)', () => {
+  assert.ok(run({ absorbers: 30 }, 120).snapshot().stressPerKm > 1);
+});
+
+test('stress: a tap that becomes a jam is stressful; one driver leaving room calms it', () => {
+  const tap = s => { if (Math.abs(s.t - 4) < 0.025) s.tapBrakes(0, 0.5); };
+  const knife = { reaction: 0.8, length: 860, absorbT: 3.0 };
+  const jam = run(knife, 300, tap).snapshot().stressPerKm;
+  const calm = run({ ...knife, manual: { 29: true } }, 300, tap).snapshot().stressPerKm;
+  assert.ok(jam > 1 && calm < 0.5, `everyone tailgates ${jam.toFixed(2)}, one driver leaves room ${calm.toFixed(2)}`);
+});
+
+test('variant B: drivers sharing a crowded road coast instead of braking hard', () => {
+  let hard = 0;
+  run({ absorbers: 30, absorbT: 3.0, driverModel: 'B' }, 300, s => {
+    if (Math.abs(s.t - 4) < 0.025) s.tapBrakes(0, 0.5);
+    else if (s.t > 10) for (const c of s.cars) if (c.a < -3) hard++;
+  });
+  assert.equal(hard, 0);
 });

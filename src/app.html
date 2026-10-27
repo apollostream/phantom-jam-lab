@@ -223,6 +223,30 @@ button, input, select { font: inherit; color: inherit; }
   font-weight: 700;
   pointer-events: none;
 }
+.fuel-gauge {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 3px 8px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  font-family: var(--mono);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--ink);
+  pointer-events: none;
+}
+.fuel-gauge svg { width: 24px; height: 24px; fill: none; stroke: var(--gauge, var(--muted)); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.fuel-gauge svg .win, .fuel-gauge svg .eye { fill: var(--gauge, var(--muted)); stroke: none; }
+.stress-gauge { left: auto; right: 14px; }
+@media (max-width: 480px) { .fuel-gauge { font-size: var(--fs-xs); gap: 4px; padding: 3px 8px 2px 6px; } .fuel-gauge svg { width: 18px; height: 18px; } }
+.fuel-gauge { border-color: var(--gauge, var(--line)); }
+/* digits take the gauge colour, nudged toward the ink so amber stays readable on either theme */
+.fuel-gauge b { color: color-mix(in srgb, var(--gauge, var(--ink)) 78%, var(--ink)); }
 .chip {
   display: inline-flex;
   align-items: center;
@@ -349,6 +373,7 @@ kbd {
   align-items: baseline;
   gap: 8px;
 }
+.proto { font-family: var(--mono); font-weight: 400; font-size: var(--fs-xs); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-left: 6px; }
 .group h3 small { font-family: var(--mono); font-weight: 400; font-size: var(--fs-xs); color: var(--muted); }
 .field { display: grid; gap: 4px; }
 .field-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: var(--fs-sm); }
@@ -531,10 +556,14 @@ footer a { color: inherit; }
         <div class="road" id="roadA">
           <canvas id="canvasA" aria-label="Road with your driver mix"></canvas>
           <div class="road-label" id="labelA"></div>
+          <div class="fuel-gauge stress-gauge" id="stressA" title="Distance driven, on average, between stressful moments: firm braking (over 0.2 g) or a close call (under 1.5 s to collision)."><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle class="eye" cx="8.8" cy="9.6" r="1.25"/><circle class="eye" cx="15.2" cy="9.6" r="1.25"/><path class="mouth" d="M7.8 15.6h8.4"/></svg><b>–</b></div>
+          <div class="fuel-gauge" id="fuelA" title="Fuel efficiency: steady-flow fuel at this load as a share of fuel burned"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="10" height="18" rx="1.5"/><rect class="win" x="6.5" y="5.75" width="5" height="4.5" rx="0.5"/><path d="M2 21h14M14 9h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/></svg><b>–</b></div>
         </div>
         <div class="road" id="roadB" hidden>
           <canvas id="canvasB" aria-label="Same road where everyone tailgates"></canvas>
           <div class="road-label" id="labelB"></div>
+          <div class="fuel-gauge stress-gauge" id="stressB" title="Distance driven, on average, between stressful moments: firm braking (over 0.2 g) or a close call (under 1.5 s to collision)."><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle class="eye" cx="8.8" cy="9.6" r="1.25"/><circle class="eye" cx="15.2" cy="9.6" r="1.25"/><path class="mouth" d="M7.8 15.6h8.4"/></svg><b>–</b></div>
+          <div class="fuel-gauge" id="fuelB" title="Fuel efficiency: steady-flow fuel at this load as a share of fuel burned"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="10" height="18" rx="1.5"/><rect class="win" x="6.5" y="5.75" width="5" height="4.5" rx="0.5"/><path d="M2 21h14M14 9h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/></svg><b>–</b></div>
         </div>
         <div class="car-card" id="carCard" hidden>
           <header><h3 id="ccTitle">Car 1</h3><button class="x" id="ccClose" aria-label="Close car details">×</button></header>
@@ -579,7 +608,7 @@ footer a { color: inherit; }
       </div>
       <div class="ts" id="ts">
         <div class="ts-item"><span class="t-label" id="tsLabelA">Your mix</span><canvas id="tsA"></canvas></div>
-        <div class="ts-item" id="tsItemB" hidden><span class="t-label">Everyone tailgates</span><canvas id="tsB"></canvas></div>
+        <div class="ts-item" id="tsItemB" hidden><span class="t-label" id="tsLabelB">Everyone tailgates</span><canvas id="tsB"></canvas></div>
       </div>
       <div class="legend">
         <span class="ramp"><span class="num">0</span><i></i><span class="num" id="rampMax">90 km/h</span></span>
@@ -591,7 +620,7 @@ footer a { color: inherit; }
     <div class="panel regime">
       <div class="panel-head">
         <h2>Regime map</h2>
-        <span class="sub">Two ratios decide whether a road of tailgaters flows or jams. Load Λ compares the cars on the road with how many fit at the speed limit and following time. Delay R is reaction time over following time. Click the map to move this road there.</span>
+        <span class="sub">Two ratios decide whether a road of tailgaters flows or jams. Load Λ compares the cars on the road with how many fit at the speed limit and following time. Delay R is reaction time over following time. Click the map to move this road there: the reaction time sets R and the number of cars sets Λ, on the same length of road.</span>
       </div>
       <div class="regime-body">
         <svg id="regimeSvg" viewBox="0 0 560 300" role="img" aria-label="Regime map of delay number R against load number Λ, with this road marked"></svg>
@@ -662,6 +691,14 @@ footer a { color: inherit; }
           <span class="help">Gap they aim for, in seconds of travel. They ride at the average speed of traffic ahead and let that gap shrink and grow instead of braking.</span>
         </div>
         <div class="field">
+          <div class="field-top"><label>How they drive</label></div>
+          <div class="seg text" id="modelSeg" role="group" aria-label="Driver model for drivers who leave room">
+            <button data-v="A">A · Classic</button>
+            <button data-v="B">B · Three-state</button>
+          </div>
+          <span class="help">A is the model behind the report and the regime map. In B, a driver closing in first coasts, foot off both pedals, and brakes only if coasting won't do, and the emergency brake fires at the same threshold as a tailgater's.</span>
+        </div>
+        <div class="field">
           <div class="field-top"><label for="tailT">Tailgater following time <i class="sym">T</i></label><output id="tailTOut" for="tailT"></output></div>
           <input type="range" id="tailT" class="red" min="0.6" max="1.8" step="0.05">
         </div>
@@ -696,6 +733,14 @@ footer a { color: inherit; }
           <input type="range" id="decel" min="0.5" max="5" step="0.1">
           <span class="help">How tailgaters pick up speed and slow down when nothing is wrong. Emergency limits stay fixed at 9 m/s² braking and 2.5 m/s² acceleration.</span>
         </div>
+        <div class="field">
+          <div class="field-top"><label>Fuel model</label></div>
+          <div class="seg text" id="vehicleSeg" role="group" aria-label="Vehicle for the fuel estimate">
+            <button data-v="suv">Midsize SUV</button>
+            <button data-v="compact">Compact car</button>
+          </div>
+          <span class="help">Fuel efficiency is the fuel the cars would need in steady flow at this load, as a share of what they burn. 100% is the best this road allows. Braking wastes the fuel spent getting up to speed.</span>
+        </div>
       </div>
 
       <div class="group">
@@ -713,7 +758,13 @@ footer a { color: inherit; }
 
       <div class="group">
         <h3>View</h3>
-        <label class="switch" for="compare"><span>Compare with everyone tailgating</span><input type="checkbox" id="compare"><span class="track"></span></label>
+        <label class="switch" for="compare"><span>Second road for comparison</span><input type="checkbox" id="compare"><span class="track"></span></label>
+        <div class="field" id="compareWithField">
+          <div class="seg text" id="compareWithSeg" role="group" aria-label="What the second road shows">
+            <button data-v="tailgaters">Everyone tailgates</button>
+            <button data-v="variant">Other driver model</button>
+          </div>
+        </div>
         <div class="field">
           <div class="field-top"><label>Road shape</label></div>
           <div class="seg text" id="viewSeg" role="group" aria-label="Road shape">
@@ -772,7 +823,7 @@ footer a { color: inherit; }
     tailT: 1.0, reaction: 1.0, distraction: 0,
     absorbT: 3.0, absorbWindow: 8,
     accel: 1.2, decel: 2.0, carLen: 4.5, jamGap: 2,
-    autoTaps: false, autoTapEvery: 20,
+    autoTaps: false, autoTapEvery: 20, vehicle: 'suv', driverModel: 'A',
   };
   const SCENARIOS = [
     {
@@ -818,6 +869,7 @@ footer a { color: inherit; }
     cfg: { ...BASE },
     scenario: 'one',
     compare: true,
+    compareWith: 'tailgaters',
     view: 'ring',
     playing: true,
     speed: 1,
@@ -960,6 +1012,8 @@ footer a { color: inherit; }
       const spacingPx = (sim.L / n) * g.pxm;
       const carLen = Math.max(3 * dpr, Math.min(26 * dpr, sim.carLen * g.pxm * 1.6, spacingPx * 0.7));
       const carWid = Math.min(g.roadW * 0.56, Math.max(2.5 * dpr, carLen * 0.48));
+      // zoomed-out cars are dots; on a crowded ring they shrink with the spacing so the gaps stay visible
+      const dotR = Math.max(0.7 * dpr, Math.min(2.2 * dpr, spacingPx * 0.3));
 
       // --- road surface
       if (g.kind === 'ring') {
@@ -1089,8 +1143,8 @@ footer a { color: inherit; }
         ctx.rotate(p.ang);
         if (carLen < 6 * dpr) {
           ctx.fillStyle = col;
-          ctx.beginPath(); ctx.arc(0, 0, Math.max(2.2 * dpr, carLen / 2), 0, Math.PI * 2); ctx.fill();
-          if (car.absorber) { ctx.strokeStyle = theme.absorb; ctx.lineWidth = 1.6 * dpr; ctx.stroke(); }
+          ctx.beginPath(); ctx.arc(0, 0, dotR, 0, Math.PI * 2); ctx.fill();
+          if (car.absorber) { ctx.strokeStyle = theme.absorb; ctx.lineWidth = Math.min(1.6 * dpr, dotR * 0.8); ctx.stroke(); }
           if (car.braking) { ctx.fillStyle = theme.brake; ctx.beginPath(); ctx.arc(-carLen / 2, 0, 1.4 * dpr, 0, Math.PI * 2); ctx.fill(); }
         } else {
           const L2 = carLen / 2, W2 = carWid / 2;
@@ -1312,7 +1366,13 @@ footer a { color: inherit; }
   readTheme();
 
   // ---------------------------------------------------------------- sims
-  function baselineCfg() { return { ...state.cfg, absorbers: 0, manual: null }; }
+  // The second road: everyone tailgating, or the same drivers under the other driver model.
+  const otherModel = (m) => (m === 'B' ? 'A' : 'B');
+  function baselineCfg() {
+    return state.compareWith === 'variant'
+      ? { ...state.cfg, driverModel: otherModel(state.cfg.driverModel) }
+      : { ...state.cfg, absorbers: 0, manual: null };
+  }
   function buildSims() {
     simA = new Sim(state.cfg);
     simB = state.compare ? new Sim(baselineCfg()) : null;
@@ -1326,13 +1386,14 @@ footer a { color: inherit; }
     for (const s of [simA, simB]) {
       if (!s) continue;
       const keep = { absorbers: s.cfg.absorbers, manual: s.cfg.manual };
-      s.cfg = { ...state.cfg, ...(s === simB ? { absorbers: 0, manual: null } : {}) };
-      if (s === simA && (keep.absorbers !== s.cfg.absorbers || keep.manual !== s.cfg.manual)) s.applyMix();
+      s.cfg = s === simB ? baselineCfg() : { ...state.cfg };
+      if (keep.absorbers !== s.cfg.absorbers || keep.manual !== s.cfg.manual) s.applyMix();
     }
     syncLabels();
   }
   function mixChanged() {
     if (simA) { simA.cfg = { ...state.cfg }; simA.applyMix(); }
+    if (simB && state.compareWith === 'variant') { simB.cfg = baselineCfg(); simB.applyMix(); }
     syncLabels();
   }
   let rebuildTimer = 0;
@@ -1387,6 +1448,7 @@ footer a { color: inherit; }
         state.selected = null;
         hideCard();
       }
+      if (key === 'length' || key === 'carLen' || key === 'jamGap') setCars(state.cfg.cars);
       markCustom();
       if (spec.rebuild) { syncLabels(); rebuildSoon(); } else liveUpdate();
     });
@@ -1428,6 +1490,18 @@ footer a { color: inherit; }
     });
   }
   bindSeg('#placementSeg', () => state.cfg.placement, (v) => { state.cfg.placement = v; state.cfg.manual = null; markCustom(); mixChanged(); });
+  bindSeg('#vehicleSeg', () => state.cfg.vehicle, (v) => {
+    state.cfg.vehicle = v;
+    for (const s of [simA, simB]) if (s) { s.cfg = { ...s.cfg, vehicle: v }; s.resetFuel(); }
+  });
+  bindSeg('#modelSeg', () => state.cfg.driverModel, (v) => {
+    state.cfg.driverModel = v;
+    liveUpdate();
+  });
+  bindSeg('#compareWithSeg', () => state.compareWith, (v) => {
+    state.compareWith = v;
+    if (state.compare) buildSims();  // restart both so they share a clock
+  });
   bindSeg('#viewSeg', () => state.view, (v) => { state.view = v; });
 
   const SPEEDS = [0.5, 1, 2, 4, 8];
@@ -1435,12 +1509,31 @@ footer a { color: inherit; }
   bindSeg('#speedSeg', () => state.speed, (v) => { state.speed = +v; });
 
   function syncSegs() {
-    for (const [id, val] of [['#placementSeg', state.cfg.placement], ['#viewSeg', state.view], ['#speedSeg', String(state.speed)]]) {
+    for (const [id, val] of [['#placementSeg', state.cfg.placement], ['#vehicleSeg', state.cfg.vehicle], ['#modelSeg', state.cfg.driverModel], ['#compareWithSeg', state.compareWith], ['#viewSeg', state.view], ['#speedSeg', String(state.speed)]]) {
       $(id).querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === String(val))));
     }
   }
 
+  // no more cars than fit bumper to bumper (car length plus stopped gap each), up to 300
+  function maxCars(c) { return Math.max(2, Math.min(300, Math.floor(c.length / (c.carLen + c.jamGap)))); }
+  function setCars(n) {
+    const c = state.cfg;
+    c.cars = Math.max(2, Math.min(maxCars(c), n));
+    c.absorbers = Math.min(c.absorbers, c.cars);
+    if (c.manual) {
+      // keep hand-picked drivers who are still on the road
+      const kept = Object.fromEntries(Object.entries(c.manual).filter(([id]) => +id < c.cars));
+      c.manual = Object.keys(kept).length ? kept : null;
+    }
+    $('#cars').max = maxCars(c);
+    $('#cars').value = c.cars;
+    $('#carsOut').textContent = String(c.cars);
+    $('#absorbers').max = c.cars;
+    $('#absorbers').value = c.absorbers;
+    if (state.selected != null && state.selected >= c.cars) { state.selected = null; hideCard(); }
+  }
   function syncOutputs() {
+    setCars(state.cfg.cars);
     for (const [key, spec] of Object.entries(SLIDERS)) {
       $('#' + key).value = state.cfg[key];
       $('#' + key + 'Out').textContent = spec.fmt(state.cfg[key]);
@@ -1469,12 +1562,18 @@ footer a { color: inherit; }
     $('#rampMax').textContent = `${state.cfg.speedLimit} km/h`;
     $('#autoEveryField').hidden = !state.cfg.autoTaps;
     const mixLabel = k === 0 ? 'Everyone tailgates' : k === n ? 'Everyone leaves room' : `${k} of ${n} leave room`;
-    $('#labelA').innerHTML = state.compare
-      ? `<span class="chip ${k ? 'blue' : 'red'}">${mixLabel}</span>`
-      : `<span class="chip ${k ? 'blue' : 'red'}">${mixLabel}</span>`;
-    $('#labelB').innerHTML = `<span class="chip red">Everyone tailgates</span>`;
-    $('#tsLabelA').textContent = state.compare ? `Your mix: ${mixLabel.toLowerCase()}` : mixLabel;
-    $('#colA').textContent = state.compare ? 'Your mix' : mixLabel;
+    // with anyone leaving room, name the driver model they follow
+    const model = state.cfg.driverModel, other = otherModel(model);
+    const tag = (m) => (k ? ` · model ${m}` : '');
+    const vsVariant = state.compareWith === 'variant';
+    $('#labelA').innerHTML = `<span class="chip ${k ? 'blue' : 'red'}">${mixLabel}${tag(model)}</span>`;
+    $('#labelB').innerHTML = vsVariant
+      ? `<span class="chip ${k ? 'blue' : 'red'}">${mixLabel}${tag(other)}</span>`
+      : `<span class="chip red">Everyone tailgates</span>`;
+    $('#tsLabelA').textContent = state.compare ? `Your mix: ${mixLabel.toLowerCase()}${tag(model)}` : `${mixLabel}${tag(model)}`;
+    $('#tsLabelB').textContent = vsVariant ? `Same drivers${tag(other)}` : 'Everyone tailgates';
+    $('#colA').textContent = vsVariant && state.compare ? `Model ${model}` : state.compare ? 'Your mix' : mixLabel;
+    $('#colB').textContent = vsVariant ? `Model ${other}` : 'Everyone tailgates';
     updateRegime();
   }
 
@@ -1613,7 +1712,8 @@ footer a { color: inherit; }
     if (lambda < LMIN || lambda > LMAX || R < 0 || R > RMAX) return;
     const c = state.cfg, v0 = c.speedLimit / 3.6;
     c.reaction = Math.max(0.3, Math.min(1.6, Math.round(R * c.tailT / 0.05) * 0.05));
-    c.length = Math.max(150, Math.min(6000, Math.round(c.cars * (c.carLen + c.jamGap + v0 * c.tailT) / lambda / 10) * 10));
+    // hold the lap length and set the load with the number of cars
+    setCars(Math.round(lambda * c.length / (c.carLen + c.jamGap + v0 * c.tailT)));
     markCustom();
     syncOutputs();
     buildSims();
@@ -1625,6 +1725,7 @@ footer a { color: inherit; }
     $('#tsItemB').hidden = !state.compare;
     $('#ts').classList.toggle('compare', state.compare);
     $('#colB').hidden = !state.compare;
+    $('#compareWithField').hidden = !state.compare;
     requestAnimationFrame(() => { tsA.resize(); tsB.resize(); });
   }
 
@@ -1646,8 +1747,9 @@ footer a { color: inherit; }
   function loadScenario(key) {
     const s = SCENARIOS.find((x) => x.key === key);
     state.scenario = key;
-    state.cfg = { ...BASE, ...s.cfg, manual: s.cfg.manual ? { ...s.cfg.manual } : null };
+    state.cfg = { ...BASE, ...s.cfg, manual: s.cfg.manual ? { ...s.cfg.manual } : null, vehicle: state.cfg?.vehicle ?? BASE.vehicle, driverModel: state.cfg?.driverModel ?? BASE.driverModel };
     state.compare = s.compare;
+    state.compareWith = 'tailgaters';  // the scenes' stories compare against tailgaters
     state.view = s.view;
     state.tapDepth = s.tapDepth;
     state.events = s.events.map((e) => ({ ...e }));
@@ -1747,25 +1849,55 @@ footer a { color: inherit; }
     { key: 'waves', label: 'Jams on the road', unit: '', dp: 0, higher: false },
     { key: 'brakesPerMin', label: 'Hard brakes per min', unit: '', dp: 0, higher: false },
     { key: 'sdKmh', label: 'Speed spread (±)', unit: 'km/h', dp: 1, higher: false },
+    { key: 'fuelEff', label: 'Fuel efficiency', unit: '%', dp: 0, higher: true },
+    { key: 'fuelL100', label: 'Fuel per 100 km', unit: 'L', dp: 1, higher: false },
+    { key: 'stressFreeKm', label: 'Km between stressful moments', unit: '', dp: 1, higher: true },
   ];
   const statsAcc = { A: null, B: null };
   function smoothStats(prev, cur) {
     if (!prev) return { ...cur };
     const o = {};
-    for (const k in cur) o[k] = k === 'brakesPerMin' || k === 'density' ? cur[k] : prev[k] + (cur[k] - prev[k]) * 0.35;
+    // fuel figures are already whole-run totals, so they are shown as they are
+    for (const k in cur) o[k] = k === 'brakesPerMin' || k === 'density' || k.startsWith('fuel') || k.startsWith('stress') || k === 'kmPerCar' ? cur[k] : prev[k] + (cur[k] - prev[k]) * 0.35;
     return o;
+  }
+  // km between stressful moments: metres under 1 km; with none yet, "> how far each car has gone"
+  function fmtStressFree(km, kmPerCar) {
+    const one = (d) => (d < 1 ? `${Math.max(10, Math.round(d * 100) * 10)} m` : `${d < 10 ? d.toFixed(1) : Math.round(d)} km`);
+    return km === Infinity ? `> ${one(kmPerCar)}` : one(km);
   }
   function renderStats() {
     if (!simA) return;
     statsAcc.A = smoothStats(statsAcc.A, simA.snapshot());
     statsAcc.B = simB ? smoothStats(statsAcc.B, simB.snapshot()) : null;
     const a = statsAcc.A, b = statsAcc.B;
+    // dashboard fuel lamp, coloured on the speed ramp: 0% red, 50% amber, 100% green
+    for (const [id, st] of [['#fuelA', a], ['#fuelB', b]]) {
+      const g = $(id), e = st ? st.fuelEff : null;
+      g.hidden = !st;
+      g.querySelector('b').textContent = e == null ? '–' : `${Math.round(e)}%`;
+      if (e == null) g.style.removeProperty('--gauge'); else g.style.setProperty('--gauge', speedColor(e / 100));
+    }
+    // stress face: km between stressful moments (firm brakes plus close calls), on a log scale
+    // against Stern et al.'s ring (about 5-8 km between brake events smooth, 0.6 km before
+    // waves, 0.1 km with waves)
+    const MOUTH = { happy: 'M7.6 14.4q4.4 4.2 8.8 0', neutral: 'M7.8 15.6h8.4', sad: 'M7.6 17.2q4.4-4.2 8.8 0' };
+    for (const [id, st] of [['#stressA', a], ['#stressB', b]]) {
+      const g = $(id), x = st ? st.stressPerKm : null;
+      g.hidden = !st;
+      g.querySelector('b').textContent = x == null ? '–' : fmtStressFree(st.stressFreeKm, st.kmPerCar);
+      if (x == null) { g.style.removeProperty('--gauge'); continue; }
+      g.style.setProperty('--gauge', speedColor(1 - Math.max(0, Math.min(1, Math.log10(Math.max(x, 0.1) / 0.1) / 2))));
+      // happy beyond 2 km between stressful moments, frowning under 0.5 km
+      g.querySelector('.mouth').setAttribute('d', MOUTH[x < 0.5 ? 'happy' : x < 2 ? 'neutral' : 'sad']);
+    }
     $('#statBody').innerHTML = ROWS.map((r) => {
       const va = a[r.key], vb = b ? b[r.key] : null;
+      if (va == null) return '';
       let cls = '';
-      if (b && Math.abs(va - vb) > Math.max(0.5, Math.abs(vb) * 0.05)) cls = (va > vb) === r.higher ? 'better' : 'worse';
-      const f = (v) => (r.key === 'flow' ? Math.round(v).toLocaleString() : v.toFixed(r.dp));
-      return `<tr><td>${r.label}</td><td class="v ${cls}">${f(va)}<span class="u">${r.unit}</span></td>${b ? `<td class="v">${f(vb)}<span class="u">${r.unit}</span></td>` : ''}</tr>`;
+      if (b && vb != null && (va === Infinity || vb === Infinity ? va !== vb : Math.abs(va - vb) > Math.max(0.5, Math.abs(vb) * 0.05))) cls = (va > vb) === r.higher ? 'better' : 'worse';
+      const f = (v, st) => (r.key === 'flow' ? Math.round(v).toLocaleString() : r.key === 'stressFreeKm' ? fmtStressFree(v, st.kmPerCar) : v.toFixed(r.dp));
+      return `<tr><td>${r.label}</td><td class="v ${cls}">${f(va, a)}<span class="u">${r.unit}</span></td>${b ? `<td class="v">${vb == null ? '–' : f(vb, b)}<span class="u">${r.unit}</span></td>` : ''}</tr>`;
     }).join('');
     // verdict
     const v = $('#verdict');
