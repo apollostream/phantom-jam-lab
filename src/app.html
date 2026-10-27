@@ -556,13 +556,13 @@ footer a { color: inherit; }
         <div class="road" id="roadA">
           <canvas id="canvasA" aria-label="Road with your driver mix"></canvas>
           <div class="road-label" id="labelA"></div>
-          <div class="fuel-gauge stress-gauge" id="stressA" title="Stressful moments per km of driving: firm braking (over 0.2 g) and close calls (under 1.5 s to collision). Prototype."><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle class="eye" cx="8.8" cy="9.6" r="1.25"/><circle class="eye" cx="15.2" cy="9.6" r="1.25"/><path class="mouth" d="M7.8 15.6h8.4"/></svg><b>–</b></div>
+          <div class="fuel-gauge stress-gauge" id="stressA" title="Distance driven, on average, between stressful moments: firm braking (over 0.2 g) or a close call (under 1.5 s to collision). Prototype."><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle class="eye" cx="8.8" cy="9.6" r="1.25"/><circle class="eye" cx="15.2" cy="9.6" r="1.25"/><path class="mouth" d="M7.8 15.6h8.4"/></svg><b>–</b></div>
           <div class="fuel-gauge" id="fuelA" title="Fuel efficiency: steady-flow fuel at this load as a share of fuel burned (prototype)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="10" height="18" rx="1.5"/><rect class="win" x="6.5" y="5.75" width="5" height="4.5" rx="0.5"/><path d="M2 21h14M14 9h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/></svg><b>–</b></div>
         </div>
         <div class="road" id="roadB" hidden>
           <canvas id="canvasB" aria-label="Same road where everyone tailgates"></canvas>
           <div class="road-label" id="labelB"></div>
-          <div class="fuel-gauge stress-gauge" id="stressB" title="Stressful moments per km of driving: firm braking (over 0.2 g) and close calls (under 1.5 s to collision). Prototype."><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle class="eye" cx="8.8" cy="9.6" r="1.25"/><circle class="eye" cx="15.2" cy="9.6" r="1.25"/><path class="mouth" d="M7.8 15.6h8.4"/></svg><b>–</b></div>
+          <div class="fuel-gauge stress-gauge" id="stressB" title="Distance driven, on average, between stressful moments: firm braking (over 0.2 g) or a close call (under 1.5 s to collision). Prototype."><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle class="eye" cx="8.8" cy="9.6" r="1.25"/><circle class="eye" cx="15.2" cy="9.6" r="1.25"/><path class="mouth" d="M7.8 15.6h8.4"/></svg><b>–</b></div>
           <div class="fuel-gauge" id="fuelB" title="Fuel efficiency: steady-flow fuel at this load as a share of fuel burned (prototype)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="10" height="18" rx="1.5"/><rect class="win" x="6.5" y="5.75" width="5" height="4.5" rx="0.5"/><path d="M2 21h14M14 9h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/></svg><b>–</b></div>
         </div>
         <div class="car-card" id="carCard" hidden>
@@ -1813,15 +1813,20 @@ footer a { color: inherit; }
     { key: 'sdKmh', label: 'Speed spread (±)', unit: 'km/h', dp: 1, higher: false },
     { key: 'fuelEff', label: 'Fuel efficiency', unit: '%', dp: 0, higher: true },
     { key: 'fuelL100', label: 'Fuel per 100 km', unit: 'L', dp: 1, higher: false },
-    { key: 'stressPerKm', label: 'Stressful moments per km', unit: '', dp: 1, higher: false },
+    { key: 'stressFreeKm', label: 'Km between stressful moments', unit: '', dp: 1, higher: true },
   ];
   const statsAcc = { A: null, B: null };
   function smoothStats(prev, cur) {
     if (!prev) return { ...cur };
     const o = {};
     // fuel figures are already whole-run totals, so they are shown as they are
-    for (const k in cur) o[k] = k === 'brakesPerMin' || k === 'density' || k.startsWith('fuel') || k === 'stressPerKm' ? cur[k] : prev[k] + (cur[k] - prev[k]) * 0.35;
+    for (const k in cur) o[k] = k === 'brakesPerMin' || k === 'density' || k.startsWith('fuel') || k.startsWith('stress') || k === 'kmPerCar' ? cur[k] : prev[k] + (cur[k] - prev[k]) * 0.35;
     return o;
+  }
+  // km between stressful moments: metres under 1 km; with none yet, "> how far each car has gone"
+  function fmtStressFree(km, kmPerCar) {
+    const one = (d) => (d < 1 ? `${Math.max(10, Math.round(d * 100) * 10)} m` : `${d < 10 ? d.toFixed(1) : Math.round(d)} km`);
+    return km === Infinity ? `> ${one(kmPerCar)}` : one(km);
   }
   function renderStats() {
     if (!simA) return;
@@ -1835,24 +1840,26 @@ footer a { color: inherit; }
       g.querySelector('b').textContent = e == null ? '–' : `${Math.round(e)}%`;
       if (e == null) g.style.removeProperty('--gauge'); else g.style.setProperty('--gauge', speedColor(e / 100));
     }
-    // stress face: firm brakes plus close calls per km, on a log scale against Stern et al.'s
-    // ring (about 0.1-0.2 per km smooth, 1.7 before waves, 9 with waves)
+    // stress face: km between stressful moments (firm brakes plus close calls), on a log scale
+    // against Stern et al.'s ring (about 5-8 km between brake events smooth, 0.6 km before
+    // waves, 0.1 km with waves)
     const MOUTH = { happy: 'M7.6 14.4q4.4 4.2 8.8 0', neutral: 'M7.8 15.6h8.4', sad: 'M7.6 17.2q4.4-4.2 8.8 0' };
     for (const [id, st] of [['#stressA', a], ['#stressB', b]]) {
       const g = $(id), x = st ? st.stressPerKm : null;
       g.hidden = !st;
-      g.querySelector('b').textContent = x == null ? '–' : `${x < 10 ? x.toFixed(1) : Math.round(x)}/km`;
+      g.querySelector('b').textContent = x == null ? '–' : fmtStressFree(st.stressFreeKm, st.kmPerCar);
       if (x == null) { g.style.removeProperty('--gauge'); continue; }
       g.style.setProperty('--gauge', speedColor(1 - Math.max(0, Math.min(1, Math.log10(Math.max(x, 0.1) / 0.1) / 2))));
+      // happy beyond 2 km between stressful moments, frowning under 0.5 km
       g.querySelector('.mouth').setAttribute('d', MOUTH[x < 0.5 ? 'happy' : x < 2 ? 'neutral' : 'sad']);
     }
     $('#statBody').innerHTML = ROWS.map((r) => {
       const va = a[r.key], vb = b ? b[r.key] : null;
       if (va == null) return '';
       let cls = '';
-      if (b && vb != null && Math.abs(va - vb) > Math.max(0.5, Math.abs(vb) * 0.05)) cls = (va > vb) === r.higher ? 'better' : 'worse';
-      const f = (v) => (r.key === 'flow' ? Math.round(v).toLocaleString() : v.toFixed(r.dp));
-      return `<tr><td>${r.label}</td><td class="v ${cls}">${f(va)}<span class="u">${r.unit}</span></td>${b ? `<td class="v">${vb == null ? '–' : f(vb)}<span class="u">${r.unit}</span></td>` : ''}</tr>`;
+      if (b && vb != null && (va === Infinity || vb === Infinity ? va !== vb : Math.abs(va - vb) > Math.max(0.5, Math.abs(vb) * 0.05))) cls = (va > vb) === r.higher ? 'better' : 'worse';
+      const f = (v, st) => (r.key === 'flow' ? Math.round(v).toLocaleString() : r.key === 'stressFreeKm' ? fmtStressFree(v, st.kmPerCar) : v.toFixed(r.dp));
+      return `<tr><td>${r.label}</td><td class="v ${cls}">${f(va, a)}<span class="u">${r.unit}</span></td>${b ? `<td class="v">${vb == null ? '–' : f(vb, b)}<span class="u">${r.unit}</span></td>` : ''}</tr>`;
     }).join('');
     // verdict
     const v = $('#verdict');

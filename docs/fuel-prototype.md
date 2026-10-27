@@ -387,7 +387,8 @@ The test was already fragile, passing on one seed. It is left failing on this br
 
 ## 11. Stress per km
 
-Each road gets a face in its lower-right corner, coloured by how stressful a kilometre of driving was.
+Each road gets a face in its lower-right corner, coloured by how stressful the driving was, with the
+average distance between stressful moments beside it.
 The fuel pump moved to the lower-left corner.
 
 **The measure:** stressful moments per vehicle-km, the sum of:
@@ -420,18 +421,33 @@ Hence:
 The colour runs continuously on the speed ramp, on a log scale: green at 0.1 per km, amber near 1, red at
 10 and above.
 
-**Results** (SUV; `npm run analysis:fuel`):
+**The readout shows the reciprocal,** at the owner's request, so that more is better, as with fuel: the
+average distance driven between stressful moments. In those terms the face is:
+- **happy** beyond 2 km;
+- **neutral** from 0.5 to 2 km;
+- **frowning** under 0.5 km.
+
+Details of the display:
+- **Units:** distances under 1 km show in metres.
+- **No stressful moment yet:** the readout shows "> *d*", where *d* is how far the average car has
+  driven. It is a lower bound that grows as the run goes on.
+- **The results table** shows the same figure as "Km between stressful moments".
+- **Analysis:** `snapshot()` reports both `stressPerKm` and `stressFreeKm`, and the analysis keeps the
+  rate.
+
+**Results** (SUV; `npm run analysis:fuel`), stressful moments per km, with the distance between them in
+brackets:
 
 | Scene | Your mix | Everyone tailgates |
 | --- | --- | --- |
-| 1. One tap of the brakes | 3.5 | 3.5 |
-| 2. One driver leaves room | 0.06 | 2.0 |
-| 3. Everyone leaves room | 0.04 | 3.5 |
-| 4. The ring-road experiment | 83 | 83 |
-| 5. Rush hour | 6.8 | 7.6 |
-| 6. Half and half | 1.0 | 7.5 |
+| 1. One tap of the brakes | 3.5 (280 m) | 3.5 (280 m) |
+| 2. One driver leaves room | 0.06 (17 km) | 2.0 (500 m) |
+| 3. Everyone leaves room | 0.04 (25 km) | 3.5 (280 m) |
+| 4. The ring-road experiment | 83 (10 m) | 83 (10 m) |
+| 5. Rush hour | 6.8 (150 m) | 7.6 (130 m) |
+| 6. Half and half | 1.0 (1.0 km) | 7.5 (130 m) |
 
-The ring-road figure is large because its cars average 8 km/h: every stop-and-go cycle is spread over
+The ring-road figure is extreme because its cars average 8 km/h: every stop-and-go cycle is spread over
 very little distance.
 
 **Tests:**

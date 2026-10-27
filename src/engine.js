@@ -395,6 +395,10 @@ class Sim {
       fuelEff: fuelOn ? (st.fuelIdeal / st.fuel) * 100 : null,
       // stressful moments (firm brake events plus close calls) per vehicle-km
       stressPerKm: st.distance > 0 ? (st.brakeEvents + st.closeCalls) / (st.distance / (1000 * c0.unitL)) : null,
+      // its reciprocal, km driven between stressful moments; with none yet, Infinity, and
+      // kmPerCar (how far the average car has gone) is the lower bound to show instead
+      stressFreeKm: st.distance > 0 ? st.distance / (1000 * c0.unitL) / (st.brakeEvents + st.closeCalls) : null,
+      kmPerCar: st.distance / (1000 * c0.unitL) / n,
       // litres per 100 km, all cars together
       fuelL100: fuelOn ? (st.fuel / st.fuelDist) * 100 : null,
       meanKmh: mean * 3.6,
