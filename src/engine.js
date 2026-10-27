@@ -274,7 +274,9 @@ class Sim {
       if (n > 1) {
         const room = gapNow - 1 * uL + (ld.v * ld.v) / (2 * 8 * uA);
         const bReq = room > 0.05 * uL ? (car.v * car.v) / (2 * room) : 9 * uA;
-        if (bReq > (car.absorber ? 3.5 : 5) * uA) a = Math.min(a, -Math.min(9 * uA, bReq * 1.1));
+        // one threshold for every driver: at 3.5 m/s^2 the check fired at equal speeds in steady
+        // flow when ample-distance drivers shared tailgater-length gaps, jolting them every few seconds
+        if (bReq > 5 * uA) a = Math.min(a, -Math.min(9 * uA, bReq * 1.1));
       }
 
       if (car.tap) {
