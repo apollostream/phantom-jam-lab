@@ -26,9 +26,6 @@ Its source text, figures and build scripts are in [`report/`](report/).
   with every matrix and table, in the notation of Thomas Szirtes' *Applied Dimensional Analysis and
   Modeling*.
 
-These pages are hosted on claude.ai. If a link asks you to sign in or request access, ask the owner
-to share it.
-
 ## What is here
 
 | Folder | Contents |
