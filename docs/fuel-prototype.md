@@ -1,19 +1,22 @@
-# Fuel efficiency: research and analysis behind the prototype
+# The prototype branch: fuel, stress and driver changes
 
-**Status:** a prototype on the `prototype/fuel` branch, previewed at https://claude.ai/artifact/3qFrceiTDLRSq6mjoLUccF. It may be kept or dropped. GitHub Pages and the
-claude.ai pages still show the simulator without it.
+**Status:** a prototype on the `prototype/fuel` branch, previewed at
+<https://claude.ai/artifact/3qFrceiTDLRSq6mjoLUccF>. It may be kept, changed or dropped. The `main`
+branch, GitHub Pages, the claude.ai simulator and both reports do not include any of it.
 
-The prototype adds two readouts to every scene, for each road:
+**What the branch adds:**
 
-- **Fuel efficiency:** the fuel the cars would need to cover the same distance in steady flow at the
-  road's load, as a share of the fuel they actually burned. 100% is the best that road allows.
-- **Fuel per 100 km:** litres per 100 km, all cars together.
+| Area | Change | Section |
+| --- | --- | --- |
+| Fuel | fuel efficiency (100% = steady flow at the road's load) and litres per 100 km for each road; a vehicle switch (midsize SUV or compact car) | 1–5 |
+| Stress | the average distance driven between stressful moments (firm braking or a close call), with a face | 6 |
+| Engine | one emergency-reflex threshold for every driver, fixing a bug that jolted drivers who leave room | 7 |
+| Engine | three pedal states (gas, lift off, brake) for drivers who leave room | 8 |
+| Display and controls | the fuel and stress gauges; regime-map clicks that vary the number of cars; a cars slider capped at what fits; crowded rings drawn closer to scale | 9 |
 
-The branch has since gained a stress score per road (section 11), a fix to the emergency reflex
-(section 9) and three pedal states for drivers who leave room (section 10).
+The decisions still open are listed in section 11.
 
-A switch under Vehicles chooses the car the fuel model describes: a **midsize SUV** (the default) or a
-**compact car**.
+# Part I. Fuel efficiency
 
 ## 1. The question
 
@@ -187,7 +190,7 @@ All of it lives in `src/engine.js`:
 `node analysis/fuel.mjs` plays each scene as the app does for 300 simulated seconds, with the scene's
 mix and with everyone tailgating, and writes `analysis/results/fuel.json`. Each road is scored against
 its own steady flow. **Saving** is the drop in litres per 100 km from everyone tailgating to the scene's
-mix. The figures below are from the engine with the three-pedal driver (section 10). Where that changed a
+mix. The figures below are from the engine with the three-pedal driver (section 8). Where that changed a
 figure, the earlier value is in brackets.
 
 **Midsize SUV:**
@@ -226,170 +229,13 @@ figure, the earlier value is in brackets.
   lifts the jammed roads by about 5 points (47% to 52% on the tapped road). Most of the waste is the
   plain cost of buying back kinetic energy.
 
-## 6. Limits and open questions
+# Part II. Stress
 
-- **Not modelled:**
-  - slipstreaming (drafting) behind the car ahead;
-  - road gradient;
-  - cold starts;
-  - engines that switch off when stopped (start-stop), which would cut the idle cost of a jam;
-  - hybrid regenerative braking, which would recover part of the braking loss.
-- **The SUV is an estimate,** scaled from a measured compact car. A direct calibration would need an
-  SUV's laboratory data, or VT-CPFM's method of fitting to a vehicle's city and highway ratings.
-- **The 2024 fleet figures are second-hand:** the average vehicle mass and horsepower come from a
-  secondary report of the EPA's figures, not yet checked in the EPA report itself.
-- **Every car is the same vehicle.** A mixed fleet would need per-car vehicle types.
-- **The score counts the whole run.** A rolling window, such as the last minute, would respond faster
-  when settings change mid-run.
-
-## 7. If the prototype is kept
-
-- **Analysis:** add `analysis/fuel.mjs` to `npm run analysis`, and fuel efficiency to the regime sweep,
-  so the regime map can show fuel cost across load and reaction ratio.
-- **Report:** add a section to *The Jam Nobody Started*, with each number registered in
-  `report/facts.mjs` and each source in `report/sources.json`.
-- **Publishing:** republish the claude.ai simulator. GitHub Pages updates when the branch is merged into
-  `main`.
-
-## 8. Sources
-
-- Akçelik, R., Smit, R., & Besley, M. (2012). *Calibrating fuel consumption and emission models for
-  modern vehicles.* IPENZ Transportation Group Conference, Rotorua.
-  <https://www.transportationgroup.nz/papers/2012/Wednesday/0930%20Akcelik,%20Rahmi.pdf>
-  The model's equations, the Corolla calibration and the default car's parameters.
-- Akçelik, R. (1989). Efficiency and drag in the power-based model of fuel consumption. *Transportation
-  Research Part B: Methodological, 23*(5), 376–385. <https://doi.org/10.1016/0191-2615(89)90014-3>
-  (checked against Crossref).
-- Akçelik, R., Bayley, C., Bowyer, D. P., & Biggs, D. C. (1983). A hierarchy of vehicle fuel
-  consumption models. *Traffic Engineering and Control, 24*(10), 491–495.
-  <https://www.sidrasolutions.com/learn/publications/hierarchy-vehicle-fuel-consumption-models>
-- Stern, R. E., Cui, S., Delle Monache, M. L., et al. (2018). Dissipation of stop-and-go waves via
-  control of autonomous vehicles: Field experiments. *Transportation Research Part C: Emerging
-  Technologies, 89*, 205–221. <https://doi.org/10.1016/j.trc.2018.02.005> (checked against Crossref;
-  full text at <https://arxiv.org/abs/1705.01693>).
-- US Environmental Protection Agency. *The 2024 EPA Automotive Trends Report.*
-  <https://www.epa.gov/automotive-trends/highlights-automotive-trends-report> (truck SUV fuel economy,
-  25.7 mpg for model year 2024).
-- Wolf Street (2024, November 25). *Americans buy ever bigger, more powerful, more fuel-efficient
-  trucks, SUVs and cars.* <https://wolfstreet.com/2024/11/25/americans-buy-ever-bigger-more-powerful-but-more-fuel-efficient-trucks-suvs-and-cars-evs-escalate-the-horsepower-war/>
-  (average mass and power, citing the EPA report; to be confirmed).
-- Rakha, H. A., et al. Virginia Tech Comprehensive Power-Based Fuel Consumption Model (VT-CPFM).
-  <https://www.academia.edu/85794601/Virginia_Tech_Comprehensive_Power_Based_Fuel_Consumption_Model_Model_development_and_testing>
-  (considered, not used).
-
-## 9. Reproduce
-
-```sh
-git switch prototype/fuel
-npm test                      # includes the five fuel tests
-npm run analysis:fuel         # the results above, into analysis/results/fuel.json
-npm run build                 # the simulator with the fuel readouts, in dist/
-```
-
-## Other changes on this branch
-
-**Regime map clicks hold the road length.** On `main`, clicking the regime map sets the delay R through
-the reaction time and the load Λ through the lap length. On this branch the lap length stays fixed, and
-the load is set by the number of cars instead: N = Λ × L ÷ (ℓ + s₀ + v₀T), rounded, between 2 and 300.
-
-- **Drivers who leave room:** their count is capped at the new N. Hand-picked drivers, such as scene 2's
-  car 30, are kept only while their car is still on the road.
-- **Everything else is held:** speed limit, following times, vehicle settings, distraction and taps.
-- **Resolution:** Λ moves in steps of one car, (ℓ + s₀ + v₀T) ÷ L. On scene 2's 860 m ring that is about 0.04.
-
-**The cars slider stops at what fits.** Its maximum is the road length divided by the room a stopped car
-needs (car length plus stopped gap), up to the slider's 300. On the shortest road, 150 m with default cars,
-that is 23. Shortening the road, or lengthening the cars or their stopped gap, removes cars that no longer
-fit, by the same rules as a regime-map click.
-
-**Crowded rings are drawn closer to scale.** Zoomed out, each car is a dot. The dots now shrink with the
-average spacing between cars, down to a small minimum, so the gaps between cars stay visible. Before, a
-fixed minimum dot size made 300 cars on a 6 km ring look bumper to bumper, though they had 15.5 m gaps.
-
-
-## 9. The emergency reflex (bug fix)
-
-**What was wrong.** Every car carries an emergency reflex. Each step it asks whether the car could stop
-in time if the car ahead braked at 8 m/s², and brakes hard if stopping would take more than a set rate.
-That rate was 3.5 m/s² for drivers who leave room and 5 m/s² for tailgaters. When many drivers leave
-room, they share the road's space and end up with gaps close to the tailgaters'. At 67 km/h with a 25 m
-gap, the 3.5 m/s² check fired with both cars at the same speed. The car braked at about 4.2 m/s² for a
-moment, its normal control sped it up again, and the reflex fired again: 85 times in five minutes per car.
-
-**Measured, hard decelerations (over 3 m/s²) per driver per km, before the fix:**
-
-| Road | Drivers who leave room | Tailgaters |
-| --- | --- | --- |
-| Everyone leaves room, no tap | 6.9 | none on the road |
-| Everyone leaves room, with tap | 16.9 | none on the road |
-| Half and half | 11.2 | 0.4 |
-| Rush hour | 24.1 | 4.8 |
-
-**The fix.** One threshold, 5 m/s², for every driver. On a quiet road where everyone leaves room, hard
-decelerations fell from 6.9 to 0 per km. Scene 2 did not change.
-
-**An attempt that failed.** Firing the reflex only when the time to collision is under 3 s made things
-worse. The reflex's early braking turned out to be part of how drivers who leave room absorbed a wave:
-scene 2 lost its rescue, and two tests failed.
-
-## 10. The three-pedal driver who leaves room
-
-The owner pointed out that a driver has three states: on the gas, on neither pedal, or on the brake. With
-the foot off both, the car slows by itself. Tailgaters keep the Intelligent Driver Model, whose one
-continuous acceleration can be read the same way. Drivers who leave room now use the three states
-explicitly.
-
-**Why it was needed.** Even with the reflex fixed, drivers who leave room braked hard after a wave
-arrived. Their rule holds the average speed of the traffic ahead and corrects only when the gap leaves a
-band, whose floor is 0.8 s of travel. Car 21 of the "everyone leaves room" scene, for example, was still
-on the gas while closing at 7 km/h on an 18 m gap, until the reflex fired. Bursts followed every 0.3 s.
-
-**The rule now:**
-1. **Gas:** with more than 1.5 s of gap, or the gap opening, hold the average speed as before and let the
-   gap absorb a dip.
-2. **Lift off:** closing in with under 1.5 s of gap, ease off the gas, slowing at the lift-off rate
-   (`liftDecel`, 0.6 m/s²).
-3. **Brake:** only if lifting off would not match the speed of the car ahead before the gap reaches the
-   band's floor. The braking is as gentle as that allows, at most 3 m/s². The emergency reflex stays as
-   a last resort.
-
-**The lift-off rate.** About 0.6 m/s², an estimate. Rolling resistance and air drag give about 0.36 m/s²
-for the midsize SUV at 90 km/h (section 3), and engine braking in gear adds roughly 0.3–0.7 m/s². The
-engine-braking range is general knowledge, not yet checked against a source.
-
-**Two designs that failed.** Both made drivers who leave room *pass on* dips instead of absorbing them:
-- **Slowing whenever closing in,** just enough to match the car ahead before a 1 s gap. Each driver
-  reacted to every small dip as if it would last.
-- **The same rule, but waiting until it needed nearly a lift-off.** On scene 2's second lap of the wave,
-  the driver matched the car ahead's lowest speed, 42 km/h, where the original rule rode it out at
-  55 km/h.
-
-**Before and after** (300 s per scene; the slowest car is counted after the first minute):
-
-| Road | Average speed | Slowest car | Fuel efficiency | Hard decelerations per km |
-| --- | --- | --- | --- | --- |
-| 2. One driver leaves room | 65 → 65 km/h | 55 → 55 km/h | 96% → 96% | 0.04 → 0.04 |
-| 3. Everyone leaves room | 40 → 55 km/h | 29 → 55 km/h | 92% → 101% | 15.2 → 0.01 |
-| 5. Rush hour, with its drivers who leave room | 38 → 37 km/h | 0 → 0 | 39% → 39% | 5.9 → 4.4 |
-| 6. Half and half | 34 → 29 km/h | 0 → 0 | 85% → 80% | 2.3 → 0.4 |
-
-The "before" column already includes the reflex fix of section 9. Roads where everyone tailgates do not
-change.
-
-**What it costs.** Under heavy random wobble, the three-pedal drivers are slightly less effective. The
-test "absorbers in the mix lower speed variation under noise" (4 drivers who leave room among 40, with
-distraction 0.6) now fails, because speed variation falls to 0.79 of the all-tailgater level against
-its limit of 0.75. Across five random seeds, the average ratio was:
-- **before:** 0.89, from 0.72 to 1.16 depending on the seed;
-- **after:** 0.93, from 0.79 to 1.08.
-
-The test was already fragile, passing on one seed. It is left failing on this branch, pending a decision.
-
-## 11. Stress per km
+## 6. Stress: distance between stressful moments
 
 Each road gets a face in its lower-right corner, coloured by how stressful the driving was, with the
-average distance between stressful moments beside it.
-The fuel pump moved to the lower-left corner.
+average distance between stressful moments beside it. The fuel pump moved to the lower-left corner to
+make room.
 
 **The measure:** stressful moments per vehicle-km, the sum of:
 - **Firm brake events.** Braking harder than 2 m/s², about 0.2 g. One event lasts until the driver is
@@ -455,7 +301,208 @@ very little distance.
 - a tapped knife-edge road scores above 1 per km, and below 0.5 with one driver who leaves room;
 - drivers sharing a crowded road ease off instead of braking hard after a tap.
 
-**Sources:**
+# Part III. Changes to the drivers
+
+## 7. The emergency reflex (bug fix)
+
+**What was wrong.** Every car carries an emergency reflex. Each step it asks whether the car could stop
+in time if the car ahead braked at 8 m/s², and brakes hard if stopping would take more than a set rate.
+That rate was 3.5 m/s² for drivers who leave room and 5 m/s² for tailgaters. When many drivers leave
+room, they share the road's space and end up with gaps close to the tailgaters'. At 67 km/h with a 25 m
+gap, the 3.5 m/s² check fired with both cars at the same speed. The car braked at about 4.2 m/s² for a
+moment, its normal control sped it up again, and the reflex fired again: 85 times in five minutes per car.
+
+**Measured, hard decelerations (over 3 m/s²) per driver per km, before the fix:**
+
+| Road | Drivers who leave room | Tailgaters |
+| --- | --- | --- |
+| Everyone leaves room, no tap | 6.9 | none on the road |
+| Everyone leaves room, with tap | 16.9 | none on the road |
+| Half and half | 11.2 | 0.4 |
+| Rush hour | 24.1 | 4.8 |
+
+**The fix.** One threshold, 5 m/s², for every driver. On a quiet road where everyone leaves room, hard
+decelerations fell from 6.9 to 0 per km. Scene 2 did not change.
+
+**An attempt that failed.** Firing the reflex only when the time to collision is under 3 s made things
+worse. The reflex's early braking turned out to be part of how drivers who leave room absorbed a wave:
+scene 2 lost its rescue, and two tests failed.
+
+## 8. The three-pedal driver who leaves room
+
+The owner pointed out that a driver has three states: on the gas, on neither pedal, or on the brake. With
+the foot off both, the car slows by itself. Tailgaters keep the Intelligent Driver Model, whose one
+continuous acceleration can be read the same way. Drivers who leave room now use the three states
+explicitly.
+
+**Why it was needed.** Even with the reflex fixed, drivers who leave room braked hard after a wave
+arrived. Their rule holds the average speed of the traffic ahead and corrects only when the gap leaves a
+band, whose floor is 0.8 s of travel. Car 21 of the "everyone leaves room" scene, for example, was still
+on the gas while closing at 7 km/h on an 18 m gap, until the reflex fired. Bursts followed every 0.3 s.
+
+**The rule now:**
+1. **Gas:** with more than 1.5 s of gap, or the gap opening, hold the average speed as before and let the
+   gap absorb a dip.
+2. **Lift off:** closing in with under 1.5 s of gap, ease off the gas, slowing at the lift-off rate
+   (`liftDecel`, 0.6 m/s²).
+3. **Brake:** only if lifting off would not match the speed of the car ahead before the gap reaches the
+   band's floor. The braking is as gentle as that allows, at most 3 m/s². The emergency reflex stays as
+   a last resort.
+
+**The lift-off rate.** About 0.6 m/s², an estimate. Rolling resistance and air drag give about 0.36 m/s²
+for the midsize SUV at 90 km/h (section 3), and engine braking in gear adds roughly 0.3–0.7 m/s². The
+engine-braking range is general knowledge, not yet checked against a source.
+
+**Two designs that failed.** Both made drivers who leave room *pass on* dips instead of absorbing them:
+- **Slowing whenever closing in,** just enough to match the car ahead before a 1 s gap. Each driver
+  reacted to every small dip as if it would last.
+- **The same rule, but waiting until it needed nearly a lift-off.** On scene 2's second lap of the wave,
+  the driver matched the car ahead's lowest speed, 42 km/h, where the original rule rode it out at
+  55 km/h.
+
+**Before and after** (300 s per scene; the slowest car is counted after the first minute):
+
+| Road | Average speed | Slowest car | Fuel efficiency | Hard decelerations per km |
+| --- | --- | --- | --- | --- |
+| 2. One driver leaves room | 65 → 65 km/h | 55 → 55 km/h | 96% → 96% | 0.04 → 0.04 |
+| 3. Everyone leaves room | 40 → 55 km/h | 29 → 55 km/h | 92% → 101% | 15.2 → 0.01 |
+| 5. Rush hour, with its drivers who leave room | 38 → 37 km/h | 0 → 0 | 39% → 39% | 5.9 → 4.4 |
+| 6. Half and half | 34 → 29 km/h | 0 → 0 | 85% → 80% | 2.3 → 0.4 |
+
+The "before" column already includes the reflex fix of section 7. Roads where everyone tailgates do not
+change.
+
+**What it costs.** Under heavy random wobble, the three-pedal drivers are slightly less effective. The
+test "absorbers in the mix lower speed variation under noise" (4 drivers who leave room among 40, with
+distraction 0.6) now fails, because speed variation falls to 0.79 of the all-tailgater level against
+its limit of 0.75. Across five random seeds, the average ratio was:
+- **before:** 0.89, from 0.72 to 1.16 depending on the seed;
+- **after:** 0.93, from 0.79 to 1.08.
+
+The test was already fragile, passing on one seed. It is left failing on this branch, pending a decision.
+
+# Part IV. Display and controls
+
+## 9. Display and controls
+
+**The gauges.** Each road shows two pills along its bottom edge. They update with the results table,
+every 0.3 s.
+- **Lower left, a fuel pump** (the symbol of a dashboard's low-fuel light) with the fuel efficiency.
+  - The icon, its outline and the digits are coloured on the speed ramp: red at 0%, amber at 50%, green
+    at 100%.
+  - The digits mix in a little of the text colour, so amber stays readable on either theme.
+- **Lower right, a face** with the distance between stressful moments (section 6).
+  - The mouth smiles beyond 2 km, is level from 0.5 to 2 km, and frowns under 0.5 km.
+  - The colour follows the same ramp on a log scale.
+- **Narrow screens:** both pills shrink below 480 px.
+
+The results table gains three rows: fuel efficiency, fuel per 100 km, and km between stressful
+moments. The vehicle switch sits under Vehicles, marked "prototype".
+
+**Regime-map clicks hold the road length.** On `main`, clicking the regime map sets the delay R through
+the reaction time and the load Λ through the lap length. On this branch the lap length stays fixed, and
+the load is set by the number of cars instead: N = Λ × L ÷ (ℓ + s₀ + v₀T), rounded, between 2 and 300.
+
+- **Drivers who leave room:** their count is capped at the new N. Hand-picked drivers, such as scene 2's
+  car 30, are kept only while their car is still on the road.
+- **Everything else is held:** speed limit, following times, vehicle settings, distraction and taps.
+- **Resolution:** Λ moves in steps of one car, (ℓ + s₀ + v₀T) ÷ L. On scene 2's 860 m ring that is about 0.04.
+
+**The cars slider stops at what fits.** Its maximum is the road length divided by the room a stopped car
+needs (car length plus stopped gap), up to the slider's 300. On the shortest road, 150 m with default cars,
+that is 23. Shortening the road, or lengthening the cars or their stopped gap, removes cars that no longer
+fit, by the same rules as a regime-map click.
+
+**Crowded rings are drawn closer to scale.** Zoomed out, each car is a dot. The dots now shrink with the
+average spacing between cars, down to a small minimum, so the gaps between cars stay visible. Before, a
+fixed minimum dot size made 300 cars on a 6 km ring look bumper to bumper, though they had 15.5 m gaps.
+
+# Part V. Open questions and reference
+
+## 10. Limits and open questions
+
+- **Not modelled:**
+  - slipstreaming (drafting) behind the car ahead;
+  - road gradient;
+  - cold starts;
+  - engines that switch off when stopped (start-stop), which would cut the idle cost of a jam;
+  - hybrid regenerative braking, which would recover part of the braking loss.
+- **The SUV is an estimate,** scaled from a measured compact car. A direct calibration would need an
+  SUV's laboratory data, or VT-CPFM's method of fitting to a vehicle's city and highway ratings.
+- **The 2024 fleet figures are second-hand:** the average vehicle mass and horsepower come from a
+  secondary report of the EPA's figures, not yet checked in the EPA report itself.
+- **Every car is the same vehicle.** A mixed fleet would need per-car vehicle types.
+- **The score counts the whole run.** A rolling window, such as the last minute, would respond faster
+  when settings change mid-run.
+
+- **Stress counts jolts, not stress.**
+  - The thresholds (0.2 g of braking, 1.5 s to collision) come from harsh-braking and safety studies,
+    not from measured driver stress.
+  - The face's anchors come from Stern et al.'s braking counts, whose braking threshold was the spread of
+    deceleration in their data, not a fixed 0.2 g.
+- **Distance between stressful moments collapses at crawling speeds.** On the ring-road scene, cars at
+  8 km/h cover little distance, so the figure falls to about 10 m.
+- **The lift-off rate, 0.6 m/s², is an estimate.** Its engine-braking part is general knowledge, not
+  yet checked against a source.
+- **Only drivers who leave room use three pedal states.** Tailgaters keep the Intelligent Driver Model's
+  single continuous acceleration. Their brake lights and stress count follow the same pedal reading.
+- **The three-pedal drivers cost a little under heavy noise** (section 8). Half and half averages 29 km/h
+  against 34 km/h before, and one test fails.
+
+## 11. Decisions open
+
+1. **Keep, change or drop the prototype.** Dropping it means deleting the branch and the preview page.
+2. **The failing test** ("absorbers in the mix lower speed variation under noise", section 8). The
+   options:
+   - accept the trade and rewrite the test to average over several random seeds;
+   - rework the three-pedal driver until it passes;
+   - return to the old driver.
+3. **The reflex bug is also on `main`.** It is in the published simulator, and possibly in report
+   numbers that involve many drivers who leave room, such as the cost of keeping a road smooth
+   (`analysis/results/absorbers.json`). Scene 2 is unaffected. Fixing it on `main` means rerunning
+   `npm run analysis` and `npm run report:check`, revising any numbers that move, and republishing the
+   simulator and both reports.
+4. **Close calls in the stress measure.** Keep them, or count braking only, for a true "brake-free"
+   distance.
+5. **Facts to confirm:**
+   - the lift-off rate;
+   - the 2024 average vehicle mass and power in the EPA report itself.
+
+**If the prototype is kept:**
+- **Merge:** merge `prototype/fuel` into `main`.
+- **Analysis:** add `analysis/fuel.mjs` to `npm run analysis`, and fuel and stress to the regime sweep, so
+  the regime map can show both across load and reaction ratio.
+- **Checks:** rerun `npm run report:check`, because the engine change can move report numbers.
+- **Reports:** add fuel and stress sections to *The Jam Nobody Started*, registering each number in
+  `report/facts.mjs` and each source in `report/sources.json`. Revise the technical report if any shared
+  number moved.
+- **Publishing:** republish the claude.ai simulator and reports. GitHub Pages updates on the merge.
+
+## 12. Sources
+
+- Akçelik, R., Smit, R., & Besley, M. (2012). *Calibrating fuel consumption and emission models for
+  modern vehicles.* IPENZ Transportation Group Conference, Rotorua.
+  <https://www.transportationgroup.nz/papers/2012/Wednesday/0930%20Akcelik,%20Rahmi.pdf>
+  The model's equations, the Corolla calibration and the default car's parameters.
+- Akçelik, R. (1989). Efficiency and drag in the power-based model of fuel consumption. *Transportation
+  Research Part B: Methodological, 23*(5), 376–385. <https://doi.org/10.1016/0191-2615(89)90014-3>
+  (checked against Crossref).
+- Akçelik, R., Bayley, C., Bowyer, D. P., & Biggs, D. C. (1983). A hierarchy of vehicle fuel
+  consumption models. *Traffic Engineering and Control, 24*(10), 491–495.
+  <https://www.sidrasolutions.com/learn/publications/hierarchy-vehicle-fuel-consumption-models>
+- Stern, R. E., Cui, S., Delle Monache, M. L., et al. (2018). Dissipation of stop-and-go waves via
+  control of autonomous vehicles: Field experiments. *Transportation Research Part C: Emerging
+  Technologies, 89*, 205–221. <https://doi.org/10.1016/j.trc.2018.02.005> (checked against Crossref;
+  full text at <https://arxiv.org/abs/1705.01693>).
+- US Environmental Protection Agency. *The 2024 EPA Automotive Trends Report.*
+  <https://www.epa.gov/automotive-trends/highlights-automotive-trends-report> (truck SUV fuel economy,
+  25.7 mpg for model year 2024).
+- Wolf Street (2024, November 25). *Americans buy ever bigger, more powerful, more fuel-efficient
+  trucks, SUVs and cars.* <https://wolfstreet.com/2024/11/25/americans-buy-ever-bigger-more-powerful-but-more-fuel-efficient-trucks-suvs-and-cars-evs-escalate-the-horsepower-war/>
+  (average mass and power, citing the EPA report; to be confirmed).
+- Rakha, H. A., et al. Virginia Tech Comprehensive Power-Based Fuel Consumption Model (VT-CPFM).
+  <https://www.academia.edu/85794601/Virginia_Tech_Comprehensive_Power_Based_Fuel_Consumption_Model_Model_development_and_testing>
+  (considered, not used).
 - Stern et al. (2018), above, for the brake-event definition and the anchors.
 - Federal Highway Administration, Surrogate Safety Assessment Model, for the 1.5 s threshold.
   Secondary source: <https://arxiv.org/abs/2010.10262>.
@@ -465,3 +512,19 @@ very little distance.
   <https://www.geotab.com/CMS-GeneralFiles-production/NA/White_papers/geotab-collision-reconstruction-whitepaper-2020(web).pdf%20%5BPUBLIC%5D-V2.pdf>.
 - University of Houston, *Researchers find hidden micro-stressors in routine driving* (2023),
   <https://www.uh.edu/nsm/news-events/stories/2023/0705-routine-driving.php>.
+
+## 13. Reproduce
+
+```sh
+git switch prototype/fuel
+npm test                      # 18 tests; one known failure (section 8)
+npm run analysis:fuel         # fuel and stress for every scene, into analysis/results/fuel.json
+npm run build                 # the simulator with the prototype, in dist/
+```
+
+**Tests the branch adds** (`test/engine.test.mjs`): the five fuel tests (section 4), the two stress tests,
+and one three-pedal test (sections 6 and 8).
+
+**Publishing the preview.** Publish a renamed copy of `dist/phantom-jam-lab.html` (title "Jam Lab Fuel
+Preview") to <https://claude.ai/artifact/3qFrceiTDLRSq6mjoLUccF>. Never publish
+`dist/phantom-jam-lab.html` itself from this branch, because that file is the main simulator's artifact.
