@@ -1,0 +1,1109 @@
+{
+ "lambda": 1.05,
+ "out": [
+  {
+   "absorbT": 2.6,
+   "R": 0.8,
+   "minAbsorbers": 0,
+   "phiMin": 0,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": true,
+     "piV": 0.006,
+     "kmh": 67.9
+    },
+    {
+     "n": 1,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 65.5
+    },
+    {
+     "n": 2,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 63
+    },
+    {
+     "n": 3,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 62.2
+    },
+    {
+     "n": 4,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 62.9
+    },
+    {
+     "n": 5,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 61.9
+    },
+    {
+     "n": 6,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 60.5
+    },
+    {
+     "n": 8,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 59.4
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.004,
+     "kmh": 57.8
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.004,
+     "kmh": 57.1
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 57
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.013,
+     "kmh": 55.4
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.015,
+     "kmh": 55.9
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 2.6,
+   "R": 0.9,
+   "minAbsorbers": 1,
+   "phiMin": 0.033,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": false,
+     "piV": 0.212,
+     "kmh": 64.1
+    },
+    {
+     "n": 1,
+     "smooth": true,
+     "piV": 0.019,
+     "kmh": 65.4
+    },
+    {
+     "n": 2,
+     "smooth": true,
+     "piV": 0,
+     "kmh": 62.3
+    },
+    {
+     "n": 3,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 59.9
+    },
+    {
+     "n": 4,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 58.7
+    },
+    {
+     "n": 5,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 58.5
+    },
+    {
+     "n": 6,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 59.7
+    },
+    {
+     "n": 8,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 59.2
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.005,
+     "kmh": 57.6
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.005,
+     "kmh": 56.9
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 57
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.012,
+     "kmh": 55.4
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.015,
+     "kmh": 55.9
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 2.6,
+   "R": 1,
+   "minAbsorbers": 5,
+   "phiMin": 0.167,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": false,
+     "piV": 0.231,
+     "kmh": 56
+    },
+    {
+     "n": 1,
+     "smooth": false,
+     "piV": 0.238,
+     "kmh": 43.4
+    },
+    {
+     "n": 2,
+     "smooth": false,
+     "piV": 0.243,
+     "kmh": 51.8
+    },
+    {
+     "n": 3,
+     "smooth": false,
+     "piV": 0.204,
+     "kmh": 49.6
+    },
+    {
+     "n": 4,
+     "smooth": false,
+     "piV": 0.203,
+     "kmh": 46.4
+    },
+    {
+     "n": 5,
+     "smooth": true,
+     "piV": 0.005,
+     "kmh": 55.4
+    },
+    {
+     "n": 6,
+     "smooth": true,
+     "piV": 0.004,
+     "kmh": 55.4
+    },
+    {
+     "n": 8,
+     "smooth": true,
+     "piV": 0.004,
+     "kmh": 58.6
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.006,
+     "kmh": 57.3
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.006,
+     "kmh": 56.5
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 57
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.012,
+     "kmh": 55.5
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.015,
+     "kmh": 55.9
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 2.6,
+   "R": 1.1,
+   "minAbsorbers": 5,
+   "phiMin": 0.167,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": false,
+     "piV": 0.266,
+     "kmh": 51.8
+    },
+    {
+     "n": 1,
+     "smooth": false,
+     "piV": 0.237,
+     "kmh": 51.2
+    },
+    {
+     "n": 2,
+     "smooth": false,
+     "piV": 0.21,
+     "kmh": 44.5
+    },
+    {
+     "n": 3,
+     "smooth": false,
+     "piV": 0.226,
+     "kmh": 46.6
+    },
+    {
+     "n": 4,
+     "smooth": false,
+     "piV": 0.211,
+     "kmh": 47.5
+    },
+    {
+     "n": 5,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 54.9
+    },
+    {
+     "n": 6,
+     "smooth": true,
+     "piV": 0.006,
+     "kmh": 52.9
+    },
+    {
+     "n": 8,
+     "smooth": true,
+     "piV": 0.004,
+     "kmh": 53.5
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.009,
+     "kmh": 55.6
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.008,
+     "kmh": 55.9
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 57
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.012,
+     "kmh": 55.5
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.015,
+     "kmh": 55.9
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 2.6,
+   "R": 1.2,
+   "minAbsorbers": 6,
+   "phiMin": 0.2,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": false,
+     "piV": 0.242,
+     "kmh": 48.9
+    },
+    {
+     "n": 1,
+     "smooth": false,
+     "piV": 0.242,
+     "kmh": 57
+    },
+    {
+     "n": 2,
+     "smooth": false,
+     "piV": 0.201,
+     "kmh": 38.1
+    },
+    {
+     "n": 3,
+     "smooth": false,
+     "piV": 0.189,
+     "kmh": 41.6
+    },
+    {
+     "n": 4,
+     "smooth": false,
+     "piV": 0.244,
+     "kmh": 39.7
+    },
+    {
+     "n": 5,
+     "smooth": false,
+     "piV": 0.184,
+     "kmh": 45.8
+    },
+    {
+     "n": 6,
+     "smooth": true,
+     "piV": 0.005,
+     "kmh": 52.3
+    },
+    {
+     "n": 8,
+     "smooth": true,
+     "piV": 0.008,
+     "kmh": 49.9
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.006,
+     "kmh": 51.5
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.01,
+     "kmh": 55.2
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 57
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.012,
+     "kmh": 55.5
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.015,
+     "kmh": 55.9
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 2.6,
+   "R": 1.4,
+   "minAbsorbers": 10,
+   "phiMin": 0.333,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": false,
+     "piV": 0.252,
+     "kmh": 38.9
+    },
+    {
+     "n": 1,
+     "smooth": false,
+     "piV": 0.212,
+     "kmh": 33.2
+    },
+    {
+     "n": 2,
+     "smooth": false,
+     "piV": 0.221,
+     "kmh": 43.5
+    },
+    {
+     "n": 3,
+     "smooth": false,
+     "piV": 0.213,
+     "kmh": 41.3
+    },
+    {
+     "n": 4,
+     "smooth": false,
+     "piV": 0.193,
+     "kmh": 42.9
+    },
+    {
+     "n": 5,
+     "smooth": false,
+     "piV": 0.198,
+     "kmh": 36.5
+    },
+    {
+     "n": 6,
+     "smooth": false,
+     "piV": 0.165,
+     "kmh": 36.7
+    },
+    {
+     "n": 8,
+     "smooth": false,
+     "piV": 0.028,
+     "kmh": 47.5
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.014,
+     "kmh": 46.3
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.012,
+     "kmh": 48.9
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 57
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.012,
+     "kmh": 55.5
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.015,
+     "kmh": 55.9
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 4.5,
+   "R": 0.8,
+   "minAbsorbers": 0,
+   "phiMin": 0,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": true,
+     "piV": 0.006,
+     "kmh": 67.9
+    },
+    {
+     "n": 1,
+     "smooth": true,
+     "piV": 0,
+     "kmh": 65
+    },
+    {
+     "n": 2,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 62
+    },
+    {
+     "n": 3,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 59.3
+    },
+    {
+     "n": 4,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 56.9
+    },
+    {
+     "n": 5,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 54.4
+    },
+    {
+     "n": 6,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 52.1
+    },
+    {
+     "n": 8,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 49.2
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 46.7
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 45.3
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 44.5
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 46.3
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.008,
+     "kmh": 53.1
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 4.5,
+   "R": 0.9,
+   "minAbsorbers": 3,
+   "phiMin": 0.1,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": false,
+     "piV": 0.212,
+     "kmh": 64.1
+    },
+    {
+     "n": 1,
+     "smooth": false,
+     "piV": 0.172,
+     "kmh": 48.9
+    },
+    {
+     "n": 2,
+     "smooth": false,
+     "piV": 0.192,
+     "kmh": 51.3
+    },
+    {
+     "n": 3,
+     "smooth": true,
+     "piV": 0.005,
+     "kmh": 58.4
+    },
+    {
+     "n": 4,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 56.9
+    },
+    {
+     "n": 5,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 54.4
+    },
+    {
+     "n": 6,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 52.1
+    },
+    {
+     "n": 8,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 49.2
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 46.7
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 45.3
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 44.5
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 46.3
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.008,
+     "kmh": 53.1
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 4.5,
+   "R": 1,
+   "minAbsorbers": 4,
+   "phiMin": 0.133,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": false,
+     "piV": 0.231,
+     "kmh": 56
+    },
+    {
+     "n": 1,
+     "smooth": false,
+     "piV": 0.2,
+     "kmh": 44.8
+    },
+    {
+     "n": 2,
+     "smooth": false,
+     "piV": 0.23,
+     "kmh": 47.1
+    },
+    {
+     "n": 3,
+     "smooth": false,
+     "piV": 0.155,
+     "kmh": 49.2
+    },
+    {
+     "n": 4,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 54.5
+    },
+    {
+     "n": 5,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 54.4
+    },
+    {
+     "n": 6,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 52.1
+    },
+    {
+     "n": 8,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 49.2
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 46.7
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 45.3
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 44.5
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 46.3
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.008,
+     "kmh": 53.1
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 4.5,
+   "R": 1.1,
+   "minAbsorbers": 5,
+   "phiMin": 0.167,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": false,
+     "piV": 0.266,
+     "kmh": 51.8
+    },
+    {
+     "n": 1,
+     "smooth": false,
+     "piV": 0.204,
+     "kmh": 42.1
+    },
+    {
+     "n": 2,
+     "smooth": false,
+     "piV": 0.189,
+     "kmh": 43.6
+    },
+    {
+     "n": 3,
+     "smooth": false,
+     "piV": 0.168,
+     "kmh": 41.2
+    },
+    {
+     "n": 4,
+     "smooth": false,
+     "piV": 0.145,
+     "kmh": 49
+    },
+    {
+     "n": 5,
+     "smooth": true,
+     "piV": 0.012,
+     "kmh": 50.6
+    },
+    {
+     "n": 6,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 52
+    },
+    {
+     "n": 8,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 49.2
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 46.6
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 45.2
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 44.5
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 46.3
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.008,
+     "kmh": 53.1
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 4.5,
+   "R": 1.2,
+   "minAbsorbers": 8,
+   "phiMin": 0.267,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": false,
+     "piV": 0.242,
+     "kmh": 48.9
+    },
+    {
+     "n": 1,
+     "smooth": false,
+     "piV": 0.224,
+     "kmh": 41.2
+    },
+    {
+     "n": 2,
+     "smooth": false,
+     "piV": 0.197,
+     "kmh": 41.6
+    },
+    {
+     "n": 3,
+     "smooth": false,
+     "piV": 0.185,
+     "kmh": 39.4
+    },
+    {
+     "n": 4,
+     "smooth": false,
+     "piV": 0.167,
+     "kmh": 41.1
+    },
+    {
+     "n": 5,
+     "smooth": false,
+     "piV": 0.152,
+     "kmh": 38.4
+    },
+    {
+     "n": 6,
+     "smooth": false,
+     "piV": 0.117,
+     "kmh": 41.6
+    },
+    {
+     "n": 8,
+     "smooth": true,
+     "piV": 0.002,
+     "kmh": 49.1
+    },
+    {
+     "n": 10,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 46.6
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 45.1
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.001,
+     "kmh": 44.5
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 46.3
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.008,
+     "kmh": 53.1
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  },
+  {
+   "absorbT": 4.5,
+   "R": 1.4,
+   "minAbsorbers": 12,
+   "phiMin": 0.4,
+   "runs": [
+    {
+     "n": 0,
+     "smooth": false,
+     "piV": 0.252,
+     "kmh": 38.9
+    },
+    {
+     "n": 1,
+     "smooth": false,
+     "piV": 0.211,
+     "kmh": 31.7
+    },
+    {
+     "n": 2,
+     "smooth": false,
+     "piV": 0.223,
+     "kmh": 34.9
+    },
+    {
+     "n": 3,
+     "smooth": false,
+     "piV": 0.209,
+     "kmh": 38.8
+    },
+    {
+     "n": 4,
+     "smooth": false,
+     "piV": 0.188,
+     "kmh": 33.7
+    },
+    {
+     "n": 5,
+     "smooth": false,
+     "piV": 0.174,
+     "kmh": 38.1
+    },
+    {
+     "n": 6,
+     "smooth": false,
+     "piV": 0.148,
+     "kmh": 36.1
+    },
+    {
+     "n": 8,
+     "smooth": false,
+     "piV": 0.078,
+     "kmh": 40.6
+    },
+    {
+     "n": 10,
+     "smooth": false,
+     "piV": 0.025,
+     "kmh": 39.9
+    },
+    {
+     "n": 12,
+     "smooth": true,
+     "piV": 0.008,
+     "kmh": 44.8
+    },
+    {
+     "n": 15,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 44.6
+    },
+    {
+     "n": 20,
+     "smooth": true,
+     "piV": 0.003,
+     "kmh": 46.3
+    },
+    {
+     "n": 25,
+     "smooth": true,
+     "piV": 0.008,
+     "kmh": 53.1
+    },
+    {
+     "n": 30,
+     "smooth": true,
+     "piV": 0.016,
+     "kmh": 55.4
+    }
+   ]
+  }
+ ]
+}

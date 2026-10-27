@@ -1,0 +1,1915 @@
+<title>Phantom Jam Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800;900&family=Overpass+Mono:wght@400;600;700&display=swap">
+<style>
+/* Layout: a highway-sign header plate over an instrument bench: road stage + control
+   column, then the time-space record and live readouts. Speed colors follow the
+   traffic-map vernacular (red stopped, amber slow, green flowing); service-sign blue
+   marks ample-distance drivers. */
+:root {
+  --bg: #e6ebe7;
+  --surface: #f6f8f6;
+  --surface-2: #eef2ef;
+  --ink: #12201a;
+  --muted: #56675e;
+  --line: #c8d2cb;
+  --sign: #0a6a46;
+  --sign-deep: #075236;
+  --sign-ink: #ffffff;
+  --absorb: #1c6cd6;
+  --absorb-soft: rgba(28, 108, 214, 0.16);
+  --slow: #d33a2c;
+  --mid: #e39c16;
+  --fast: #23985f;
+  --brake: #ff2d20;
+  --road: #2b3531;
+  --road-edge: #e9ece6;
+  --lane: #d8ddd2;
+  --grid: rgba(18, 32, 26, 0.09);
+  --focus: #1c6cd6;
+
+  --display: "Overpass", "Highway Gothic", "Arial Narrow", system-ui, sans-serif;
+  --body: "Overpass", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Overpass Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --fs-xs: 0.78rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.75rem;
+  --fs-xxl: clamp(1.9rem, 4.2vw, 3rem);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c1310;
+    --surface: #131c18;
+    --surface-2: #0f1714;
+    --ink: #e4ece7;
+    --muted: #8ea198;
+    --line: #233029;
+    --sign: #0d7a51;
+    --sign-deep: #085c3c;
+    --sign-ink: #ffffff;
+    --absorb: #4a95f5;
+    --absorb-soft: rgba(74, 149, 245, 0.2);
+    --slow: #f0533f;
+    --mid: #f2b234;
+    --fast: #34c27e;
+    --brake: #ff3b2f;
+    --road: #1d2622;
+    --road-edge: #b9c2bb;
+    --lane: #59655f;
+    --grid: rgba(228, 236, 231, 0.07);
+    --focus: #4a95f5;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c1310;
+  --surface: #131c18;
+  --surface-2: #0f1714;
+  --ink: #e4ece7;
+  --muted: #8ea198;
+  --line: #233029;
+  --sign: #0d7a51;
+  --sign-deep: #085c3c;
+  --sign-ink: #ffffff;
+  --absorb: #4a95f5;
+  --absorb-soft: rgba(74, 149, 245, 0.2);
+  --slow: #f0533f;
+  --mid: #f2b234;
+  --fast: #34c27e;
+  --brake: #ff3b2f;
+  --road: #1d2622;
+  --road-edge: #b9c2bb;
+  --lane: #59655f;
+  --grid: rgba(228, 236, 231, 0.07);
+  --focus: #4a95f5;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 18px 40px;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1380px; margin: 0 auto; display: grid; gap: 16px; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+/* ---------- Sign header ---------- */
+.sign {
+  position: relative;
+  background: var(--sign);
+  color: var(--sign-ink);
+  border-radius: 14px;
+  padding: 6px;
+}
+.sign-inner {
+  border: 2.5px solid var(--sign-ink);
+  border-radius: 10px;
+  padding: 16px 22px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 28px;
+}
+.sign h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: var(--fs-xxl);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.sign p { margin: 8px 0 0; max-width: 60ch; font-size: var(--fs-md); opacity: 0.92; text-wrap: pretty; }
+.exit-tab {
+  position: absolute;
+  top: -12px;
+  right: 22px;
+  background: var(--sign);
+  border: 2.5px solid var(--sign-ink);
+  border-radius: 8px;
+  padding: 2px 12px 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: var(--fs-sm);
+  box-shadow: 0 0 0 4px var(--sign);
+}
+.sign-arrow { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: var(--fs-lg); }
+.sign-arrow svg { width: 34px; height: 34px; flex: none; }
+
+/* ---------- Scenario strip ---------- */
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+.scn {
+  text-align: left;
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 10px 12px 11px;
+  cursor: pointer;
+  display: grid;
+  gap: 2px;
+  transition: border-color .15s, background .15s, transform .15s;
+}
+.scn:hover { border-color: var(--sign); }
+.scn .step { font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); }
+.scn .name { font-family: var(--display); font-weight: 700; font-size: var(--fs-md); line-height: 1.2; }
+.scn[aria-pressed="true"] { background: var(--sign); border-color: var(--sign); color: var(--sign-ink); }
+.scn[aria-pressed="true"] .step { color: var(--sign-ink); opacity: .8; }
+
+/* ---------- Bench ---------- */
+.bench {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 16px;
+  align-items: start;
+}
+.col { display: grid; gap: 16px; min-width: 0; align-content: start; }
+.stage {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.story {
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.story h2 { margin: 0; font-family: var(--display); font-weight: 800; font-size: var(--fs-lg); line-height: 1.2; }
+.story p { margin: 0; color: var(--muted); max-width: 72ch; font-size: var(--fs-sm); text-wrap: pretty; flex: 1 1 320px; }
+.roads {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  height: clamp(380px, 62vh, 660px);
+}
+.roads.compare { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.road { position: relative; min-width: 0; min-height: 0; }
+.road + .road { border-left: 1px dashed var(--line); }
+.road canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: manipulation; }
+.road-label {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  pointer-events: none;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 9px 1px;
+  border-radius: 99px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  border: 1.5px solid currentColor;
+  white-space: nowrap;
+}
+.chip.blue { color: var(--absorb); }
+.chip.red { color: var(--slow); }
+.chip.dim { color: var(--muted); }
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--surface);
+  border-radius: 99px;
+  padding: 5px 14px 4px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s;
+}
+.toast.show { opacity: 1; }
+
+.playbar {
+  border-top: 1px solid var(--line);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn {
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 7px 13px 6px;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  line-height: 1.2;
+}
+.btn:hover { border-color: var(--ink); }
+.btn svg { width: 15px; height: 15px; flex: none; }
+.btn.primary { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.btn.brake { background: var(--slow); border-color: var(--slow); color: #fff; }
+.btn.brake:hover { filter: brightness(1.08); border-color: var(--slow); }
+.btn.blue { color: var(--absorb); border-color: currentColor; }
+.clock { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: var(--fs-md); font-weight: 600; min-width: 5.5ch; }
+.seg { display: inline-flex; border: 1.5px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button {
+  border: 0;
+  background: transparent;
+  padding: 6px 10px 5px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--mono);
+}
+.seg button + button { border-left: 1.5px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.seg.text button { font-family: var(--body); }
+.spacer { flex: 1; }
+.hint { color: var(--muted); font-size: var(--fs-xs); }
+kbd {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+/* car card */
+.car-card {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  width: min(260px, calc(100% - 28px));
+  background: var(--surface);
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: grid;
+  gap: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  z-index: 3;
+}
+.car-card header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.car-card h3 { margin: 0; font-family: var(--display); font-weight: 800; font-size: var(--fs-lg); }
+.car-card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: var(--fs-sm); }
+.car-card dt { color: var(--muted); }
+.car-card dd { margin: 0; text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.car-card .actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.x { border: 0; background: transparent; cursor: pointer; color: var(--muted); font-size: 20px; line-height: 1; padding: 2px 4px; }
+
+/* ---------- Control column ---------- */
+.controls {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: grid;
+}
+.group { padding: 14px 16px 16px; display: grid; gap: 12px; }
+.group + .group { border-top: 1px solid var(--line); }
+.group h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: var(--fs-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.group h3 small { font-family: var(--mono); font-weight: 400; font-size: var(--fs-xs); color: var(--muted); }
+.field { display: grid; gap: 4px; }
+.field-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: var(--fs-sm); }
+.field-top label { font-weight: 600; }
+.field-top output { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: var(--fs-sm); }
+.field .help { font-size: var(--fs-xs); color: var(--muted); line-height: 1.4; }
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 22px;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track { height: 4px; border-radius: 4px; background: var(--line); }
+input[type="range"]::-moz-range-track { height: 4px; border-radius: 4px; background: var(--line); }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px; margin-top: -7px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 3px solid var(--ink);
+}
+input[type="range"]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 3px solid var(--ink); }
+input[type="range"].blue::-webkit-slider-thumb { border-color: var(--absorb); }
+input[type="range"].blue::-moz-range-thumb { border-color: var(--absorb); }
+input[type="range"].red::-webkit-slider-thumb { border-color: var(--slow); }
+input[type="range"].red::-moz-range-thumb { border-color: var(--slow); }
+.mixbar { display: flex; height: 10px; border-radius: 99px; overflow: hidden; background: var(--line); }
+.mixbar i { display: block; height: 100%; }
+.quick { display: grid; grid-template-columns: repeat(6, auto); justify-content: start; gap: 5px; }
+.quick button {
+  border: 1.5px solid var(--line);
+  background: transparent;
+  border-radius: 99px;
+  padding: 2px 8px 1px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  cursor: pointer;
+}
+.quick button:hover { border-color: var(--absorb); color: var(--absorb); }
+.switch { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: var(--fs-sm); font-weight: 600; cursor: pointer; }
+.switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.switch .track { width: 38px; height: 22px; border-radius: 99px; background: var(--line); position: relative; flex: none; transition: background .15s; }
+.switch .track::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); transition: transform .15s; }
+.switch input:checked + .track { background: var(--sign); }
+.switch input:checked + .track::after { transform: translateX(16px); }
+.switch input:focus-visible + .track { outline: 2px solid var(--focus); outline-offset: 2px; }
+.readouts { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; font-size: var(--fs-xs); color: var(--muted); }
+.readouts b { display: block; color: var(--ink); font-family: var(--mono); font-size: var(--fs-sm); font-weight: 600; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px 16px; min-width: 0; }
+.panel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.panel h2 { margin: 0; font-family: var(--display); font-weight: 800; font-size: var(--fs-lg); }
+.panel .sub { color: var(--muted); font-size: var(--fs-sm); max-width: 70ch; }
+.ts { display: grid; gap: 10px; }
+.ts-item { display: grid; gap: 4px; }
+.ts-item .t-label { font-size: var(--fs-xs); font-weight: 700; color: var(--muted); }
+.ts canvas { width: 100%; height: 200px; display: block; }
+.ts.compare canvas { height: 150px; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; font-size: var(--fs-xs); color: var(--muted); margin-top: 10px; }
+.ramp { display: inline-grid; grid-template-columns: auto 120px auto; gap: 6px; align-items: center; }
+.ramp i { height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--slow), var(--mid) 50%, var(--fast)); }
+.sw { display: inline-flex; align-items: center; gap: 6px; }
+.sw i { width: 18px; height: 4px; border-radius: 2px; background: var(--absorb); }
+.sw i.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brake); box-shadow: 0 0 6px var(--brake); }
+
+.sym { font-family: Georgia, "Times New Roman", serif; font-style: italic; font-weight: 400; color: var(--muted); margin-left: 3px; letter-spacing: 0; }
+.sym sub { font-size: 0.72em; }
+
+/* ---------- Regime map ---------- */
+.regime-body { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 16px; align-items: start; }
+#regimeSvg { width: 100%; height: auto; display: block; cursor: crosshair; font-family: var(--body); }
+#regimeSvg .z-smooth { fill: var(--fast); fill-opacity: 0.13; }
+#regimeSvg .z-meta { fill: var(--mid); fill-opacity: 0.22; }
+#regimeSvg .z-unst { fill: var(--slow); fill-opacity: 0.13; }
+#regimeSvg .gridline { stroke: var(--grid); }
+#regimeSvg .axis { stroke: var(--line); }
+#regimeSvg .tick { fill: var(--muted); font-size: 11px; font-family: var(--mono); }
+#regimeSvg .ax-title { fill: var(--ink); font-size: 12px; font-weight: 700; }
+#regimeSvg .theory { fill: none; stroke: var(--ink); stroke-width: 2; }
+#regimeSvg .measured { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 5 4; opacity: 0.7; }
+#regimeSvg .here { fill: var(--absorb); stroke: var(--surface); stroke-width: 2.5; }
+#regimeSvg .here-ring { fill: none; stroke: var(--absorb); stroke-width: 1.5; opacity: 0.45; }
+#regimeSvg .here-label { fill: var(--ink); font-size: 12px; font-weight: 700; font-family: var(--mono); paint-order: stroke; stroke: var(--surface); stroke-width: 7px; stroke-linejoin: round; }
+.regime-read { display: grid; gap: 8px; font-size: var(--fs-sm); }
+.regime-read p { margin: 0; text-wrap: pretty; }
+.regime-read .note { color: var(--muted); font-size: var(--fs-xs); }
+.zone { justify-self: start; font-weight: 800; font-family: var(--display); font-size: var(--fs-md); padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; }
+.zone.smooth { color: var(--fast); }
+.zone.meta { color: var(--mid); }
+.zone.unst { color: var(--slow); }
+.groups { margin: 0; display: grid; grid-template-columns: auto 1fr auto; gap: 3px 10px; font-size: var(--fs-xs); align-items: baseline; }
+.groups dt { font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: var(--fs-sm); }
+.groups dd { margin: 0; color: var(--muted); }
+.groups .num { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--ink); text-align: right; }
+.sw i.line { height: 2px; background: var(--ink); }
+.sw i.area { width: 14px; height: 10px; border-radius: 2px; }
+.sw i.area.smooth { background: color-mix(in srgb, var(--fast) 22%, var(--surface)); }
+.sw i.area.meta { background: color-mix(in srgb, var(--mid) 34%, var(--surface)); }
+.sw i.area.unst { background: color-mix(in srgb, var(--slow) 22%, var(--surface)); }
+.sw i.line.dash { background: repeating-linear-gradient(90deg, var(--ink) 0 5px, transparent 5px 9px); opacity: 0.7; }
+@media (max-width: 700px) { .regime-body { grid-template-columns: minmax(0, 1fr); } }
+
+.stats { display: grid; gap: 10px; align-content: start; }
+.stat-table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.stat-table th, .stat-table td { padding: 6px 0; text-align: right; border-bottom: 1px solid var(--line); }
+.stat-table th:first-child, .stat-table td:first-child { text-align: left; }
+.stat-table th + th, .stat-table td + td { padding-left: 12px; }
+.stat-table thead th { font-size: var(--fs-xs); color: var(--muted); font-weight: 700; padding-top: 0; }
+.stat-table td.v { font-family: var(--mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+.stat-table td .u { color: var(--muted); font-weight: 400; font-size: var(--fs-xs); margin-left: 2px; }
+.stat-table tbody tr:last-child td { border-bottom: 0; }
+.better { color: var(--fast); }
+.worse { color: var(--slow); }
+.spark { width: 100%; height: 96px; display: block; }
+.verdict { font-size: var(--fs-sm); padding: 10px 12px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); text-wrap: pretty; }
+.verdict b { font-family: var(--mono); }
+
+/* ---------- Explainer ---------- */
+.explain { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.explain article { padding: 4px 4px 0; display: grid; gap: 6px; align-content: start; }
+.explain h3 { margin: 0; font-family: var(--display); font-weight: 800; font-size: var(--fs-md); text-wrap: balance; }
+.explain p { margin: 0; color: var(--muted); font-size: var(--fs-sm); max-width: 62ch; text-wrap: pretty; }
+.explain .glyph { width: 100%; height: 46px; display: block; }
+footer { color: var(--muted); font-size: var(--fs-xs); border-top: 1px solid var(--line); padding-top: 12px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: space-between; }
+footer a { color: inherit; }
+
+@media (max-width: 1100px) {
+  .bench { grid-template-columns: minmax(0, 1fr); }
+  .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .controls .group + .group { border-top: 0; }
+  .controls .group { border-top: 1px solid var(--line); }
+  .controls .group:nth-child(-n+2) { border-top: 0; }
+  .scenarios { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  body { font-size: 14px; }
+  .controls { grid-template-columns: minmax(0, 1fr); }
+  .controls .group:nth-child(2) { border-top: 1px solid var(--line); }
+  .scenarios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .roads { height: 420px; }
+  .roads.compare { grid-template-columns: minmax(0, 1fr); grid-template-rows: 1fr 1fr; height: 720px; }
+  .road + .road { border-left: 0; border-top: 1px dashed var(--line); }
+  .explain { grid-template-columns: minmax(0, 1fr); }
+  .exit-tab { right: 12px; }
+  .sign-inner { padding: 14px 14px 16px; }
+  .hint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+
+<div class="wrap">
+  <header class="sign">
+    <div class="exit-tab" id="exitTab">Ring 900 m</div>
+    <div class="sign-inner">
+      <div>
+        <h1>Phantom Jam Lab</h1>
+        <p>One driver taps the brakes, and a kilometer back traffic stops dead. Mix tailgaters with drivers who leave ample distance and watch which jams form and which ones die out.</p>
+      </div>
+      <div class="sign-arrow" aria-hidden="true">
+        <svg viewBox="0 0 34 34" fill="none"><path d="M17 31V6M17 6l-9 9M17 6l9 9" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Leave room ahead</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="scenarios" id="scenarios" aria-label="Scenarios"></nav>
+
+  <section class="bench">
+   <div class="col">
+    <div class="stage">
+      <div class="story">
+        <h2 id="storyTitle">One driver leaves room</h2>
+        <p id="storyText"></p>
+      </div>
+      <div class="roads" id="roads">
+        <div class="road" id="roadA">
+          <canvas id="canvasA" aria-label="Road with your driver mix"></canvas>
+          <div class="road-label" id="labelA"></div>
+        </div>
+        <div class="road" id="roadB" hidden>
+          <canvas id="canvasB" aria-label="Same road where everyone tailgates"></canvas>
+          <div class="road-label" id="labelB"></div>
+        </div>
+        <div class="car-card" id="carCard" hidden>
+          <header><h3 id="ccTitle">Car 1</h3><button class="x" id="ccClose" aria-label="Close car details">×</button></header>
+          <div id="ccType"></div>
+          <dl>
+            <dt>Speed</dt><dd id="ccSpeed">–</dd>
+            <dt>Gap ahead</dt><dd id="ccGap">–</dd>
+            <dt>Following time</dt><dd id="ccHeadway">–</dd>
+            <dt>Hard brakes</dt><dd id="ccBrakes">–</dd>
+          </dl>
+          <div class="actions">
+            <button class="btn brake" id="ccTap">Tap brakes</button>
+            <button class="btn blue" id="ccToggle">Leave room</button>
+          </div>
+        </div>
+      </div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      <div class="playbar">
+        <button class="btn primary" id="play" aria-label="Pause">
+          <svg viewBox="0 0 16 16" id="playIcon"><rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
+          <span id="playText">Pause</span>
+        </button>
+        <button class="btn" id="restart">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8a5 5 0 1 0 1.6-3.7M3 2v3h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Restart
+        </button>
+        <span class="clock" id="clock">0:00</span>
+        <div class="seg" id="speedSeg" role="group" aria-label="Simulation speed"></div>
+        <span class="spacer"></span>
+        <span class="hint">Click a car to inspect it · <kbd>Space</kbd> pause · <kbd>B</kbd> brake</span>
+        <button class="btn brake" id="tapRandom">
+          <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><path d="M8 4.5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="11.3" r="1.1" fill="currentColor"/></svg>
+          Tap brakes
+        </button>
+      </div>
+    </div>
+
+<div class="panel">
+      <div class="panel-head">
+        <h2>Time-space record</h2>
+        <span class="sub">Every line is one car's trip around the ring. Red bands sliding down the chart are jam waves moving backward against traffic.</span>
+      </div>
+      <div class="ts" id="ts">
+        <div class="ts-item"><span class="t-label" id="tsLabelA">Your mix</span><canvas id="tsA"></canvas></div>
+        <div class="ts-item" id="tsItemB" hidden><span class="t-label">Everyone tailgates</span><canvas id="tsB"></canvas></div>
+      </div>
+      <div class="legend">
+        <span class="ramp"><span class="num">0</span><i></i><span class="num" id="rampMax">90 km/h</span></span>
+        <span class="sw"><i></i>Ample-distance driver</span>
+        <span class="sw"><i class="dot"></i>Brake lights</span>
+      </div>
+    </div>
+
+    <div class="panel regime">
+      <div class="panel-head">
+        <h2>Regime map</h2>
+        <span class="sub">Two ratios decide whether a road of tailgaters flows or jams. Load Λ compares the cars on the road with how many fit at the speed limit and following time. Delay R is reaction time over following time. Click the map to move this road there.</span>
+      </div>
+      <div class="regime-body">
+        <svg id="regimeSvg" viewBox="0 0 560 300" role="img" aria-label="Regime map of delay number R against load number Λ, with this road marked"></svg>
+        <div class="regime-read">
+          <div class="zone" id="zoneChip"></div>
+          <p id="zoneText"></p>
+          <dl class="groups" id="groupList"></dl>
+          <p class="note" id="regimeNote"></p>
+        </div>
+      </div>
+      <div class="legend">
+        <span class="sw"><i class="area smooth"></i>Smooth</span>
+        <span class="sw" id="metaKey"><i class="area meta"></i>Metastable</span>
+        <span class="sw"><i class="area unst"></i>Stop-and-go grows</span>
+        <span class="sw"><i class="line"></i>Small slowdowns start to grow (theory, live)</span>
+        <span class="sw" id="dashKey"><i class="line dash"></i>A tap to half speed starts a jam (measured)</span>
+      </div>
+    </div>
+   </div>
+   <div class="col">
+    <aside class="controls" aria-label="Simulation settings">
+      <div class="group">
+        <h3>Traffic <small id="densityTag">33 veh/km</small></h3>
+        <div class="field">
+          <div class="field-top"><label for="cars">Cars <i class="sym">N</i></label><output id="carsOut" for="cars"></output></div>
+          <input type="range" id="cars" min="2" max="300" step="1">
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="length">Road length (one lap) <i class="sym">L</i></label><output id="lengthOut" for="length"></output></div>
+          <input type="range" id="length" min="150" max="6000" step="10">
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="speedLimit">Speed limit <i class="sym">v<sub>0</sub></i></label><output id="speedLimitOut" for="speedLimit"></output></div>
+          <input type="range" id="speedLimit" min="30" max="130" step="5">
+        </div>
+        <div class="readouts">
+          <div>Average gap<b id="avgGap">–</b></div>
+          <div>Cars per lane-km<b id="densityOut">–</b></div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h3>Drivers <small id="mixTag"></small></h3>
+        <div class="field">
+          <div class="field-top"><label for="absorbers">Leave ample distance <i class="sym">N<sub>A</sub></i></label><output id="absorbersOut" for="absorbers"></output></div>
+          <input type="range" id="absorbers" class="blue" min="0" max="30" step="1">
+          <div class="mixbar" aria-hidden="true"><i id="mixBlue" style="background: var(--absorb)"></i><i id="mixRed" style="background: var(--slow); opacity: .55"></i></div>
+          <div class="quick" id="quickMix">
+            <button data-mix="0">None</button>
+            <button data-mix="one">One</button>
+            <button data-mix="0.1">10%</button>
+            <button data-mix="0.25">25%</button>
+            <button data-mix="0.5">Half</button>
+            <button data-mix="1">Everyone</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-top"><label>Where they drive</label></div>
+          <div class="seg text" id="placementSeg" role="group" aria-label="Placement of ample-distance drivers">
+            <button data-v="even">Spread out</button>
+            <button data-v="random">Random</button>
+            <button data-v="cluster">Bunched</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="absorbT">Ample following time <i class="sym">T<sub>A</sub></i></label><output id="absorbTOut" for="absorbT"></output></div>
+          <input type="range" id="absorbT" class="blue" min="1.5" max="5" step="0.1">
+          <span class="help">Gap they aim for, in seconds of travel. They ride at the average speed of traffic ahead and let that gap shrink and grow instead of braking.</span>
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="tailT">Tailgater following time <i class="sym">T</i></label><output id="tailTOut" for="tailT"></output></div>
+          <input type="range" id="tailT" class="red" min="0.6" max="1.8" step="0.05">
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="reaction">Reaction time <i class="sym">τ</i></label><output id="reactionOut" for="reaction"></output></div>
+          <input type="range" id="reaction" class="red" min="0.3" max="1.6" step="0.05">
+          <span class="help">How stale a tailgater's picture of the car ahead is. Past a threshold that depends on how full the road is, slowdowns grow as they travel back. The regime map shows where.</span>
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="distraction">Distraction</label><output id="distractionOut" for="distraction"></output></div>
+          <input type="range" id="distraction" class="red" min="0" max="1.5" step="0.05">
+          <span class="help">Random speed wobble from tailgaters not paying full attention, with noise intensity <i class="sym">σ</i> = 0.9 × this setting. Enough on its own to start a jam.</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <h3>Vehicles <small>every car</small></h3>
+        <div class="field">
+          <div class="field-top"><label for="carLen">Car length <i class="sym">ℓ</i></label><output id="carLenOut" for="carLen"></output></div>
+          <input type="range" id="carLen" min="3" max="20" step="0.5">
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="jamGap">Gap when stopped <i class="sym">s<sub>0</sub></i></label><output id="jamGapOut" for="jamGap"></output></div>
+          <input type="range" id="jamGap" min="0.5" max="6" step="0.25">
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="accel">Acceleration <i class="sym">a</i></label><output id="accelOut" for="accel"></output></div>
+          <input type="range" id="accel" min="0.3" max="3" step="0.05">
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="decel">Comfortable braking <i class="sym">b</i></label><output id="decelOut" for="decel"></output></div>
+          <input type="range" id="decel" min="0.5" max="5" step="0.1">
+          <span class="help">How tailgaters pick up speed and slow down when nothing is wrong. Emergency limits stay fixed at 9 m/s² braking and 2.5 m/s² acceleration.</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <h3>Brake taps</h3>
+        <div class="field">
+          <div class="field-top"><label for="tapDepth">A tap slows the car to <i class="sym">1 − δ</i></label><output id="tapDepthOut" for="tapDepth"></output></div>
+          <input type="range" id="tapDepth" class="red" min="0" max="0.9" step="0.05">
+        </div>
+        <label class="switch" for="autoTaps"><span>Random taps along the road</span><input type="checkbox" id="autoTaps"><span class="track"></span></label>
+        <div class="field" id="autoEveryField">
+          <div class="field-top"><label for="autoTapEvery">About every</label><output id="autoTapEveryOut" for="autoTapEvery"></output></div>
+          <input type="range" id="autoTapEvery" min="5" max="60" step="1">
+        </div>
+      </div>
+
+      <div class="group">
+        <h3>View</h3>
+        <label class="switch" for="compare"><span>Compare with everyone tailgating</span><input type="checkbox" id="compare"><span class="track"></span></label>
+        <div class="field">
+          <div class="field-top"><label>Road shape</label></div>
+          <div class="seg text" id="viewSeg" role="group" aria-label="Road shape">
+            <button data-v="ring">Ring road</button>
+            <button data-v="strip">Unrolled</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="panel stats">
+      <div class="panel-head"><h2>Live readout</h2><span class="sub">Last 3 min</span></div>
+      <table class="stat-table" id="statTable">
+        <thead><tr><th></th><th id="colA">Your mix</th><th id="colB" hidden>Everyone tailgates</th></tr></thead>
+        <tbody id="statBody"></tbody>
+      </table>
+      <canvas class="spark" id="spark" aria-label="Average speed over time"></canvas>
+      <div class="verdict" id="verdict"></div>
+    </div>
+   </div>
+  </section>
+
+
+  <section class="explain" aria-label="How phantom jams work">
+    <article>
+      <canvas class="glyph" data-glyph="delay"></canvas>
+      <h3>Late reactions grow</h3>
+      <p>A tailgater sees brake lights about a second late, so they brake harder than the car ahead did. The driver behind them is later still. Each car adds a bit, until someone stops completely.</p>
+    </article>
+    <article>
+      <canvas class="glyph" data-glyph="wave"></canvas>
+      <h3>The jam moves backward</h3>
+      <p>Cars leave the front of the jam while new ones join at the back, so the jam itself drifts upstream at around 15 to 20 km/h. Drivers far behind hit a wall long after the first driver sped up again.</p>
+    </article>
+    <article>
+      <canvas class="glyph" data-glyph="buffer"></canvas>
+      <h3>A gap soaks it up</h3>
+      <p>A driver with room ahead can ease off gently and let the gap shrink instead of braking. The wave dies there, and everyone behind them keeps rolling. A few such drivers are enough to calm a whole road.</p>
+    </article>
+  </section>
+
+  <footer>
+    <span>Tailgaters follow the Human Driver Model: the Intelligent Driver Model plus a reaction delay and attention noise. Ample-distance drivers follow the smoothed speed of traffic ahead, like the jam absorbers in the 2018 Arizona ring-road study.</span>
+    <a href="https://www.youtube.com/shorts/jBTahEPAr-I" target="_blank" rel="noopener">Watch the original short</a>
+  </footer>
+</div>
+
+<script>
+/*__ENGINE__*/
+</script>
+<script>
+(() => {
+  // ---------------------------------------------------------------- scenarios
+  const BASE = {
+    cars: 30, length: 900, speedLimit: 90, seed: 7,
+    absorbers: 0, placement: 'even', manual: null,
+    tailT: 1.0, reaction: 1.0, distraction: 0,
+    absorbT: 3.0, absorbWindow: 8,
+    accel: 1.2, decel: 2.0, carLen: 4.5, jamGap: 2,
+    autoTaps: false, autoTapEvery: 20,
+  };
+  const SCENARIOS = [
+    {
+      key: 'tap', name: 'One tap of the brakes',
+      text: 'Thirty tailgaters cruise at highway speed with about a second of space each. At 0:04 the driver of car 1 taps the brakes, dropping to half speed for a moment. Watch the red pulse travel backward and grow until cars far behind come to a full stop.',
+      cfg: {}, compare: false, view: 'ring', tapDepth: 0.5,
+      events: [{ t: 4, id: 0, depth: 0.5 }],
+    },
+    {
+      key: 'one', name: 'One driver leaves room',
+      text: 'A slightly shorter lap (860 m) and drivers who react a little faster, in 0.8 s, with the same hard brake tap. That puts the road on a knife edge: small slowdowns fade, but this tap is big enough to start a jam. On the left, the driver right behind car 1 keeps a long gap and rides at the average speed of traffic, and the road settles. On the right, everyone tailgates and cars keep grinding to a near stop.',
+      cfg: { manual: { 29: true }, reaction: 0.8, length: 860 }, compare: true, view: 'ring', tapDepth: 0.5,
+      events: [{ t: 4, id: 0, depth: 0.5 }],
+    },
+    {
+      key: 'all', name: 'Everyone leaves room',
+      text: 'Every driver keeps ample distance. The brake tap still happens, but each driver eases off less than the one ahead, so the disturbance shrinks to nothing within a few cars.',
+      cfg: { absorbers: 30 }, compare: true, view: 'ring', tapDepth: 0.5,
+      events: [{ t: 4, id: 0, depth: 0.5 }],
+    },
+    {
+      key: 'ring', name: 'The ring-road experiment',
+      text: 'In 2008, researchers in Nagoya put 22 cars on a 230 m circle and asked drivers to hold 30 km/h. Nobody braked on purpose, yet a stop-and-go wave appeared within minutes. Here, a little driver distraction is enough to do the same.',
+      cfg: { cars: 22, length: 230, speedLimit: 40, distraction: 0.5, reaction: 1.0, tailT: 1.0 },
+      compare: false, view: 'ring', tapDepth: 0.5, events: [],
+    },
+    {
+      key: 'rush', name: 'Rush hour',
+      text: 'One hundred fifty cars on a 4 km loop, with random brake taps and distracted drivers. One in ten leaves ample distance, scattered at random. Compare the jam count and the stopped cars on each side.',
+      cfg: { cars: 150, length: 4000, speedLimit: 100, absorbers: 15, placement: 'random', distraction: 0.3, autoTaps: true, autoTapEvery: 12 },
+      compare: true, view: 'strip', tapDepth: 0.45, events: [],
+    },
+    {
+      key: 'half', name: 'Half and half',
+      text: 'Sixty cars, every other driver leaving ample distance, with random brake taps about every 15 seconds. Try sliding the ample-distance count down and watch when the jams come back.',
+      cfg: { cars: 60, length: 1600, speedLimit: 90, absorbers: 30, placement: 'even', autoTaps: true, autoTapEvery: 15, distraction: 0.2 },
+      compare: true, view: 'ring', tapDepth: 0.45, events: [],
+    },
+  ];
+
+  // ---------------------------------------------------------------- state
+  const state = {
+    cfg: { ...BASE },
+    scenario: 'one',
+    compare: true,
+    view: 'ring',
+    playing: true,
+    speed: 1,
+    tapDepth: 0.5,
+    events: [],
+    selected: null,
+    hover: null,
+  };
+  let simA = null, simB = null;
+  const ripples = [];
+  const $ = (s) => document.querySelector(s);
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------------------------------------------------------------- theme
+  let theme = {};
+  function readTheme() {
+    const cs = getComputedStyle(document.documentElement);
+    const get = (k) => cs.getPropertyValue(k).trim();
+    theme = {
+      bg: get('--bg'), surface: get('--surface'), surface2: get('--surface-2'), ink: get('--ink'),
+      muted: get('--muted'), line: get('--line'), absorb: get('--absorb'), absorbSoft: get('--absorb-soft'),
+      slow: get('--slow'), mid: get('--mid'), fast: get('--fast'), brake: get('--brake'),
+      road: get('--road'), roadEdge: get('--road-edge'), lane: get('--lane'), grid: get('--grid'),
+      mono: get('--mono'), display: get('--display'),
+    };
+    theme.rgb = [hexRgb(theme.slow), hexRgb(theme.mid), hexRgb(theme.fast)];
+    theme.dark = luminance(hexRgb(theme.bg)) < 0.3;
+    if (tsA) { tsA.clear(); tsB.clear(); }
+  }
+  function hexRgb(h) {
+    h = h.replace('#', '');
+    if (h.length === 3) h = h.split('').map((c) => c + c).join('');
+    const n = parseInt(h, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+  function luminance([r, g, b]) { return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255; }
+  const rampCache = new Map();
+  function speedColor(frac) {
+    const f = Math.max(0, Math.min(1, frac));
+    const key = Math.round(f * 40);
+    let c = rampCache.get(key);
+    if (c) return c;
+    const t = key / 40;
+    const [a, b, u] = t < 0.5 ? [theme.rgb[0], theme.rgb[1], t / 0.5] : [theme.rgb[1], theme.rgb[2], (t - 0.5) / 0.5];
+    c = `rgb(${Math.round(a[0] + (b[0] - a[0]) * u)},${Math.round(a[1] + (b[1] - a[1]) * u)},${Math.round(a[2] + (b[2] - a[2]) * u)})`;
+    rampCache.set(key, c);
+    return c;
+  }
+  function onThemeChange() { rampCache.clear(); readTheme(); }
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', onThemeChange);
+  new MutationObserver(onThemeChange).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // ---------------------------------------------------------------- helpers
+  const fmtTime = (t) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+  const fmtLen = (m) => (m >= 1000 ? `${(m / 1000).toFixed(m % 1000 === 0 ? 0 : 1)} km` : `${Math.round(m)} m`);
+  function fitCanvas(cv) {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const w = Math.max(1, Math.round(cv.clientWidth * dpr));
+    const h = Math.max(1, Math.round(cv.clientHeight * dpr));
+    if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; return true; }
+    return false;
+  }
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  // ---------------------------------------------------------------- road view
+  class RoadView {
+    constructor(canvas, which) {
+      this.cv = canvas;
+      this.ctx = canvas.getContext('2d');
+      this.which = which;
+      this.positions = [];
+    }
+    get sim() { return this.which === 'A' ? simA : simB; }
+
+    geometry(w, h, dpr) {
+      const sim = this.sim;
+      if (state.view === 'ring') {
+        const R = Math.max(40, Math.min(w, h) / 2 - 52 * dpr);
+        const roadW = Math.max(12 * dpr, Math.min(30 * dpr, R * 0.085));
+        return { kind: 'ring', cx: w / 2, cy: h / 2 + 8 * dpr, R, roadW, pxm: (2 * Math.PI * R) / sim.L };
+      }
+      const padX = 26 * dpr, padTop = 52 * dpr, padBot = 30 * dpr;
+      const usableW = w - padX * 2, usableH = h - padTop - padBot;
+      const minPitch = 30 * dpr;
+      const rMax = Math.max(1, Math.floor(usableH / minPitch));
+      const r = Math.max(1, Math.min(rMax, Math.ceil((sim.L * 2.4 * dpr) / usableW)));
+      const pitch = Math.min(64 * dpr, usableH / r);
+      const laneH = Math.min(20 * dpr, pitch * 0.5);
+      const top = padTop + (usableH - pitch * r) / 2 + pitch / 2;
+      const rowLen = sim.L / r;
+      return { kind: 'strip', padX, usableW, rows: r, pitch, laneH, top, rowLen, pxm: usableW / rowLen, roadW: laneH };
+    }
+
+    place(g, s) {
+      if (g.kind === 'ring') {
+        const th = -Math.PI / 2 + (s / this.sim.L) * Math.PI * 2;
+        return { x: g.cx + g.R * Math.cos(th), y: g.cy + g.R * Math.sin(th), ang: th + Math.PI / 2, th };
+      }
+      const row = Math.min(g.rows - 1, Math.floor(s / g.rowLen));
+      const u = s - row * g.rowLen;
+      return { x: g.padX + u * g.pxm, y: g.top + row * g.pitch, ang: 0, row };
+    }
+
+    // call cb(row, u0, u1) for each straight piece of the span [s0, s0+len) in strip view
+    spanRows(g, s0, len, cb) {
+      const L = this.sim.L;
+      let s = ((s0 % L) + L) % L, left = len;
+      let guard = 0;
+      while (left > 0.01 && guard++ < 50) {
+        const row = Math.min(g.rows - 1, Math.floor(s / g.rowLen));
+        const u0 = s - row * g.rowLen;
+        const take = Math.min(left, g.rowLen - u0);
+        cb(row, u0, u0 + take);
+        left -= take;
+        s = (s + take) % L;
+      }
+    }
+
+    draw(now) {
+      const cv = this.cv, ctx = this.ctx, sim = this.sim;
+      if (!sim) return;
+      fitCanvas(cv);
+      const w = cv.width, h = cv.height, dpr = Math.min(2, window.devicePixelRatio || 1);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.fillStyle = theme.surface;
+      ctx.fillRect(0, 0, w, h);
+      const g = this.geometry(w, h, dpr);
+      this.g = g;
+      const vlim = sim.cfg.speedLimit / 3.6;
+      const cars = sim.cars, n = sim.n;
+      // exaggerate car size a little for legibility, but never past ~70% of the spacing
+      const spacingPx = (sim.L / n) * g.pxm;
+      const carLen = Math.max(3 * dpr, Math.min(26 * dpr, sim.carLen * g.pxm * 1.6, spacingPx * 0.7));
+      const carWid = Math.min(g.roadW * 0.56, Math.max(2.5 * dpr, carLen * 0.48));
+
+      // --- road surface
+      if (g.kind === 'ring') {
+        ctx.lineWidth = g.roadW;
+        ctx.strokeStyle = theme.road;
+        ctx.beginPath(); ctx.arc(g.cx, g.cy, g.R, 0, Math.PI * 2); ctx.stroke();
+        ctx.lineWidth = 1.2 * dpr;
+        ctx.strokeStyle = theme.roadEdge;
+        ctx.globalAlpha = 0.55;
+        ctx.beginPath(); ctx.arc(g.cx, g.cy, g.R - g.roadW / 2 + 2 * dpr, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(g.cx, g.cy, g.R + g.roadW / 2 - 2 * dpr, 0, Math.PI * 2); ctx.stroke();
+        ctx.globalAlpha = 1;
+        // distance ticks
+        const steps = [10, 20, 25, 50, 100, 200, 250, 500, 1000];
+        const step = steps.find((s) => sim.L / s <= 12) || 1000;
+        ctx.fillStyle = theme.muted;
+        ctx.strokeStyle = theme.muted;
+        ctx.font = `${10.5 * dpr}px ${theme.mono}`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        for (let s = 0; s < sim.L - step * 0.4; s += step) {
+          const th = -Math.PI / 2 + (s / sim.L) * Math.PI * 2;
+          const r0 = g.R + g.roadW / 2 + 12 * dpr, r1 = r0 + 5 * dpr;
+          ctx.lineWidth = 1 * dpr;
+          ctx.beginPath();
+          ctx.moveTo(g.cx + r0 * Math.cos(th), g.cy + r0 * Math.sin(th));
+          ctx.lineTo(g.cx + r1 * Math.cos(th), g.cy + r1 * Math.sin(th));
+          ctx.stroke();
+          const rl = r1 + 13 * dpr;
+          ctx.fillText(s === 0 ? '0 m' : fmtLen(s), g.cx + rl * Math.cos(th), g.cy + rl * Math.sin(th));
+        }
+        // direction arrow at top
+        const ar = g.R - g.roadW / 2 - 14 * dpr;
+        ctx.strokeStyle = theme.muted;
+        ctx.lineWidth = 1.5 * dpr;
+        ctx.beginPath(); ctx.arc(g.cx, g.cy, ar, -Math.PI / 2 - 0.18, -Math.PI / 2 + 0.18); ctx.stroke();
+        const ax = g.cx + ar * Math.cos(-Math.PI / 2 + 0.18), ay = g.cy + ar * Math.sin(-Math.PI / 2 + 0.18);
+        ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax - 6 * dpr, ay - 4 * dpr); ctx.moveTo(ax, ay); ctx.lineTo(ax - 5 * dpr, ay + 5 * dpr); ctx.stroke();
+      } else {
+        for (let r = 0; r < g.rows; r++) {
+          const y = g.top + r * g.pitch;
+          ctx.fillStyle = theme.road;
+          roundRect(ctx, g.padX - 6 * dpr, y - g.laneH / 2, g.usableW + 12 * dpr, g.laneH, 4 * dpr);
+          ctx.fill();
+          ctx.fillStyle = theme.muted;
+          ctx.font = `${9.5 * dpr}px ${theme.mono}`;
+          ctx.textBaseline = 'middle';
+          ctx.textAlign = 'right';
+          if (g.pitch > 22 * dpr) ctx.fillText(fmtLen(r * g.rowLen), g.padX - 9 * dpr, y);
+          // continuation chevron
+          ctx.strokeStyle = theme.muted;
+          ctx.lineWidth = 1.3 * dpr;
+          const cx = g.padX + g.usableW + 12 * dpr;
+          ctx.beginPath(); ctx.moveTo(cx, y - 4 * dpr); ctx.lineTo(cx + 4 * dpr, y); ctx.lineTo(cx, y + 4 * dpr); ctx.stroke();
+        }
+      }
+
+      // --- per-car positions
+      const pos = this.positions;
+      pos.length = n;
+      for (let i = 0; i < n; i++) pos[i] = this.place(g, cars[i].x);
+
+      // --- speed halo (outer band in ring, under-strip in unrolled)
+      const haloW = 5 * dpr;
+      for (let i = 0; i < n; i++) {
+        const car = cars[i];
+        const span = n > 1 ? sim.gapOf(i) + sim.carLen : sim.L;
+        ctx.strokeStyle = speedColor(car.v / vlim);
+        if (g.kind === 'ring') {
+          const th0 = pos[i].th - (sim.carLen / 2 / sim.L) * Math.PI * 2;
+          ctx.lineWidth = haloW;
+          ctx.beginPath();
+          ctx.arc(g.cx, g.cy, g.R + g.roadW / 2 + 6 * dpr, th0, th0 + (span / sim.L) * Math.PI * 2 + 0.002);
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = ctx.strokeStyle;
+          this.spanRows(g, car.x - sim.carLen / 2, span, (row, u0, u1) => {
+            ctx.fillRect(g.padX + u0 * g.pxm, g.top + row * g.pitch + g.laneH / 2 + 3 * dpr, (u1 - u0) * g.pxm + 0.5, 3.5 * dpr);
+          });
+        }
+      }
+
+      // --- ample-distance buffers on the road surface
+      ctx.fillStyle = theme.absorbSoft;
+      ctx.strokeStyle = theme.absorbSoft;
+      for (let i = 0; i < n; i++) {
+        const car = cars[i];
+        if (!car.absorber || n < 2) continue;
+        const gap = sim.gapOf(i);
+        if (g.kind === 'ring') {
+          const th0 = pos[i].th + (sim.carLen / 2 / sim.L) * Math.PI * 2;
+          ctx.lineWidth = g.roadW * 0.78;
+          ctx.beginPath();
+          ctx.arc(g.cx, g.cy, g.R, th0, th0 + (gap / sim.L) * Math.PI * 2);
+          ctx.stroke();
+        } else {
+          this.spanRows(g, car.x + sim.carLen / 2, gap, (row, u0, u1) => {
+            const y = g.top + row * g.pitch;
+            ctx.fillRect(g.padX + u0 * g.pxm, y - g.laneH * 0.39, (u1 - u0) * g.pxm, g.laneH * 0.78);
+          });
+        }
+      }
+
+      // --- ripples from brake taps
+      for (let k = ripples.length - 1; k >= 0; k--) {
+        const rp = ripples[k];
+        const age = (now - rp.t0) / 900;
+        if (age > 1) { ripples.splice(k, 1); continue; }
+        if (rp.which !== this.which && rp.which !== '*') continue;
+        const p = pos[rp.id];
+        if (!p) continue;
+        ctx.strokeStyle = theme.brake;
+        ctx.globalAlpha = 1 - age;
+        ctx.lineWidth = 2.5 * dpr;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, (8 + age * 38) * dpr, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+
+      // --- cars
+      for (let i = 0; i < n; i++) {
+        const car = cars[i], p = pos[i];
+        const col = speedColor(car.v / vlim);
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.ang);
+        if (carLen < 6 * dpr) {
+          ctx.fillStyle = col;
+          ctx.beginPath(); ctx.arc(0, 0, Math.max(2.2 * dpr, carLen / 2), 0, Math.PI * 2); ctx.fill();
+          if (car.absorber) { ctx.strokeStyle = theme.absorb; ctx.lineWidth = 1.6 * dpr; ctx.stroke(); }
+          if (car.braking) { ctx.fillStyle = theme.brake; ctx.beginPath(); ctx.arc(-carLen / 2, 0, 1.4 * dpr, 0, Math.PI * 2); ctx.fill(); }
+        } else {
+          const L2 = carLen / 2, W2 = carWid / 2;
+          if (car.braking) {
+            ctx.shadowColor = theme.brake;
+            ctx.shadowBlur = (theme.dark ? 14 : 8) * dpr;
+            ctx.fillStyle = theme.brake;
+            const bl = Math.max(1.5 * dpr, carWid * 0.22);
+            ctx.fillRect(-L2 - 0.6 * dpr, -W2 + 0.5 * dpr, 2 * dpr, bl);
+            ctx.fillRect(-L2 - 0.6 * dpr, W2 - 0.5 * dpr - bl, 2 * dpr, bl);
+            ctx.shadowBlur = 0;
+          }
+          ctx.fillStyle = col;
+          roundRect(ctx, -L2, -W2, carLen, carWid, Math.min(carWid * 0.35, 4 * dpr));
+          ctx.fill();
+          if (car.absorber) { ctx.strokeStyle = theme.absorb; ctx.lineWidth = Math.max(1.5, 2 * dpr); ctx.stroke(); }
+          // windshield and rear window
+          ctx.fillStyle = 'rgba(0,0,0,0.32)';
+          ctx.fillRect(L2 * 0.18, -W2 * 0.7, L2 * 0.34, W2 * 1.4);
+          ctx.fillStyle = 'rgba(0,0,0,0.2)';
+          ctx.fillRect(-L2 * 0.72, -W2 * 0.62, L2 * 0.24, W2 * 1.24);
+          if (car.braking) {
+            ctx.fillStyle = theme.brake;
+            const bl = Math.max(1.5 * dpr, carWid * 0.22);
+            ctx.fillRect(-L2, -W2 + 0.5 * dpr, 1.6 * dpr, bl);
+            ctx.fillRect(-L2, W2 - 0.5 * dpr - bl, 1.6 * dpr, bl);
+          }
+        }
+        ctx.restore();
+      }
+
+      // --- selection
+      const sel = state.selected;
+      const hov = state.hover && state.hover.which === this.which ? state.hover.id : null;
+      for (const id of [sel, hov]) {
+        if (id == null || !pos[id]) continue;
+        ctx.strokeStyle = theme.ink;
+        ctx.lineWidth = (id === sel ? 2 : 1.2) * dpr;
+        ctx.setLineDash(id === sel ? [] : [3 * dpr, 3 * dpr]);
+        ctx.beginPath();
+        ctx.arc(pos[id].x, pos[id].y, Math.max(carLen * 0.75, 10 * dpr), 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+      if (sel != null && pos[sel] && cars[sel]) {
+        ctx.fillStyle = theme.ink;
+        ctx.font = `700 ${11 * dpr}px ${theme.mono}`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(`#${sel + 1}`, pos[sel].x, pos[sel].y - Math.max(carLen * 0.75, 10 * dpr) - 3 * dpr);
+      }
+
+      // --- center readout
+      const mean = sim.meanSpeed() * 3.6;
+      let stopped = 0;
+      for (const c of cars) if (c.v < 0.25 * vlim) stopped++;
+      if (g.kind === 'ring') {
+        const big = Math.max(18 * dpr, Math.min(64 * dpr, g.R * 0.3));
+        ctx.textAlign = 'center';
+        ctx.fillStyle = speedColor(mean / 3.6 / vlim);
+        ctx.font = `700 ${big}px ${theme.mono}`;
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillText(Math.round(mean), g.cx, g.cy + big * 0.12);
+        ctx.fillStyle = theme.muted;
+        ctx.font = `600 ${Math.max(10 * dpr, big * 0.2)}px ${theme.display}`;
+        ctx.fillText('km/h average', g.cx, g.cy + big * 0.48);
+        if (g.R > 110 * dpr) {
+          ctx.fillStyle = stopped ? theme.slow : theme.muted;
+          ctx.font = `600 ${Math.max(10 * dpr, big * 0.19)}px ${theme.mono}`;
+          ctx.fillText(stopped ? `${stopped} crawling` : 'all moving', g.cx, g.cy + big * 0.9);
+        }
+      } else {
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillStyle = speedColor(mean / 3.6 / vlim);
+        ctx.font = `700 ${26 * dpr}px ${theme.mono}`;
+        ctx.fillText(`${Math.round(mean)}`, w - 70 * dpr, 34 * dpr);
+        ctx.fillStyle = theme.muted;
+        ctx.font = `600 ${11 * dpr}px ${theme.display}`;
+        ctx.fillText('km/h avg', w - 14 * dpr, 34 * dpr);
+      }
+    }
+
+    hit(clientX, clientY) {
+      const r = this.cv.getBoundingClientRect();
+      const dpr = this.cv.width / Math.max(1, r.width);
+      const x = (clientX - r.left) * dpr, y = (clientY - r.top) * dpr;
+      let best = null, bd = (22 * dpr) ** 2;
+      this.positions.forEach((p, i) => {
+        const d = (p.x - x) ** 2 + (p.y - y) ** 2;
+        if (d < bd) { bd = d; best = i; }
+      });
+      return best;
+    }
+  }
+
+  // ---------------------------------------------------------------- time-space view
+  const TS_SAMPLE = 0.25;   // sim seconds per column
+  const TS_COL = 2;         // css px per column
+  class TimeSpace {
+    constructor(canvas, which) {
+      this.cv = canvas;
+      this.ctx = canvas.getContext('2d');
+      this.which = which;
+      this.buf = document.createElement('canvas');
+      this.bctx = this.buf.getContext('2d');
+      this.prev = null;
+      this.nextT = 0;
+      this.margin = { l: 46, r: 8, t: 6, b: 20 };
+    }
+    get sim() { return this.which === 'A' ? simA : simB; }
+    clear() {
+      this.prev = null;
+      this.nextT = 0;
+      this.bctx.setTransform(1, 0, 0, 1, 0, 0);
+      this.bctx.clearRect(0, 0, this.buf.width, this.buf.height);
+    }
+    resize() {
+      if (!fitCanvas(this.cv) && this.buf.width) return;
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      const m = this.margin;
+      const w = Math.max(1, this.cv.width - (m.l + m.r) * dpr), h = Math.max(1, this.cv.height - (m.t + m.b) * dpr);
+      const old = this.buf.width ? this.buf : null;
+      const nb = document.createElement('canvas');
+      nb.width = w; nb.height = h;
+      const nctx = nb.getContext('2d');
+      if (old) nctx.drawImage(old, w - old.width, 0, old.width, h);
+      this.buf = nb; this.bctx = nctx;
+    }
+    sample() {
+      const sim = this.sim;
+      if (!sim) return;
+      while (sim.t >= this.nextT) {
+        this.nextT += TS_SAMPLE;
+        this.column();
+      }
+    }
+    column() {
+      const sim = this.sim, b = this.buf, ctx = this.bctx;
+      if (!b.width) return;
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      const col = Math.max(1, Math.round(TS_COL * dpr));
+      const W = b.width, H = b.height;
+      ctx.globalCompositeOperation = 'copy';
+      ctx.drawImage(b, -col, 0);
+      ctx.globalCompositeOperation = 'source-over';
+      const vlim = sim.cfg.speedLimit / 3.6;
+      const cur = sim.cars.map((c) => c.x);
+      const prev = this.prev && this.prev.length === cur.length ? this.prev : cur;
+      const y = (s) => H - (s / sim.L) * H;
+      ctx.lineCap = 'round';
+      for (const pass of [0, 1]) {
+        for (let i = 0; i < sim.n; i++) {
+          const car = sim.cars[i];
+          if ((pass === 1) !== car.absorber) continue;
+          let y0 = y(prev[i]), y1 = y(cur[i]);
+          if (cur[i] < prev[i] - sim.L / 2) y0 += H;
+          ctx.strokeStyle = car.absorber ? theme.absorb : speedColor(car.v / vlim);
+          ctx.lineWidth = (car.absorber ? 2 : 1.4) * dpr;
+          ctx.beginPath();
+          ctx.moveTo(W - col - 0.5, y0);
+          ctx.lineTo(W - 0.5, y1);
+          ctx.stroke();
+        }
+      }
+      // mark brake taps
+      for (const ev of sim.brakeLog) {
+        if (ev.t > sim.t - TS_SAMPLE - 1e-6 && !ev.drawn) {
+          ev.drawn = true;
+          const yy = y(sim.cars[ev.id].x);
+          ctx.fillStyle = theme.brake;
+          ctx.beginPath(); ctx.arc(W - 3 * dpr, yy, 3.5 * dpr, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+      this.prev = cur;
+    }
+    draw() {
+      const cv = this.cv, ctx = this.ctx, sim = this.sim;
+      if (!sim) return;
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      const m = this.margin;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.fillStyle = theme.surface;
+      ctx.fillRect(0, 0, cv.width, cv.height);
+      const x0 = m.l * dpr, y0 = m.t * dpr, W = this.buf.width, H = this.buf.height;
+      ctx.fillStyle = theme.surface2;
+      ctx.fillRect(x0, y0, W, H);
+      // grid
+      ctx.strokeStyle = theme.grid;
+      ctx.lineWidth = 1;
+      const secPerPx = TS_SAMPLE / (TS_COL * dpr);
+      const span = W * secPerPx;
+      const tStep = span > 240 ? 60 : span > 100 ? 30 : 15;
+      ctx.fillStyle = theme.muted;
+      ctx.font = `${10 * dpr}px ${theme.mono}`;
+      ctx.textBaseline = 'top';
+      ctx.textAlign = 'center';
+      for (let s = 0; s <= span; s += tStep) {
+        const x = x0 + W - s / secPerPx;
+        ctx.beginPath(); ctx.moveTo(x, y0); ctx.lineTo(x, y0 + H); ctx.stroke();
+        ctx.fillText(s === 0 ? 'now' : `−${s} s`, Math.max(x0 + 14 * dpr, Math.min(x0 + W - 12 * dpr, x)), y0 + H + 5 * dpr);
+      }
+      ctx.textAlign = 'right';
+      ctx.textBaseline = 'middle';
+      for (const f of [0, 0.5, 1]) {
+        const y = y0 + H - f * H;
+        ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x0 + W, y); ctx.stroke();
+        ctx.fillText(fmtLen(sim.L * f), x0 - 6 * dpr, Math.max(y0 + 6 * dpr, Math.min(y0 + H - 6 * dpr, y)));
+      }
+      ctx.drawImage(this.buf, x0, y0);
+    }
+  }
+
+  // ---------------------------------------------------------------- views
+  const viewA = new RoadView($('#canvasA'), 'A');
+  const viewB = new RoadView($('#canvasB'), 'B');
+  const tsA = new TimeSpace($('#tsA'), 'A');
+  const tsB = new TimeSpace($('#tsB'), 'B');
+  readTheme();
+
+  // ---------------------------------------------------------------- sims
+  function baselineCfg() { return { ...state.cfg, absorbers: 0, manual: null }; }
+  function buildSims() {
+    simA = new Sim(state.cfg);
+    simB = state.compare ? new Sim(baselineCfg()) : null;
+    state.events.forEach((e) => { e.done = false; });
+    tsA.resize(); tsA.clear();
+    tsB.resize(); tsB.clear();
+    if (state.selected != null && state.selected >= simA.n) state.selected = null;
+    syncLabels();
+  }
+  function liveUpdate() {
+    for (const s of [simA, simB]) {
+      if (!s) continue;
+      const keep = { absorbers: s.cfg.absorbers, manual: s.cfg.manual };
+      s.cfg = { ...state.cfg, ...(s === simB ? { absorbers: 0, manual: null } : {}) };
+      if (s === simA && (keep.absorbers !== s.cfg.absorbers || keep.manual !== s.cfg.manual)) s.applyMix();
+    }
+    syncLabels();
+  }
+  function mixChanged() {
+    if (simA) { simA.cfg = { ...state.cfg }; simA.applyMix(); }
+    syncLabels();
+  }
+  let rebuildTimer = 0;
+  function rebuildSoon() { clearTimeout(rebuildTimer); rebuildTimer = setTimeout(buildSims, 140); }
+
+  function absorberCount() { return simA ? simA.cars.filter((c) => c.absorber).length : 0; }
+
+  function tap(id, depth = state.tapDepth, silent = false) {
+    for (const [s, which] of [[simA, 'A'], [simB, 'B']]) {
+      if (!s || !s.cars[id]) continue;
+      s.tapBrakes(id, depth);
+      if (!reduceMotion) ripples.push({ id, which, t0: performance.now() });
+    }
+    if (!silent) toast(`Car ${id + 1} tapped the brakes at ${fmtTime(simA.t)}`);
+  }
+
+  let toastTimer = 0;
+  function toast(msg) {
+    const el = $('#toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
+  }
+
+  // ---------------------------------------------------------------- ui bindings
+  const SLIDERS = {
+    cars: { fmt: (v) => `${v}`, rebuild: true },
+    length: { fmt: (v) => fmtLen(v), rebuild: true },
+    speedLimit: { fmt: (v) => `${v} km/h` },
+    absorbT: { fmt: (v) => `${(+v).toFixed(1)} s` },
+    tailT: { fmt: (v) => `${(+v).toFixed(2)} s` },
+    reaction: { fmt: (v) => `${(+v).toFixed(2)} s` },
+    carLen: { fmt: (v) => `${(+v).toFixed(1)} m`, rebuild: true },
+    jamGap: { fmt: (v) => `${(+v).toFixed(2)} m`, rebuild: true },
+    accel: { fmt: (v) => `${(+v).toFixed(2)} m/s²` },
+    decel: { fmt: (v) => `${(+v).toFixed(1)} m/s²` },
+    distraction: { fmt: (v) => (+v === 0 ? 'none' : (+v).toFixed(2)) },
+    autoTapEvery: { fmt: (v) => `${v} s` },
+  };
+  for (const [key, spec] of Object.entries(SLIDERS)) {
+    const el = $('#' + key);
+    el.addEventListener('input', () => {
+      const v = +el.value;
+      state.cfg[key] = v;
+      $('#' + key + 'Out').textContent = spec.fmt(v);
+      if (key === 'cars') {
+        state.cfg.manual = null;
+        state.cfg.absorbers = Math.min(state.cfg.absorbers, v);
+        $('#absorbers').max = v;
+        $('#absorbers').value = state.cfg.absorbers;
+        state.selected = null;
+        hideCard();
+      }
+      markCustom();
+      if (spec.rebuild) { syncLabels(); rebuildSoon(); } else liveUpdate();
+    });
+  }
+  $('#absorbers').addEventListener('input', (e) => {
+    state.cfg.absorbers = +e.target.value;
+    state.cfg.manual = null;
+    markCustom();
+    mixChanged();
+  });
+  $('#quickMix').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    const n = state.cfg.cars;
+    const m = b.dataset.mix;
+    state.cfg.absorbers = m === 'one' ? 1 : Math.round(n * +m);
+    state.cfg.manual = null;
+    $('#absorbers').value = state.cfg.absorbers;
+    markCustom();
+    mixChanged();
+  });
+  $('#tapDepth').addEventListener('input', (e) => { state.tapDepth = +e.target.value; syncOutputs(); });
+  $('#autoTaps').addEventListener('change', (e) => { state.cfg.autoTaps = e.target.checked; markCustom(); liveUpdate(); });
+  $('#compare').addEventListener('change', (e) => {
+    state.compare = e.target.checked;
+    if (state.compare && simA) {
+      // start the baseline from scratch so both roads share the same clock
+      buildSims();
+    } else { simB = null; syncLabels(); }
+    layout();
+  });
+  function bindSeg(id, get, set) {
+    const seg = $(id);
+    seg.addEventListener('click', (e) => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      set(b.dataset.v);
+      syncSegs();
+    });
+  }
+  bindSeg('#placementSeg', () => state.cfg.placement, (v) => { state.cfg.placement = v; state.cfg.manual = null; markCustom(); mixChanged(); });
+  bindSeg('#viewSeg', () => state.view, (v) => { state.view = v; });
+
+  const SPEEDS = [0.5, 1, 2, 4, 8];
+  $('#speedSeg').innerHTML = SPEEDS.map((s) => `<button data-v="${s}">${s}×</button>`).join('');
+  bindSeg('#speedSeg', () => state.speed, (v) => { state.speed = +v; });
+
+  function syncSegs() {
+    for (const [id, val] of [['#placementSeg', state.cfg.placement], ['#viewSeg', state.view], ['#speedSeg', String(state.speed)]]) {
+      $(id).querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === String(val))));
+    }
+  }
+
+  function syncOutputs() {
+    for (const [key, spec] of Object.entries(SLIDERS)) {
+      $('#' + key).value = state.cfg[key];
+      $('#' + key + 'Out').textContent = spec.fmt(state.cfg[key]);
+    }
+    $('#absorbers').max = state.cfg.cars;
+    $('#tapDepth').value = state.tapDepth;
+    $('#tapDepthOut').textContent = `${Math.round(state.tapDepth * 100)}% speed`;
+    $('#autoTaps').checked = state.cfg.autoTaps;
+    $('#autoEveryField').hidden = !state.cfg.autoTaps;
+    $('#compare').checked = state.compare;
+  }
+
+  function syncLabels() {
+    const n = state.cfg.cars;
+    const k = simA ? absorberCount() : state.cfg.absorbers;
+    $('#absorbers').value = k;
+    $('#absorbersOut').textContent = `${k} of ${n}`;
+    $('#mixBlue').style.width = `${(k / n) * 100}%`;
+    $('#mixRed').style.width = `${100 - (k / n) * 100}%`;
+    $('#mixTag').textContent = `${Math.round((k / n) * 100)}% leave room`;
+    const density = n / (state.cfg.length / 1000);
+    $('#densityTag').textContent = `${Math.round(density)} cars/km`;
+    $('#densityOut').textContent = `${density.toFixed(1)}`;
+    $('#avgGap').textContent = `${Math.max(0, state.cfg.length / n - state.cfg.carLen).toFixed(1)} m`;
+    $('#exitTab').textContent = `Ring ${fmtLen(state.cfg.length)}`;
+    $('#rampMax').textContent = `${state.cfg.speedLimit} km/h`;
+    $('#autoEveryField').hidden = !state.cfg.autoTaps;
+    const mixLabel = k === 0 ? 'Everyone tailgates' : k === n ? 'Everyone leaves room' : `${k} of ${n} leave room`;
+    $('#labelA').innerHTML = state.compare
+      ? `<span class="chip ${k ? 'blue' : 'red'}">${mixLabel}</span>`
+      : `<span class="chip ${k ? 'blue' : 'red'}">${mixLabel}</span>`;
+    $('#labelB').innerHTML = `<span class="chip red">Everyone tailgates</span>`;
+    $('#tsLabelA').textContent = state.compare ? `Your mix: ${mixLabel.toLowerCase()}` : mixLabel;
+    $('#colA').textContent = state.compare ? 'Your mix' : mixLabel;
+    updateRegime();
+  }
+
+  // ---------------------------------------------------------------- regime map
+  // Linear string stability of the tailgaters' delayed IDM (analysis/linear-stability.mjs):
+  // a slowdown grows car by car when the peak of |G(iω)| exceeds 1.
+  function peakGain(lambda, R, p) {
+    const { v0, T, a, b, s0, ell } = p, tau = R * T;
+    const gap = (ell + s0 + v0 * T) / lambda - ell;
+    if (gap <= s0) return Infinity;
+    let lo = 0, hi = v0 * 0.999999;
+    for (let k = 0; k < 60; k++) {
+      const v = (lo + hi) / 2;
+      if ((s0 + v * T) / Math.sqrt(1 - (v / v0) ** 4) < gap) lo = v; else hi = v;
+    }
+    const v = lo, sStar = s0 + v * T;
+    const fs = 2 * a * sStar ** 2 / gap ** 3;
+    const fv = -a * (4 * v ** 3 / v0 ** 4 + 2 * sStar * T / gap ** 2);
+    const fdv = -a * sStar * v / (Math.sqrt(a * b) * gap ** 2);
+    let peak = 0;
+    for (let w = 1e-4 / T; w < 6 / T; w *= 1.02) {
+      const c = Math.cos(w * tau), sn = -Math.sin(w * tau);
+      const pi0 = (fs * tau - fdv) * w;
+      const pr = c * fs - sn * pi0, pim = c * pi0 + sn * fs;
+      const g = Math.hypot(pr, pim) / Math.hypot(-w * w + pr, pim - fv * w);
+      if (g > peak) peak = g;
+    }
+    return peak;
+  }
+  function criticalR(lambda, p) {
+    if (peakGain(lambda, 0, p) > 1 + 1e-9) return 0;
+    let lo = 0, hi = 2.2;
+    if (peakGain(lambda, hi, p) <= 1) return hi;
+    for (let k = 0; k < 22; k++) {
+      const m = (lo + hi) / 2;
+      if (peakGain(lambda, m, p) > 1 + 1e-9) hi = m; else lo = m;
+    }
+    return (lo + hi) / 2;
+  }
+  // Simulator: smallest R that jams after a tap to half speed, 30 tailgaters, default
+  // vehicles at 90 km/h (analysis/results/regime.json, similarity.json). null = never.
+  const HARD_TAP = [[0.5, null], [0.6, null], [0.7, 1.7], [0.8, 1.4], [0.9, 1.2], [1.0, 0.85], [1.05, 0.775],
+    [1.1, 0.75], [1.2, 0.75], [1.3, 0.65], [1.4, 0.65], [1.5, 0.6], [1.6, 0.2]];
+  const RMAX = 2, LMIN = 0.5, LMAX = 1.6;
+  const hardTapAt = (l) => {
+    const r = (x) => x ?? RMAX;
+    for (let k = 1; k < HARD_TAP.length; k++) {
+      const [l1, r1] = HARD_TAP[k], [l0, r0] = HARD_TAP[k - 1];
+      if (l <= l1) return r(r0) + (r(r1) - r(r0)) * (l - l0) / (l1 - l0);
+    }
+    return r(HARD_TAP[HARD_TAP.length - 1][1]);
+  };
+  function roadGroups(c = state.cfg) {
+    const v0 = c.speedLimit / 3.6, T = c.tailT;
+    const p = { v0, T, a: c.accel, b: c.decel, s0: c.jamGap, ell: c.carLen };
+    return {
+      p,
+      lambda: c.cars * (c.carLen + c.jamGap + v0 * T) / c.length,
+      R: c.reaction / T,
+      S: v0 / (c.accel * T), beta: c.decel / c.accel, ls: c.carLen / c.jamGap, M: (c.carLen + c.jamGap) / (v0 * T),
+    };
+  }
+  // The measured hard-tap line holds only where the vehicle groups match the defaults.
+  const DEF = roadGroups(BASE);
+  const matchesDefaults = (g) => ['S', 'beta', 'ls', 'M'].every((k) => Math.abs(g[k] / DEF[k] - 1) < 0.05);
+
+  const RG = { x0: 46, x1: 548, yT: 14, yB: 258 };
+  const RX = (l) => RG.x0 + (l - LMIN) / (LMAX - LMIN) * (RG.x1 - RG.x0);
+  const RY = (r) => RG.yB - r / RMAX * (RG.yB - RG.yT);
+  let theoryKey = '', theoryLine = [];
+  function updateRegime() {
+    const g = roadGroups();
+    const key = JSON.stringify(g.p);
+    if (key !== theoryKey) {
+      theoryKey = key;
+      theoryLine = [];
+      for (let l = LMIN; l <= LMAX + 1e-9; l += 0.025) theoryLine.push([l, Math.min(RMAX, criticalR(l, g.p))]);
+    }
+    const showHard = matchesDefaults(g);
+    const hard = theoryLine.map(([l, rc]) => [l, Math.min(rc, hardTapAt(l))]);
+    const path = (pts) => pts.map(([l, r], i) => `${i ? 'L' : 'M'}${RX(l).toFixed(1)} ${RY(r).toFixed(1)}`).join('');
+    const rev = (pts) => [...pts].reverse().map(([l, r]) => `L${RX(l).toFixed(1)} ${RY(r).toFixed(1)}`).join('');
+    const lower = showHard ? hard : theoryLine;
+    const zones =
+      `<path class="z-smooth" d="M${RX(LMIN)} ${RG.yB}${lower.map(([l, r]) => `L${RX(l).toFixed(1)} ${RY(r).toFixed(1)}`).join('')}L${RX(LMAX)} ${RG.yB}Z"/>` +
+      (showHard ? `<path class="z-meta" d="${path(hard)}${rev(theoryLine)}Z"/>` : '') +
+      `<path class="z-unst" d="M${RX(LMIN)} ${RG.yT}${theoryLine.map(([l, r]) => `L${RX(l).toFixed(1)} ${RY(r).toFixed(1)}`).join('')}L${RX(LMAX)} ${RG.yT}Z"/>`;
+    let grid = '';
+    for (let r = 0; r <= RMAX + 1e-9; r += 0.5) grid += `<line class="gridline" x1="${RG.x0}" x2="${RG.x1}" y1="${RY(r)}" y2="${RY(r)}"/><text class="tick" x="${RG.x0 - 6}" y="${RY(r) + 4}" text-anchor="end">${r.toFixed(1)}</text>`;
+    for (let l = LMIN; l <= LMAX + 1e-9; l += 0.1) grid += `<text class="tick" x="${RX(l)}" y="${RG.yB + 16}" text-anchor="middle">${l.toFixed(1)}</text>`;
+    grid += `<line class="axis" x1="${RG.x0}" x2="${RG.x1}" y1="${RG.yB}" y2="${RG.yB}"/>`;
+    const titles = `<text class="ax-title" x="${(RG.x0 + RG.x1) / 2}" y="296" text-anchor="middle">Load Λ = N(ℓ + s₀ + v₀T) / L</text>` +
+      `<text class="ax-title" transform="translate(13 ${(RG.yT + RG.yB) / 2}) rotate(-90)" text-anchor="middle">Delay R = τ / T</text>`;
+    // this road
+    const px = Math.max(LMIN, Math.min(LMAX, g.lambda)), py = Math.max(0, Math.min(RMAX, g.R));
+    const off = px !== g.lambda || py !== g.R;
+    const lx = RX(px) > RG.x1 - 150 ? RX(px) - 16 : RX(px) + 16;
+    const here = `<circle class="here-ring" cx="${RX(px)}" cy="${RY(py)}" r="12"/><circle class="here" cx="${RX(px)}" cy="${RY(py)}" r="6"/>` +
+      `<text class="here-label" x="${lx}" y="${RY(py)}" text-anchor="${lx < RX(px) ? 'end' : 'start'}" dominant-baseline="middle">${off ? 'off map: ' : ''}Λ ${g.lambda.toFixed(2)}, R ${g.R.toFixed(2)}</text>`;
+    $('#regimeSvg').innerHTML = zones + grid +
+      (showHard ? `<path class="measured" d="${path(hard)}"/>` : '') +
+      `<path class="theory" d="${path(theoryLine)}"/>` + titles + here;
+    $('#metaKey').hidden = !showHard;
+    $('#dashKey').hidden = !showHard;
+
+    // verdict for this road
+    const peak = peakGain(g.lambda, g.R, g.p);
+    let zone, text;
+    if (peak > 1.01) { zone = ['unst', 'Unstable']; text = 'Any small slowdown grows as it travels back, so stop-and-go starts on its own.'; }
+    else if (peak > 1 + 1e-9) { zone = ['meta', 'Barely unstable']; text = 'Only slow, gentle waves longer than the road can grow. Hard braking needs a big tap or a longer reaction time.'; }
+    else if (showHard && g.R >= hardTapAt(g.lambda)) { zone = ['meta', 'Metastable']; text = 'Small slowdowns fade, but a tap to half speed starts a jam that stays. Here a few ample-distance drivers decide which way it goes.'; }
+    else if (showHard) { zone = ['smooth', 'Smooth']; text = 'Even a tap to half speed fades out.'; }
+    else { zone = ['smooth', 'Stable to small taps']; text = 'Small slowdowns fade. How big a tap it takes to start a jam was measured only for the default vehicles, so that line is hidden.'; }
+    const chip = $('#zoneChip');
+    chip.className = `zone ${zone[0]}`;
+    chip.textContent = zone[1];
+    $('#zoneText').textContent = text;
+    const row = (sym, name, val, flag) => `<dt>${sym}</dt><dd>${name}</dd><span class="num">${val}${flag ? ' *' : ''}</span>`;
+    const differs = (k) => Math.abs(g[k] / DEF[k] - 1) >= 0.05;
+    $('#groupList').innerHTML =
+      row('Λ', 'load', g.lambda.toFixed(2)) + row('R', 'delay', g.R.toFixed(2)) +
+      row('S', 'v₀ / aT', g.S.toFixed(1), differs('S')) + row('β', 'b / a', g.beta.toFixed(2), differs('beta')) +
+      row('ℓ/s₀', 'car / stopped gap', g.ls.toFixed(2), differs('ls')) + row('M', '(ℓ + s₀) / v₀T', g.M.toFixed(2), differs('M'));
+    const notes = [];
+    if (!showHard) notes.push('* differs from the default car highway, where the dashed line was measured.');
+    if (state.cfg.distraction > 0) notes.push('Distraction lowers every boundary: at 0.5, jams start at about half the delay shown.');
+    if (absorberCount() > 0) notes.push('The map is for a road of tailgaters. Ample-distance drivers push this road toward smooth.');
+    $('#regimeNote').textContent = notes.join(' ');
+  }
+  $('#regimeSvg').addEventListener('click', (e) => {
+    const svg = e.currentTarget, pt = svg.createSVGPoint();
+    pt.x = e.clientX; pt.y = e.clientY;
+    const q = pt.matrixTransform(svg.getScreenCTM().inverse());
+    const lambda = LMIN + (q.x - RG.x0) / (RG.x1 - RG.x0) * (LMAX - LMIN);
+    const R = (RG.yB - q.y) / (RG.yB - RG.yT) * RMAX;
+    if (lambda < LMIN || lambda > LMAX || R < 0 || R > RMAX) return;
+    const c = state.cfg, v0 = c.speedLimit / 3.6;
+    c.reaction = Math.max(0.3, Math.min(1.6, Math.round(R * c.tailT / 0.05) * 0.05));
+    c.length = Math.max(150, Math.min(6000, Math.round(c.cars * (c.carLen + c.jamGap + v0 * c.tailT) / lambda / 10) * 10));
+    markCustom();
+    syncOutputs();
+    buildSims();
+  });
+
+  function layout() {
+    $('#roads').classList.toggle('compare', state.compare);
+    $('#roadB').hidden = !state.compare;
+    $('#tsItemB').hidden = !state.compare;
+    $('#ts').classList.toggle('compare', state.compare);
+    $('#colB').hidden = !state.compare;
+    requestAnimationFrame(() => { tsA.resize(); tsB.resize(); });
+  }
+
+  // ---------------------------------------------------------------- scenarios ui
+  $('#scenarios').innerHTML = SCENARIOS.map((s, i) =>
+    `<button class="scn" data-key="${s.key}" aria-pressed="false"><span class="step">Scene ${i + 1}</span><span class="name">${s.name}</span></button>`).join('');
+  $('#scenarios').addEventListener('click', (e) => {
+    const b = e.target.closest('.scn');
+    if (b) loadScenario(b.dataset.key);
+  });
+  function markCustom() {
+    if (state.scenario === 'custom') return;
+    state.scenario = 'custom';
+    document.querySelectorAll('.scn').forEach((b) => b.setAttribute('aria-pressed', 'false'));
+    $('#storyTitle').textContent = 'Your own road';
+    $('#storyText').textContent = 'You changed the setup, so scheduled events are off. Tap the brakes on any car, or switch on random taps, and compare the two roads.';
+    state.events = [];
+  }
+  function loadScenario(key) {
+    const s = SCENARIOS.find((x) => x.key === key);
+    state.scenario = key;
+    state.cfg = { ...BASE, ...s.cfg, manual: s.cfg.manual ? { ...s.cfg.manual } : null };
+    state.compare = s.compare;
+    state.view = s.view;
+    state.tapDepth = s.tapDepth;
+    state.events = s.events.map((e) => ({ ...e }));
+    state.selected = null;
+    hideCard();
+    document.querySelectorAll('.scn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.key === key)));
+    $('#storyTitle').textContent = s.name;
+    $('#storyText').textContent = s.text;
+    syncOutputs();
+    syncSegs();
+    layout();
+    buildSims();
+    setPlaying(true);
+  }
+
+  // ---------------------------------------------------------------- playback
+  function setPlaying(p) {
+    state.playing = p;
+    $('#playText').textContent = p ? 'Pause' : 'Play';
+    $('#play').setAttribute('aria-label', p ? 'Pause' : 'Play');
+    $('#playIcon').innerHTML = p
+      ? '<rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/>'
+      : '<path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/>';
+  }
+  $('#play').addEventListener('click', () => setPlaying(!state.playing));
+  $('#restart').addEventListener('click', () => { buildSims(); setPlaying(true); });
+  $('#tapRandom').addEventListener('click', () => tapSelectedOrRandom());
+  function tapSelectedOrRandom() {
+    const id = state.selected != null ? state.selected : Math.floor(Math.random() * simA.n);
+    tap(id);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest('input, button, select, textarea') && e.key !== 'Escape') return;
+    if (e.key === ' ') { e.preventDefault(); setPlaying(!state.playing); }
+    else if (e.key === 'b' || e.key === 'B') tapSelectedOrRandom();
+    else if (e.key === 'r' || e.key === 'R') buildSims();
+    else if (e.key === 'Escape') { state.selected = null; hideCard(); }
+  });
+
+  // ---------------------------------------------------------------- car selection
+  for (const view of [viewA, viewB]) {
+    view.cv.addEventListener('pointermove', (e) => {
+      const id = view.hit(e.clientX, e.clientY);
+      state.hover = id == null ? null : { which: view.which, id };
+      view.cv.style.cursor = id == null ? 'default' : 'pointer';
+    });
+    view.cv.addEventListener('pointerleave', () => { state.hover = null; });
+    view.cv.addEventListener('click', (e) => {
+      const id = view.hit(e.clientX, e.clientY);
+      if (id == null) { state.selected = null; hideCard(); return; }
+      state.selected = id;
+      showCard();
+    });
+  }
+  function hideCard() { $('#carCard').hidden = true; }
+  function showCard() { $('#carCard').hidden = false; updateCard(); }
+  function updateCard() {
+    const id = state.selected;
+    if (id == null || !simA || !simA.cars[id]) { hideCard(); return; }
+    const car = simA.cars[id];
+    const gap = simA.gapOf(id);
+    $('#ccTitle').textContent = `Car ${id + 1}`;
+    $('#ccType').innerHTML = car.absorber
+      ? '<span class="chip blue">Leaves ample distance</span>'
+      : '<span class="chip red">Tailgater</span>';
+    $('#ccSpeed').textContent = `${Math.round(car.v * 3.6)} km/h`;
+    $('#ccGap').textContent = `${gap.toFixed(1)} m`;
+    $('#ccHeadway').textContent = car.v > 0.5 ? `${(gap / car.v).toFixed(1)} s` : 'stopped';
+    $('#ccBrakes').textContent = `${car.brakeCount}`;
+    $('#ccToggle').textContent = car.absorber ? 'Tailgate instead' : 'Leave room';
+  }
+  $('#ccClose').addEventListener('click', () => { state.selected = null; hideCard(); });
+  $('#ccTap').addEventListener('click', () => { if (state.selected != null) tap(state.selected); });
+  $('#ccToggle').addEventListener('click', () => {
+    const id = state.selected;
+    if (id == null) return;
+    const manual = {};
+    simA.cars.forEach((c) => { manual[c.id] = c.absorber; });
+    manual[id] = !manual[id];
+    state.cfg.manual = manual;
+    state.cfg.absorbers = Object.values(manual).filter(Boolean).length;
+    if (state.scenario !== 'custom') {
+      const keepEvents = state.events;
+      markCustom();
+      state.events = keepEvents;
+    }
+    mixChanged();
+    updateCard();
+  });
+
+  // ---------------------------------------------------------------- stats
+  const ROWS = [
+    { key: 'meanKmh', label: 'Average speed', unit: 'km/h', dp: 0, higher: true },
+    { key: 'flow', label: 'Cars through per hour', unit: '', dp: 0, higher: true },
+    { key: 'stoppedPct', label: 'Crawling or stopped', unit: '%', dp: 0, higher: false },
+    { key: 'waves', label: 'Jams on the road', unit: '', dp: 0, higher: false },
+    { key: 'brakesPerMin', label: 'Hard brakes per min', unit: '', dp: 0, higher: false },
+    { key: 'sdKmh', label: 'Speed spread (±)', unit: 'km/h', dp: 1, higher: false },
+  ];
+  const statsAcc = { A: null, B: null };
+  function smoothStats(prev, cur) {
+    if (!prev) return { ...cur };
+    const o = {};
+    for (const k in cur) o[k] = k === 'brakesPerMin' || k === 'density' ? cur[k] : prev[k] + (cur[k] - prev[k]) * 0.35;
+    return o;
+  }
+  function renderStats() {
+    if (!simA) return;
+    statsAcc.A = smoothStats(statsAcc.A, simA.snapshot());
+    statsAcc.B = simB ? smoothStats(statsAcc.B, simB.snapshot()) : null;
+    const a = statsAcc.A, b = statsAcc.B;
+    $('#statBody').innerHTML = ROWS.map((r) => {
+      const va = a[r.key], vb = b ? b[r.key] : null;
+      let cls = '';
+      if (b && Math.abs(va - vb) > Math.max(0.5, Math.abs(vb) * 0.05)) cls = (va > vb) === r.higher ? 'better' : 'worse';
+      const f = (v) => (r.key === 'flow' ? Math.round(v).toLocaleString() : v.toFixed(r.dp));
+      return `<tr><td>${r.label}</td><td class="v ${cls}">${f(va)}<span class="u">${r.unit}</span></td>${b ? `<td class="v">${f(vb)}<span class="u">${r.unit}</span></td>` : ''}</tr>`;
+    }).join('');
+    // verdict
+    const v = $('#verdict');
+    if (simA.t < 8) { v.innerHTML = 'Warming up. Readings settle after a few seconds.'; }
+    else if (b) {
+      const dv = a.meanKmh - b.meanKmh;
+      const ds = b.stoppedPct - a.stoppedPct;
+      v.innerHTML = Math.abs(dv) < 1.5 && Math.abs(ds) < 3
+        ? 'Both roads are running about the same right now. Tap the brakes to test them.'
+        : dv > 0
+          ? `Your mix is moving <b>${dv.toFixed(0)} km/h</b> faster on average${ds > 0 ? `, with <b>${ds.toFixed(0)}%</b> fewer cars crawling` : ''}.`
+          : `Everyone-tailgates is ahead by <b>${(-dv).toFixed(0)} km/h</b> right now. Ample gaps cost a little speed until a wave arrives.`;
+    } else {
+      v.innerHTML = a.waves > 0
+        ? `<b>${Math.round(a.waves)}</b> stop-and-go wave${Math.round(a.waves) === 1 ? '' : 's'} on the road. Turn on Compare to see what everyone-tailgates does.`
+        : 'Traffic is flowing smoothly. Tap the brakes on a car to test it.';
+    }
+  }
+  function drawSpark() {
+    const cv = $('#spark');
+    fitCanvas(cv);
+    const ctx = cv.getContext('2d');
+    const w = cv.width, h = cv.height, dpr = Math.min(2, window.devicePixelRatio || 1);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.fillStyle = theme.surface;
+    ctx.fillRect(0, 0, w, h);
+    if (!simA) return;
+    const vmax = (simA.cfg.speedLimit / 3.6) * 1.05;
+    const padL = 30 * dpr, padB = 4 * dpr, padT = 6 * dpr;
+    const ih = h - padB - padT, iw = w - padL - 4 * dpr;
+    ctx.strokeStyle = theme.grid;
+    ctx.fillStyle = theme.muted;
+    ctx.font = `${9.5 * dpr}px ${theme.mono}`;
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'middle';
+    for (const f of [0, 0.5, 1]) {
+      const y = padT + ih - f * ih;
+      ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(w, y); ctx.stroke();
+      ctx.fillText(Math.round(vmax * f * 3.6), padL - 5 * dpr, y);
+    }
+    const series = [[simB, theme.slow, 1.5], [simA, theme.absorb, 2.2]];
+    for (const [s, color, lw] of series) {
+      if (!s) continue;
+      const d = s.stats.speedSeries;
+      if (d.length < 2) continue;
+      const xs = (i) => padL + iw - (d.length - 1 - i) * (iw / 359);
+      const ys = (v) => padT + ih - (v / vmax) * ih;
+      if (s === simA) {
+        ctx.beginPath();
+        ctx.moveTo(xs(0), padT + ih);
+        d.forEach((v, i) => ctx.lineTo(xs(i), ys(v)));
+        ctx.lineTo(xs(d.length - 1), padT + ih);
+        ctx.closePath();
+        ctx.fillStyle = theme.absorbSoft;
+        ctx.fill();
+      }
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lw * dpr;
+      ctx.beginPath();
+      d.forEach((v, i) => (i ? ctx.lineTo(xs(i), ys(v)) : ctx.moveTo(xs(i), ys(v))));
+      ctx.stroke();
+      ctx.fillStyle = color;
+      ctx.beginPath(); ctx.arc(xs(d.length - 1), ys(d[d.length - 1]), 3 * dpr, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+
+  // ---------------------------------------------------------------- explainer glyphs
+  function drawGlyphs(t) {
+    document.querySelectorAll('.glyph').forEach((cv) => {
+      fitCanvas(cv);
+      const ctx = cv.getContext('2d');
+      const w = cv.width, h = cv.height, dpr = Math.min(2, window.devicePixelRatio || 1);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+      const kind = cv.dataset.glyph;
+      const cy = h / 2;
+      ctx.fillStyle = theme.road;
+      roundRect(ctx, 0, cy - 9 * dpr, w, 18 * dpr, 4 * dpr);
+      ctx.fill();
+      const N = 7;
+      const phase = reduceMotion ? 0.5 : (t / 4000) % 1;
+      for (let i = 0; i < N; i++) {
+        const x = w * (0.92 - i * 0.13);
+        let frac = 1, isAbs = false;
+        if (kind === 'delay') frac = Math.max(0, 1 - i * 0.16);
+        else if (kind === 'wave') {
+          const center = (1 - phase) * N;
+          frac = Math.min(1, Math.abs(i - center) / 2.2);
+        } else {
+          isAbs = i === 2;
+          frac = i < 2 ? 0.45 + i * 0.1 : i === 2 ? 0.75 : 1;
+        }
+        const len = 22 * dpr, wid = 11 * dpr;
+        if (isAbs) {
+          ctx.fillStyle = theme.absorbSoft;
+          ctx.fillRect(x + len / 2, cy - 7 * dpr, w * 0.13 - len, 14 * dpr);
+        }
+        ctx.fillStyle = speedColor(frac);
+        roundRect(ctx, x - len / 2, cy - wid / 2, len, wid, 3 * dpr);
+        ctx.fill();
+        if (isAbs) { ctx.strokeStyle = theme.absorb; ctx.lineWidth = 2 * dpr; ctx.stroke(); }
+        if (frac < 0.6) {
+          ctx.fillStyle = theme.brake;
+          ctx.fillRect(x - len / 2 - 1 * dpr, cy - wid / 2 + 1 * dpr, 2 * dpr, 3 * dpr);
+          ctx.fillRect(x - len / 2 - 1 * dpr, cy + wid / 2 - 4 * dpr, 2 * dpr, 3 * dpr);
+        }
+      }
+    });
+  }
+
+  // ---------------------------------------------------------------- loop
+  let last = performance.now();
+  let statTimer = 0, cardTimer = 0, glyphTimer = 0;
+  function frame(now) {
+    const dtReal = Math.min(0.1, (now - last) / 1000);
+    last = now;
+    if (state.playing && simA) {
+      const budget = dtReal * state.speed;
+      const steps = Math.min(400, Math.round(budget / DT + (frame.carry || 0)));
+      frame.carry = budget / DT + (frame.carry || 0) - steps;
+      for (let k = 0; k < steps; k++) {
+        for (const ev of state.events) {
+          if (!ev.done && simA.t >= ev.t) { ev.done = true; tap(ev.id, ev.depth); }
+        }
+        simA.step();
+        if (simB) simB.step();
+        tsA.sample();
+        if (simB) tsB.sample();
+      }
+    }
+    viewA.draw(now);
+    if (simB) viewB.draw(now);
+    tsA.draw();
+    if (simB) tsB.draw();
+    $('#clock').textContent = simA ? fmtTime(simA.t) : '0:00';
+    if (now - statTimer > 300) { statTimer = now; renderStats(); drawSpark(); }
+    if (now - cardTimer > 120 && state.selected != null) { cardTimer = now; updateCard(); }
+    if (now - glyphTimer > (reduceMotion ? 1000 : 50)) { glyphTimer = now; drawGlyphs(now); }
+    requestAnimationFrame(frame);
+  }
+
+  new ResizeObserver(() => { tsA.resize(); tsB.resize(); }).observe($('#ts'));
+
+  loadScenario('one');
+  requestAnimationFrame(frame);
+})();
+</script>

@@ -1,0 +1,10782 @@
+{
+ "boundary": [
+  {
+   "lambda": 0.5,
+   "theory": 3,
+   "tiny": null,
+   "dip15": null,
+   "dip50": null
+  },
+  {
+   "lambda": 0.6,
+   "theory": 3,
+   "tiny": null,
+   "dip15": null,
+   "dip50": null
+  },
+  {
+   "lambda": 0.7,
+   "theory": 2.415,
+   "tiny": null,
+   "dip15": null,
+   "dip50": 1.7
+  },
+  {
+   "lambda": 0.8,
+   "theory": 1.814,
+   "tiny": 1.8,
+   "dip15": 1.45,
+   "dip50": 1.4
+  },
+  {
+   "lambda": 0.9,
+   "theory": 1.441,
+   "tiny": 1.45,
+   "dip15": 1.15,
+   "dip50": 1.2
+  },
+  {
+   "lambda": 1,
+   "theory": 1.196,
+   "tiny": 1.2,
+   "dip15": 1,
+   "dip50": 0.85
+  },
+  {
+   "lambda": 1.1,
+   "theory": 1.027,
+   "tiny": 1.05,
+   "dip15": 0.85,
+   "dip50": 0.75
+  },
+  {
+   "lambda": 1.2,
+   "theory": 0.906,
+   "tiny": 0.9,
+   "dip15": 0.8,
+   "dip50": 0.75
+  },
+  {
+   "lambda": 1.3,
+   "theory": 0.811,
+   "tiny": 0.8,
+   "dip15": 0.75,
+   "dip50": 0.65
+  },
+  {
+   "lambda": 1.4,
+   "theory": 0,
+   "tiny": 0.7,
+   "dip15": 0.65,
+   "dip50": 0.65
+  },
+  {
+   "lambda": 1.5,
+   "theory": 0,
+   "tiny": 0.65,
+   "dip15": 0.65,
+   "dip50": 0.6
+  },
+  {
+   "lambda": 1.6,
+   "theory": 0,
+   "tiny": 0.6,
+   "dip15": 0.6,
+   "dip50": 0.2
+  }
+ ],
+ "grid": [
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.2,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.25,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.3,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.35,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.4,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.45,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.5,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.55,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.6,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.65,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.7,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.75,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.8,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.85,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.9,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 0.95,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.05,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.1,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.15,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.2,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.25,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.3,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.35,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.4,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.45,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.5,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.55,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.6,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.65,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.7,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.75,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.5,
+   "R": 1.8,
+   "piV": 0.0155,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.2,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.25,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.3,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.35,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.4,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.45,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.5,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.55,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.6,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.65,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.7,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.75,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.8,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.85,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.9,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 0.95,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1,
+   "piV": 0.0023,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.05,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.1,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.15,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.2,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.25,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.3,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.35,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.4,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.45,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.5,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.55,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.6,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.65,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.7,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.75,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.6,
+   "R": 1.8,
+   "piV": 0.0022,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.2,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.25,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.3,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.35,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.4,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.45,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.5,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.55,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.6,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.65,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.7,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.75,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.8,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.85,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.9,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 0.95,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.05,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.1,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.15,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.2,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.25,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.3,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.35,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.4,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.45,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.5,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.55,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.6,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.65,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.7,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.75,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.7,
+   "R": 1.8,
+   "piV": 0.0003,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.2,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.25,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.3,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.35,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.4,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.45,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.5,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.55,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.6,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.65,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.7,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.75,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.8,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.85,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.9,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 0.95,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.05,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.1,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.15,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.2,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.25,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.3,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.35,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.4,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.45,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.5,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.55,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.6,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.65,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.7,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.75,
+   "piV": 0.0003,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.8,
+   "R": 1.8,
+   "piV": 0.2902,
+   "kmh": 49,
+   "brakes": 5.63,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.2,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.25,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.3,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.35,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.4,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.45,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.5,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.55,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.6,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.65,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.7,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.75,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.8,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.85,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.9,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 0.95,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.05,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.1,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.15,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.2,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.25,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.3,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.35,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.4,
+   "piV": 0.0001,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.45,
+   "piV": 0.2682,
+   "kmh": 47.5,
+   "brakes": 4.67,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.5,
+   "piV": 0.2658,
+   "kmh": 49.3,
+   "brakes": 5.03,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.55,
+   "piV": 0.2403,
+   "kmh": 35.5,
+   "brakes": 3.8,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.6,
+   "piV": 0.2396,
+   "kmh": 36.2,
+   "brakes": 4.5,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.65,
+   "piV": 0.244,
+   "kmh": 35.3,
+   "brakes": 4.5,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.7,
+   "piV": 0.2457,
+   "kmh": 36.3,
+   "brakes": 4.77,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.75,
+   "piV": 0.2228,
+   "kmh": 31.6,
+   "brakes": 4.57,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 0.9,
+   "R": 1.8,
+   "piV": 0.2214,
+   "kmh": 30.3,
+   "brakes": 4.83,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.2,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.25,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.3,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.35,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.4,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.45,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.5,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.55,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.6,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.65,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.7,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.75,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.8,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.85,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.9,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 0.95,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.05,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.1,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.15,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.2,
+   "piV": 0.228,
+   "kmh": 42.2,
+   "brakes": 5.3,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.25,
+   "piV": 0.2794,
+   "kmh": 52.2,
+   "brakes": 4.37,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.3,
+   "piV": 0.2805,
+   "kmh": 53.6,
+   "brakes": 5.03,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.35,
+   "piV": 0.2822,
+   "kmh": 52.9,
+   "brakes": 5.17,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.4,
+   "piV": 0.2548,
+   "kmh": 38,
+   "brakes": 4.67,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.45,
+   "piV": 0.2612,
+   "kmh": 39.8,
+   "brakes": 4.63,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.5,
+   "piV": 0.2615,
+   "kmh": 40.1,
+   "brakes": 5.23,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.55,
+   "piV": 0.2301,
+   "kmh": 33.6,
+   "brakes": 4.77,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.6,
+   "piV": 0.2312,
+   "kmh": 32.2,
+   "brakes": 5,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.65,
+   "piV": 0.2329,
+   "kmh": 33.8,
+   "brakes": 5.2,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.7,
+   "piV": 0.2349,
+   "kmh": 33.1,
+   "brakes": 5,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.75,
+   "piV": 0.2364,
+   "kmh": 33.3,
+   "brakes": 5.33,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1,
+   "R": 1.8,
+   "piV": 0.2376,
+   "kmh": 33,
+   "brakes": 5.57,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.2,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.25,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.3,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.35,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.4,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.45,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.5,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.55,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.6,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.65,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.7,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.75,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.8,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.85,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.9,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 0.95,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1,
+   "piV": 0.0003,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.05,
+   "piV": 0.2605,
+   "kmh": 50.8,
+   "brakes": 3.87,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.1,
+   "piV": 0.2665,
+   "kmh": 50.2,
+   "brakes": 4.2,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.15,
+   "piV": 0.2509,
+   "kmh": 39,
+   "brakes": 4.77,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.2,
+   "piV": 0.2703,
+   "kmh": 50.5,
+   "brakes": 5.03,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.25,
+   "piV": 0.2406,
+   "kmh": 36.7,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.3,
+   "piV": 0.2434,
+   "kmh": 37.7,
+   "brakes": 4.13,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.35,
+   "piV": 0.2461,
+   "kmh": 37,
+   "brakes": 4.5,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.4,
+   "piV": 0.2479,
+   "kmh": 37.8,
+   "brakes": 4.2,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.45,
+   "piV": 0.25,
+   "kmh": 37.7,
+   "brakes": 4.53,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.5,
+   "piV": 0.2514,
+   "kmh": 37.4,
+   "brakes": 6.37,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.55,
+   "piV": 0.2293,
+   "kmh": 35.5,
+   "brakes": 5.7,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.6,
+   "piV": 0.2222,
+   "kmh": 31.6,
+   "brakes": 5.63,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.65,
+   "piV": 0.2228,
+   "kmh": 31.4,
+   "brakes": 5.47,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.7,
+   "piV": 0.2252,
+   "kmh": 32.2,
+   "brakes": 5.63,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.75,
+   "piV": 0.2262,
+   "kmh": 31,
+   "brakes": 6,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.1,
+   "R": 1.8,
+   "piV": 0.2354,
+   "kmh": 32.2,
+   "brakes": 6.1,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.2,
+   "piV": 0,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.25,
+   "piV": 0,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.3,
+   "piV": 0,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.35,
+   "piV": 0,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.4,
+   "piV": 0,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.45,
+   "piV": 0,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.5,
+   "piV": 0,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.55,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.6,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.65,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.7,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.75,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.8,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.85,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.9,
+   "piV": 0.2245,
+   "kmh": 40.1,
+   "brakes": 3.47,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 0.95,
+   "piV": 0.2476,
+   "kmh": 46.6,
+   "brakes": 3.47,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1,
+   "piV": 0.2537,
+   "kmh": 46.5,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.05,
+   "piV": 0.227,
+   "kmh": 34.7,
+   "brakes": 5.67,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.1,
+   "piV": 0.227,
+   "kmh": 42.3,
+   "brakes": 5.43,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.15,
+   "piV": 0.2233,
+   "kmh": 36.1,
+   "brakes": 4.13,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.2,
+   "piV": 0.2289,
+   "kmh": 34.9,
+   "brakes": 3.7,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.25,
+   "piV": 0.2315,
+   "kmh": 34.9,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.3,
+   "piV": 0.2334,
+   "kmh": 36.3,
+   "brakes": 4.23,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.35,
+   "piV": 0.2357,
+   "kmh": 36.1,
+   "brakes": 4.67,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.4,
+   "piV": 0.2378,
+   "kmh": 35.8,
+   "brakes": 5.47,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.45,
+   "piV": 0.245,
+   "kmh": 36.3,
+   "brakes": 5.7,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.5,
+   "piV": 0.2419,
+   "kmh": 35.2,
+   "brakes": 6.2,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.55,
+   "piV": 0.2437,
+   "kmh": 34.7,
+   "brakes": 7.07,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.6,
+   "piV": 0.19,
+   "kmh": 25.6,
+   "brakes": 5.9,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.65,
+   "piV": 0.1911,
+   "kmh": 26,
+   "brakes": 6,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.7,
+   "piV": 0.1923,
+   "kmh": 25.7,
+   "brakes": 6.27,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.75,
+   "piV": 0.1734,
+   "kmh": 24,
+   "brakes": 5.6,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.2,
+   "R": 1.8,
+   "piV": 0.1941,
+   "kmh": 25.1,
+   "brakes": 6.9,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.2,
+   "piV": 0.0002,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.25,
+   "piV": 0.0003,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.3,
+   "piV": 0.0003,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.35,
+   "piV": 0.0003,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.4,
+   "piV": 0.0004,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.45,
+   "piV": 0.0004,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.5,
+   "piV": 0.0004,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.55,
+   "piV": 0.0005,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.6,
+   "piV": 0.0005,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.65,
+   "piV": 0.0005,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.7,
+   "piV": 0.0006,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.75,
+   "piV": 0.0006,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.8,
+   "piV": 0.1805,
+   "kmh": 42.5,
+   "brakes": 3.33,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.85,
+   "piV": 0.2215,
+   "kmh": 45,
+   "brakes": 3.37,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.9,
+   "piV": 0.2307,
+   "kmh": 44.6,
+   "brakes": 3.47,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 0.95,
+   "piV": 0.2384,
+   "kmh": 44.3,
+   "brakes": 4,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1,
+   "piV": 0.2444,
+   "kmh": 44.4,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.05,
+   "piV": 0.2055,
+   "kmh": 35.7,
+   "brakes": 4.47,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.1,
+   "piV": 0.2113,
+   "kmh": 31.9,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.15,
+   "piV": 0.2171,
+   "kmh": 33.5,
+   "brakes": 4.37,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.2,
+   "piV": 0.2186,
+   "kmh": 34,
+   "brakes": 4.53,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.25,
+   "piV": 0.2218,
+   "kmh": 33.9,
+   "brakes": 4.8,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.3,
+   "piV": 0.2244,
+   "kmh": 33.7,
+   "brakes": 4.93,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.35,
+   "piV": 0.196,
+   "kmh": 27.7,
+   "brakes": 5.1,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.4,
+   "piV": 0.198,
+   "kmh": 27.6,
+   "brakes": 5.27,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.45,
+   "piV": 0.2004,
+   "kmh": 28,
+   "brakes": 5.9,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.5,
+   "piV": 0.1797,
+   "kmh": 24.1,
+   "brakes": 5.7,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.55,
+   "piV": 0.1809,
+   "kmh": 24.3,
+   "brakes": 5.93,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.6,
+   "piV": 0.181,
+   "kmh": 24.6,
+   "brakes": 6.3,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.65,
+   "piV": 0.1649,
+   "kmh": 21.9,
+   "brakes": 5.6,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.7,
+   "piV": 0.1671,
+   "kmh": 20.6,
+   "brakes": 6.2,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.75,
+   "piV": 0.1682,
+   "kmh": 22.3,
+   "brakes": 6.03,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.3,
+   "R": 1.8,
+   "piV": 0.1686,
+   "kmh": 20.9,
+   "brakes": 6.93,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.2,
+   "piV": 0.0016,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.25,
+   "piV": 0.0019,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.3,
+   "piV": 0.0021,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.35,
+   "piV": 0.0023,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.4,
+   "piV": 0.0026,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.45,
+   "piV": 0.0028,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.5,
+   "piV": 0.0032,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.55,
+   "piV": 0.0035,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.6,
+   "piV": 0.0042,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.65,
+   "piV": 0.0067,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.7,
+   "piV": 0.1578,
+   "kmh": 43.7,
+   "brakes": 3.3,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.75,
+   "piV": 0.22,
+   "kmh": 40.5,
+   "brakes": 3.87,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.8,
+   "piV": 0.2053,
+   "kmh": 34.6,
+   "brakes": 4.47,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.85,
+   "piV": 0.2136,
+   "kmh": 41.9,
+   "brakes": 3.3,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.9,
+   "piV": 0.2211,
+   "kmh": 41.7,
+   "brakes": 3.8,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 0.95,
+   "piV": 0.1852,
+   "kmh": 30,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1,
+   "piV": 0.1914,
+   "kmh": 32.2,
+   "brakes": 4.3,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.05,
+   "piV": 0.2009,
+   "kmh": 31.7,
+   "brakes": 3.87,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.1,
+   "piV": 0.2055,
+   "kmh": 30.8,
+   "brakes": 4,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.15,
+   "piV": 0.2083,
+   "kmh": 32,
+   "brakes": 4.63,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.2,
+   "piV": 0.2097,
+   "kmh": 32.3,
+   "brakes": 4.77,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.25,
+   "piV": 0.2126,
+   "kmh": 31.3,
+   "brakes": 5.23,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.3,
+   "piV": 0.1873,
+   "kmh": 26.4,
+   "brakes": 5.6,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.35,
+   "piV": 0.1667,
+   "kmh": 23.4,
+   "brakes": 5.67,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.4,
+   "piV": 0.1907,
+   "kmh": 26.8,
+   "brakes": 5.77,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.45,
+   "piV": 0.1921,
+   "kmh": 25.9,
+   "brakes": 6.07,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.5,
+   "piV": 0.1542,
+   "kmh": 20.7,
+   "brakes": 5.33,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.55,
+   "piV": 0.1735,
+   "kmh": 22.5,
+   "brakes": 6.53,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.6,
+   "piV": 0.1583,
+   "kmh": 21.6,
+   "brakes": 5.53,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.65,
+   "piV": 0.1762,
+   "kmh": 22.9,
+   "brakes": 7.23,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.7,
+   "piV": 0.1603,
+   "kmh": 20.1,
+   "brakes": 6.53,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.75,
+   "piV": 0.147,
+   "kmh": 19.2,
+   "brakes": 5.37,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.4,
+   "R": 1.8,
+   "piV": 0.1472,
+   "kmh": 18.2,
+   "brakes": 6.3,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.2,
+   "piV": 0.0088,
+   "kmh": 49.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.25,
+   "piV": 0.0107,
+   "kmh": 49.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.3,
+   "piV": 0.0124,
+   "kmh": 49.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.35,
+   "piV": 0.0146,
+   "kmh": 49.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.4,
+   "piV": 0.0176,
+   "kmh": 49.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.45,
+   "piV": 0.0217,
+   "kmh": 49.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.5,
+   "piV": 0.0305,
+   "kmh": 49.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.55,
+   "piV": 0.0417,
+   "kmh": 49.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.6,
+   "piV": 0.0502,
+   "kmh": 49.2,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.65,
+   "piV": 0.1312,
+   "kmh": 43.6,
+   "brakes": 2.1,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.7,
+   "piV": 0.1461,
+   "kmh": 39.2,
+   "brakes": 2.47,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.75,
+   "piV": 0.1737,
+   "kmh": 35.7,
+   "brakes": 4,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.8,
+   "piV": 0.1826,
+   "kmh": 36.3,
+   "brakes": 3.93,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.85,
+   "piV": 0.2046,
+   "kmh": 36,
+   "brakes": 3.53,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.9,
+   "piV": 0.1766,
+   "kmh": 29.2,
+   "brakes": 4.07,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 0.95,
+   "piV": 0.1826,
+   "kmh": 30.1,
+   "brakes": 4.03,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1,
+   "piV": 0.1902,
+   "kmh": 29.5,
+   "brakes": 3.7,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.05,
+   "piV": 0.1938,
+   "kmh": 29.3,
+   "brakes": 3.97,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.1,
+   "piV": 0.1969,
+   "kmh": 30.1,
+   "brakes": 4.07,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.15,
+   "piV": 0.1998,
+   "kmh": 30.2,
+   "brakes": 4.47,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.2,
+   "piV": 0.1766,
+   "kmh": 25.1,
+   "brakes": 5.43,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.25,
+   "piV": 0.159,
+   "kmh": 21.5,
+   "brakes": 4.9,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.3,
+   "piV": 0.1805,
+   "kmh": 25.3,
+   "brakes": 5.8,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.35,
+   "piV": 0.182,
+   "kmh": 25.2,
+   "brakes": 6.2,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.4,
+   "piV": 0.1636,
+   "kmh": 22.2,
+   "brakes": 6.17,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.45,
+   "piV": 0.1646,
+   "kmh": 21.2,
+   "brakes": 6.03,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.5,
+   "piV": 0.1663,
+   "kmh": 21.9,
+   "brakes": 6.7,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.55,
+   "piV": 0.1371,
+   "kmh": 17.6,
+   "brakes": 5.57,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.6,
+   "piV": 0.1516,
+   "kmh": 20.1,
+   "brakes": 6.1,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.65,
+   "piV": 0.1391,
+   "kmh": 16.9,
+   "brakes": 5.53,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.7,
+   "piV": 0.1274,
+   "kmh": 15.8,
+   "brakes": 5.6,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.75,
+   "piV": 0.1284,
+   "kmh": 15.7,
+   "brakes": 5.37,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.5,
+   "R": 1.8,
+   "piV": 0.1298,
+   "kmh": 15.8,
+   "brakes": 5.6,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.2,
+   "piV": 0.036,
+   "kmh": 45.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.25,
+   "piV": 0.0441,
+   "kmh": 45.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.3,
+   "piV": 0.051,
+   "kmh": 45.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.35,
+   "piV": 0.0589,
+   "kmh": 45.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.4,
+   "piV": 0.0683,
+   "kmh": 45,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.45,
+   "piV": 0.0797,
+   "kmh": 44.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.5,
+   "piV": 0.0957,
+   "kmh": 44.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.55,
+   "piV": 0.0949,
+   "kmh": 44,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.6,
+   "piV": 0.1559,
+   "kmh": 40.4,
+   "brakes": 2.33,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.65,
+   "piV": 0.1328,
+   "kmh": 37.8,
+   "brakes": 2.4,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.7,
+   "piV": 0.1505,
+   "kmh": 38,
+   "brakes": 2.5,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.75,
+   "piV": 0.1656,
+   "kmh": 31.7,
+   "brakes": 3.6,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.8,
+   "piV": 0.1896,
+   "kmh": 35.7,
+   "brakes": 3.2,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.85,
+   "piV": 0.1661,
+   "kmh": 30.1,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.9,
+   "piV": 0.1722,
+   "kmh": 28.3,
+   "brakes": 3.6,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 0.95,
+   "piV": 0.1795,
+   "kmh": 27.2,
+   "brakes": 4.03,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1,
+   "piV": 0.1833,
+   "kmh": 27.8,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.05,
+   "piV": 0.1641,
+   "kmh": 23.6,
+   "brakes": 4.73,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.1,
+   "piV": 0.1891,
+   "kmh": 28.7,
+   "brakes": 4.23,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.15,
+   "piV": 0.1501,
+   "kmh": 21,
+   "brakes": 4.83,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.2,
+   "piV": 0.1518,
+   "kmh": 20.4,
+   "brakes": 5.17,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.25,
+   "piV": 0.1532,
+   "kmh": 20.9,
+   "brakes": 5.1,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.3,
+   "piV": 0.1551,
+   "kmh": 20.6,
+   "brakes": 6,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.35,
+   "piV": 0.1563,
+   "kmh": 21.3,
+   "brakes": 6.2,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.4,
+   "piV": 0.1577,
+   "kmh": 21.4,
+   "brakes": 6.67,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.45,
+   "piV": 0.13,
+   "kmh": 16.9,
+   "brakes": 5.3,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.5,
+   "piV": 0.1449,
+   "kmh": 18.7,
+   "brakes": 5.97,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.55,
+   "piV": 0.146,
+   "kmh": 19.5,
+   "brakes": 6.07,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.6,
+   "piV": 0.1206,
+   "kmh": 15.4,
+   "brakes": 5.63,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.65,
+   "piV": 0.1343,
+   "kmh": 16.7,
+   "brakes": 5.93,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.7,
+   "piV": 0.1233,
+   "kmh": 14.8,
+   "brakes": 5.57,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.75,
+   "piV": 0.1247,
+   "kmh": 15.8,
+   "brakes": 5.83,
+   "smooth": false
+  },
+  {
+   "tap": "tiny",
+   "lambda": 1.6,
+   "R": 1.8,
+   "piV": 0.1255,
+   "kmh": 15.7,
+   "brakes": 6.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.2,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.25,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.3,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.35,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.4,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.45,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.5,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.55,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.6,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.65,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.7,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.75,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.8,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.85,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.9,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 0.95,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.05,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.1,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.15,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.2,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.25,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.3,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.35,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.4,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.45,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.5,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.55,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.6,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.65,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.7,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.75,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.5,
+   "R": 1.8,
+   "piV": 0.0154,
+   "kmh": 80.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.2,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.25,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.3,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.35,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.4,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.45,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.5,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.55,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.6,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.65,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.7,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.75,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.8,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.85,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.9,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 0.95,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.05,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.1,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.15,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.2,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.25,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.3,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.35,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.4,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.45,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.5,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.55,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.6,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.65,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.7,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.75,
+   "piV": 0.002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.6,
+   "R": 1.8,
+   "piV": 0.0019,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.2,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.25,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.3,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.35,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.4,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.45,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.5,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.55,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.6,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.65,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.7,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.75,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.8,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.85,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.9,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 0.95,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.05,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.1,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.15,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.2,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.25,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.3,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.35,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.4,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.45,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.5,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.55,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.6,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.65,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.7,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.75,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.7,
+   "R": 1.8,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.2,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.25,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.3,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.35,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.4,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.45,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.5,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.55,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.6,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.65,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.7,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.75,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.8,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.85,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.9,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 0.95,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.05,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.1,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.15,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.2,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.25,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.3,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.35,
+   "piV": 0.0001,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.4,
+   "piV": 0,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.45,
+   "piV": 0.2847,
+   "kmh": 60.4,
+   "brakes": 3.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.5,
+   "piV": 0.2906,
+   "kmh": 60.1,
+   "brakes": 3.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.55,
+   "piV": 0.2918,
+   "kmh": 59.4,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.6,
+   "piV": 0.293,
+   "kmh": 59.1,
+   "brakes": 4.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.65,
+   "piV": 0.2941,
+   "kmh": 58.7,
+   "brakes": 4.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.7,
+   "piV": 0.2772,
+   "kmh": 54.5,
+   "brakes": 5.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.75,
+   "piV": 0.29,
+   "kmh": 47.3,
+   "brakes": 4.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.8,
+   "R": 1.8,
+   "piV": 0.2926,
+   "kmh": 48.2,
+   "brakes": 5.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.2,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.25,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.3,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.35,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.4,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.45,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.5,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.55,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.6,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.65,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.7,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.75,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.8,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.85,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.9,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 0.95,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.05,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.1,
+   "piV": 0,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.15,
+   "piV": 0.2591,
+   "kmh": 52.8,
+   "brakes": 3.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.2,
+   "piV": 0.2684,
+   "kmh": 57.7,
+   "brakes": 3.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.25,
+   "piV": 0.2786,
+   "kmh": 54.5,
+   "brakes": 3.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.3,
+   "piV": 0.2844,
+   "kmh": 55.2,
+   "brakes": 3.73,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.35,
+   "piV": 0.2858,
+   "kmh": 55.5,
+   "brakes": 4.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.4,
+   "piV": 0.2868,
+   "kmh": 56,
+   "brakes": 4.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.45,
+   "piV": 0.268,
+   "kmh": 40.6,
+   "brakes": 4.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.5,
+   "piV": 0.2648,
+   "kmh": 41.2,
+   "brakes": 5.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.55,
+   "piV": 0.2673,
+   "kmh": 43.8,
+   "brakes": 5.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.6,
+   "piV": 0.2681,
+   "kmh": 49,
+   "brakes": 6.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.65,
+   "piV": 0.2781,
+   "kmh": 44.5,
+   "brakes": 5.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.7,
+   "piV": 0.2456,
+   "kmh": 35.7,
+   "brakes": 4.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.75,
+   "piV": 0.2474,
+   "kmh": 36.1,
+   "brakes": 5.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 0.9,
+   "R": 1.8,
+   "piV": 0.2234,
+   "kmh": 31,
+   "brakes": 4.7,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.2,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.25,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.3,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.35,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.4,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.45,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.5,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.55,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.6,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.65,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.7,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.75,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.8,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.85,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.9,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 0.95,
+   "piV": 0,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1,
+   "piV": 0.2164,
+   "kmh": 65.2,
+   "brakes": 2.7,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.05,
+   "piV": 0.2609,
+   "kmh": 50.3,
+   "brakes": 3.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.1,
+   "piV": 0.2216,
+   "kmh": 48,
+   "brakes": 4.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.15,
+   "piV": 0.2443,
+   "kmh": 50.9,
+   "brakes": 3.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.2,
+   "piV": 0.2411,
+   "kmh": 41.6,
+   "brakes": 6.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.25,
+   "piV": 0.2476,
+   "kmh": 41.9,
+   "brakes": 4.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.3,
+   "piV": 0.2475,
+   "kmh": 38.9,
+   "brakes": 5.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.35,
+   "piV": 0.2521,
+   "kmh": 41.3,
+   "brakes": 4.4,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.4,
+   "piV": 0.2573,
+   "kmh": 39.7,
+   "brakes": 4.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.45,
+   "piV": 0.2612,
+   "kmh": 39.4,
+   "brakes": 4.07,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.5,
+   "piV": 0.265,
+   "kmh": 41.3,
+   "brakes": 5.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.55,
+   "piV": 0.264,
+   "kmh": 40.7,
+   "brakes": 4.73,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.6,
+   "piV": 0.2652,
+   "kmh": 39.9,
+   "brakes": 4.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.65,
+   "piV": 0.2684,
+   "kmh": 40.5,
+   "brakes": 5.7,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.7,
+   "piV": 0.2695,
+   "kmh": 40.4,
+   "brakes": 6.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.75,
+   "piV": 0.2718,
+   "kmh": 40.4,
+   "brakes": 6.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1,
+   "R": 1.8,
+   "piV": 0.2379,
+   "kmh": 33.7,
+   "brakes": 5.7,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.2,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.25,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.3,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.35,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.4,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.45,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.5,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.55,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.6,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.65,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.7,
+   "piV": 0,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.75,
+   "piV": 0.0001,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.8,
+   "piV": 0.0001,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.85,
+   "piV": 0.1872,
+   "kmh": 49.7,
+   "brakes": 2.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.9,
+   "piV": 0.2025,
+   "kmh": 52.3,
+   "brakes": 2.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 0.95,
+   "piV": 0.2166,
+   "kmh": 53.1,
+   "brakes": 2.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1,
+   "piV": 0.2318,
+   "kmh": 40.7,
+   "brakes": 4.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.05,
+   "piV": 0.2162,
+   "kmh": 43.8,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.1,
+   "piV": 0.2344,
+   "kmh": 41.8,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.15,
+   "piV": 0.2699,
+   "kmh": 49.1,
+   "brakes": 4.83,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.2,
+   "piV": 0.2343,
+   "kmh": 39.8,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.25,
+   "piV": 0.2338,
+   "kmh": 36.7,
+   "brakes": 5.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.3,
+   "piV": 0.2448,
+   "kmh": 37.8,
+   "brakes": 4.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.35,
+   "piV": 0.2452,
+   "kmh": 38.1,
+   "brakes": 4.07,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.4,
+   "piV": 0.2448,
+   "kmh": 38.6,
+   "brakes": 6.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.45,
+   "piV": 0.2498,
+   "kmh": 38.9,
+   "brakes": 4.67,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.5,
+   "piV": 0.2518,
+   "kmh": 38.3,
+   "brakes": 5.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.55,
+   "piV": 0.2203,
+   "kmh": 30.6,
+   "brakes": 5.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.6,
+   "piV": 0.2222,
+   "kmh": 32,
+   "brakes": 5.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.65,
+   "piV": 0.2236,
+   "kmh": 31.3,
+   "brakes": 5.7,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.7,
+   "piV": 0.2252,
+   "kmh": 32.2,
+   "brakes": 6.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.75,
+   "piV": 0.2268,
+   "kmh": 31.2,
+   "brakes": 6.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.1,
+   "R": 1.8,
+   "piV": 0.2037,
+   "kmh": 27.7,
+   "brakes": 6.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.2,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.25,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.3,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.35,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.4,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.45,
+   "piV": 0.0001,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.5,
+   "piV": 0.0002,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.55,
+   "piV": 0.0002,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.6,
+   "piV": 0.0002,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.65,
+   "piV": 0.0003,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.7,
+   "piV": 0.0004,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.75,
+   "piV": 0.0007,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.8,
+   "piV": 0.1804,
+   "kmh": 45.5,
+   "brakes": 2.4,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.85,
+   "piV": 0.2162,
+   "kmh": 50.7,
+   "brakes": 2.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.9,
+   "piV": 0.2309,
+   "kmh": 49.8,
+   "brakes": 3,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 0.95,
+   "piV": 0.2192,
+   "kmh": 45,
+   "brakes": 3.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1,
+   "piV": 0.2209,
+   "kmh": 40.6,
+   "brakes": 4.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.05,
+   "piV": 0.2086,
+   "kmh": 38.5,
+   "brakes": 4.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.1,
+   "piV": 0.2173,
+   "kmh": 34.2,
+   "brakes": 4.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.15,
+   "piV": 0.2198,
+   "kmh": 33.1,
+   "brakes": 5.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.2,
+   "piV": 0.2285,
+   "kmh": 35.2,
+   "brakes": 3.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.25,
+   "piV": 0.2295,
+   "kmh": 36.4,
+   "brakes": 5.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.3,
+   "piV": 0.234,
+   "kmh": 35.6,
+   "brakes": 4.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.35,
+   "piV": 0.2354,
+   "kmh": 35.1,
+   "brakes": 5.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.4,
+   "piV": 0.2377,
+   "kmh": 35.8,
+   "brakes": 5.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.45,
+   "piV": 0.2397,
+   "kmh": 36.1,
+   "brakes": 5.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.5,
+   "piV": 0.2101,
+   "kmh": 28.8,
+   "brakes": 5.67,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.55,
+   "piV": 0.2435,
+   "kmh": 36.3,
+   "brakes": 6.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.6,
+   "piV": 0.1904,
+   "kmh": 25.7,
+   "brakes": 5.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.65,
+   "piV": 0.1911,
+   "kmh": 25.6,
+   "brakes": 5.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.7,
+   "piV": 0.1924,
+   "kmh": 26,
+   "brakes": 6.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.75,
+   "piV": 0.1734,
+   "kmh": 24.2,
+   "brakes": 5.73,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.2,
+   "R": 1.8,
+   "piV": 0.1754,
+   "kmh": 21.6,
+   "brakes": 5.7,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.2,
+   "piV": 0.0003,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.25,
+   "piV": 0.0004,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.3,
+   "piV": 0.0004,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.35,
+   "piV": 0.0005,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.4,
+   "piV": 0.0006,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.45,
+   "piV": 0.0007,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.5,
+   "piV": 0.001,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.55,
+   "piV": 0.0013,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.6,
+   "piV": 0.0018,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.65,
+   "piV": 0.003,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.7,
+   "piV": 0.0059,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.75,
+   "piV": 0.185,
+   "kmh": 46.2,
+   "brakes": 2.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.8,
+   "piV": 0.194,
+   "kmh": 45.2,
+   "brakes": 3.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.85,
+   "piV": 0.2163,
+   "kmh": 46.7,
+   "brakes": 3,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.9,
+   "piV": 0.2215,
+   "kmh": 44.4,
+   "brakes": 3.4,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 0.95,
+   "piV": 0.1755,
+   "kmh": 35.7,
+   "brakes": 4.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1,
+   "piV": 0.1933,
+   "kmh": 35.4,
+   "brakes": 4.07,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.05,
+   "piV": 0.2174,
+   "kmh": 36.6,
+   "brakes": 4.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.1,
+   "piV": 0.2078,
+   "kmh": 35.4,
+   "brakes": 5.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.15,
+   "piV": 0.2132,
+   "kmh": 33.9,
+   "brakes": 4.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.2,
+   "piV": 0.2189,
+   "kmh": 33.1,
+   "brakes": 4.7,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.25,
+   "piV": 0.2218,
+   "kmh": 33.3,
+   "brakes": 4.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.3,
+   "piV": 0.224,
+   "kmh": 33.5,
+   "brakes": 4.83,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.35,
+   "piV": 0.2263,
+   "kmh": 32.8,
+   "brakes": 4.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.4,
+   "piV": 0.1764,
+   "kmh": 24.3,
+   "brakes": 5.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.45,
+   "piV": 0.1999,
+   "kmh": 27.7,
+   "brakes": 5.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.5,
+   "piV": 0.1796,
+   "kmh": 24.2,
+   "brakes": 5.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.55,
+   "piV": 0.181,
+   "kmh": 24.1,
+   "brakes": 6.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.6,
+   "piV": 0.1818,
+   "kmh": 23.8,
+   "brakes": 6.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.65,
+   "piV": 0.1652,
+   "kmh": 21.8,
+   "brakes": 5.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.7,
+   "piV": 0.1837,
+   "kmh": 24.7,
+   "brakes": 6.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.75,
+   "piV": 0.1511,
+   "kmh": 19.3,
+   "brakes": 5.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.3,
+   "R": 1.8,
+   "piV": 0.1691,
+   "kmh": 20.8,
+   "brakes": 6.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.2,
+   "piV": 0.0016,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.25,
+   "piV": 0.0019,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.3,
+   "piV": 0.0022,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.35,
+   "piV": 0.0027,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.4,
+   "piV": 0.0034,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.45,
+   "piV": 0.0045,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.5,
+   "piV": 0.0066,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.55,
+   "piV": 0.0102,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.6,
+   "piV": 0.0183,
+   "kmh": 53.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.65,
+   "piV": 0.1597,
+   "kmh": 42.1,
+   "brakes": 2.4,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.7,
+   "piV": 0.1212,
+   "kmh": 47.8,
+   "brakes": 2.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.75,
+   "piV": 0.2047,
+   "kmh": 43.1,
+   "brakes": 3.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.8,
+   "piV": 0.1905,
+   "kmh": 37,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.85,
+   "piV": 0.1749,
+   "kmh": 38.8,
+   "brakes": 3.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.9,
+   "piV": 0.1707,
+   "kmh": 30.3,
+   "brakes": 4.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 0.95,
+   "piV": 0.2177,
+   "kmh": 41.8,
+   "brakes": 3.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1,
+   "piV": 0.1918,
+   "kmh": 35.6,
+   "brakes": 4.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.05,
+   "piV": 0.1998,
+   "kmh": 31.7,
+   "brakes": 3.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.1,
+   "piV": 0.2051,
+   "kmh": 31.9,
+   "brakes": 4.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.15,
+   "piV": 0.2081,
+   "kmh": 31,
+   "brakes": 4.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.2,
+   "piV": 0.2099,
+   "kmh": 32.4,
+   "brakes": 4.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.25,
+   "piV": 0.2128,
+   "kmh": 30.7,
+   "brakes": 5.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.3,
+   "piV": 0.1869,
+   "kmh": 26.5,
+   "brakes": 5.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.35,
+   "piV": 0.1884,
+   "kmh": 26.3,
+   "brakes": 5.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.4,
+   "piV": 0.1906,
+   "kmh": 26.9,
+   "brakes": 5.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.45,
+   "piV": 0.1917,
+   "kmh": 26.9,
+   "brakes": 5.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.5,
+   "piV": 0.1722,
+   "kmh": 22.9,
+   "brakes": 5.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.55,
+   "piV": 0.1735,
+   "kmh": 22.9,
+   "brakes": 6.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.6,
+   "piV": 0.1584,
+   "kmh": 21.6,
+   "brakes": 5.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.65,
+   "piV": 0.1762,
+   "kmh": 22.9,
+   "brakes": 7.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.7,
+   "piV": 0.1603,
+   "kmh": 20.1,
+   "brakes": 6.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.75,
+   "piV": 0.147,
+   "kmh": 19.2,
+   "brakes": 5.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.4,
+   "R": 1.8,
+   "piV": 0.1471,
+   "kmh": 18.2,
+   "brakes": 6.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.2,
+   "piV": 0.0046,
+   "kmh": 49.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.25,
+   "piV": 0.0054,
+   "kmh": 49.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.3,
+   "piV": 0.0062,
+   "kmh": 49.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.35,
+   "piV": 0.0072,
+   "kmh": 49.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.4,
+   "piV": 0.0087,
+   "kmh": 49.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.45,
+   "piV": 0.0117,
+   "kmh": 49.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.5,
+   "piV": 0.0195,
+   "kmh": 49.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.55,
+   "piV": 0.0358,
+   "kmh": 49.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.6,
+   "piV": 0.0552,
+   "kmh": 49,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.65,
+   "piV": 0.1309,
+   "kmh": 43,
+   "brakes": 2.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.7,
+   "piV": 0.1623,
+   "kmh": 43.4,
+   "brakes": 2.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.75,
+   "piV": 0.1843,
+   "kmh": 39.2,
+   "brakes": 3.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.8,
+   "piV": 0.1691,
+   "kmh": 36.3,
+   "brakes": 3.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.85,
+   "piV": 0.1759,
+   "kmh": 33.7,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.9,
+   "piV": 0.1831,
+   "kmh": 35.1,
+   "brakes": 4.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 0.95,
+   "piV": 0.1814,
+   "kmh": 30,
+   "brakes": 4.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1,
+   "piV": 0.1874,
+   "kmh": 30.1,
+   "brakes": 4,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.05,
+   "piV": 0.1938,
+   "kmh": 29.1,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.1,
+   "piV": 0.197,
+   "kmh": 30,
+   "brakes": 4.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.15,
+   "piV": 0.1998,
+   "kmh": 30.4,
+   "brakes": 4.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.2,
+   "piV": 0.1769,
+   "kmh": 25,
+   "brakes": 5.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.25,
+   "piV": 0.1787,
+   "kmh": 25.2,
+   "brakes": 5.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.3,
+   "piV": 0.1802,
+   "kmh": 25.2,
+   "brakes": 5.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.35,
+   "piV": 0.2074,
+   "kmh": 30.5,
+   "brakes": 5.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.4,
+   "piV": 0.1635,
+   "kmh": 22.5,
+   "brakes": 6.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.45,
+   "piV": 0.165,
+   "kmh": 21.7,
+   "brakes": 6.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.5,
+   "piV": 0.1488,
+   "kmh": 18.7,
+   "brakes": 5.83,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.55,
+   "piV": 0.1381,
+   "kmh": 18.1,
+   "brakes": 5.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.6,
+   "piV": 0.1516,
+   "kmh": 20.1,
+   "brakes": 5.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.65,
+   "piV": 0.1391,
+   "kmh": 16.9,
+   "brakes": 5.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.7,
+   "piV": 0.1274,
+   "kmh": 15.8,
+   "brakes": 5.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.75,
+   "piV": 0.1284,
+   "kmh": 15.7,
+   "brakes": 5.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.5,
+   "R": 1.8,
+   "piV": 0.1298,
+   "kmh": 15.8,
+   "brakes": 5.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.2,
+   "piV": 0.0139,
+   "kmh": 46,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.25,
+   "piV": 0.016,
+   "kmh": 45.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.3,
+   "piV": 0.0172,
+   "kmh": 45.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.35,
+   "piV": 0.0178,
+   "kmh": 45.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.4,
+   "piV": 0.0183,
+   "kmh": 45.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.45,
+   "piV": 0.0192,
+   "kmh": 45.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.5,
+   "piV": 0.0238,
+   "kmh": 45.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.55,
+   "piV": 0.028,
+   "kmh": 45.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.6,
+   "piV": 0.0823,
+   "kmh": 38.2,
+   "brakes": 0.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.65,
+   "piV": 0.1332,
+   "kmh": 35.5,
+   "brakes": 3.07,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.7,
+   "piV": 0.1407,
+   "kmh": 35,
+   "brakes": 3.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.75,
+   "piV": 0.1794,
+   "kmh": 32.4,
+   "brakes": 3.07,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.8,
+   "piV": 0.1729,
+   "kmh": 27.3,
+   "brakes": 4.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.85,
+   "piV": 0.1656,
+   "kmh": 29.6,
+   "brakes": 3.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.9,
+   "piV": 0.1701,
+   "kmh": 29.9,
+   "brakes": 3.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 0.95,
+   "piV": 0.1794,
+   "kmh": 27.9,
+   "brakes": 3.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1,
+   "piV": 0.1834,
+   "kmh": 28.5,
+   "brakes": 4.07,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.05,
+   "piV": 0.186,
+   "kmh": 28.2,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.1,
+   "piV": 0.1892,
+   "kmh": 28,
+   "brakes": 4.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.15,
+   "piV": 0.1684,
+   "kmh": 23.5,
+   "brakes": 5.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.2,
+   "piV": 0.1703,
+   "kmh": 23.6,
+   "brakes": 5.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.25,
+   "piV": 0.1534,
+   "kmh": 20.9,
+   "brakes": 5.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.3,
+   "piV": 0.155,
+   "kmh": 20.7,
+   "brakes": 5.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.35,
+   "piV": 0.1563,
+   "kmh": 21.2,
+   "brakes": 6.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.4,
+   "piV": 0.1576,
+   "kmh": 21.1,
+   "brakes": 6.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.45,
+   "piV": 0.1439,
+   "kmh": 18.6,
+   "brakes": 5.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.5,
+   "piV": 0.1449,
+   "kmh": 18.6,
+   "brakes": 5.73,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.55,
+   "piV": 0.1459,
+   "kmh": 19.5,
+   "brakes": 6.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.6,
+   "piV": 0.1206,
+   "kmh": 15.5,
+   "brakes": 5.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.65,
+   "piV": 0.1343,
+   "kmh": 16.7,
+   "brakes": 5.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.7,
+   "piV": 0.1233,
+   "kmh": 14.8,
+   "brakes": 5.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.75,
+   "piV": 0.1247,
+   "kmh": 15.8,
+   "brakes": 5.83,
+   "smooth": false
+  },
+  {
+   "tap": "dip15",
+   "lambda": 1.6,
+   "R": 1.8,
+   "piV": 0.1255,
+   "kmh": 15.7,
+   "brakes": 6.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.2,
+   "piV": 0.0136,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.25,
+   "piV": 0.0135,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.3,
+   "piV": 0.0135,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.35,
+   "piV": 0.0135,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.4,
+   "piV": 0.0135,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.45,
+   "piV": 0.0135,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.5,
+   "piV": 0.0135,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.55,
+   "piV": 0.0135,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.6,
+   "piV": 0.0135,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.65,
+   "piV": 0.0135,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.7,
+   "piV": 0.0134,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.75,
+   "piV": 0.0134,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.8,
+   "piV": 0.0134,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.85,
+   "piV": 0.0134,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.9,
+   "piV": 0.0134,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 0.95,
+   "piV": 0.0134,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1,
+   "piV": 0.0134,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.05,
+   "piV": 0.0133,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.1,
+   "piV": 0.0133,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.15,
+   "piV": 0.0133,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.2,
+   "piV": 0.0133,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.25,
+   "piV": 0.0132,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.3,
+   "piV": 0.0132,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.35,
+   "piV": 0.0132,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.4,
+   "piV": 0.0131,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.45,
+   "piV": 0.0131,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.5,
+   "piV": 0.013,
+   "kmh": 80.1,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.55,
+   "piV": 0.0177,
+   "kmh": 80.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.6,
+   "piV": 0.0175,
+   "kmh": 80.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.65,
+   "piV": 0.0175,
+   "kmh": 80.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.7,
+   "piV": 0.0174,
+   "kmh": 80.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.75,
+   "piV": 0.0174,
+   "kmh": 80.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.5,
+   "R": 1.8,
+   "piV": 0.0173,
+   "kmh": 80.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.2,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.25,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.3,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.35,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.4,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.45,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.5,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.55,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.6,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.65,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.7,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.75,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.8,
+   "piV": 0.0003,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.85,
+   "piV": 0.0002,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.9,
+   "piV": 0.0002,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 0.95,
+   "piV": 0.0002,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1,
+   "piV": 0.0002,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.05,
+   "piV": 0.0002,
+   "kmh": 79.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.1,
+   "piV": 0.0002,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.15,
+   "piV": 0.0004,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.2,
+   "piV": 0.0011,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.25,
+   "piV": 0.0058,
+   "kmh": 79.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.3,
+   "piV": 0.0068,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.35,
+   "piV": 0.0069,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.4,
+   "piV": 0.0071,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.45,
+   "piV": 0.007,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.5,
+   "piV": 0.007,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.55,
+   "piV": 0.0068,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.6,
+   "piV": 0.0067,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.65,
+   "piV": 0.0065,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.7,
+   "piV": 0.0063,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.75,
+   "piV": 0.0062,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.6,
+   "R": 1.8,
+   "piV": 0.0062,
+   "kmh": 79.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.2,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.25,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.3,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.35,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.4,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.45,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.5,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.55,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.6,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.65,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.7,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.75,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.8,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.85,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.9,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 0.95,
+   "piV": 0.0004,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1,
+   "piV": 0.0002,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.05,
+   "piV": 0.0009,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.1,
+   "piV": 0.0012,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.15,
+   "piV": 0.0014,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.2,
+   "piV": 0.0014,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.25,
+   "piV": 0.0013,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.3,
+   "piV": 0.0012,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.35,
+   "piV": 0.0011,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.4,
+   "piV": 0.0011,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.45,
+   "piV": 0.0011,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.5,
+   "piV": 0.0011,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.55,
+   "piV": 0.001,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.6,
+   "piV": 0.0009,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.65,
+   "piV": 0.0009,
+   "kmh": 78.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.7,
+   "piV": 0.2821,
+   "kmh": 59.4,
+   "brakes": 3.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.75,
+   "piV": 0.2887,
+   "kmh": 62.8,
+   "brakes": 3.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.7,
+   "R": 1.8,
+   "piV": 0.2904,
+   "kmh": 62.4,
+   "brakes": 4.07,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.2,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.25,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.3,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.35,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.4,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.45,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.5,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.55,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.6,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.65,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.7,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.75,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.8,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.85,
+   "piV": 0.0004,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.9,
+   "piV": 0.0002,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 0.95,
+   "piV": 0.0009,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1,
+   "piV": 0.0009,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.05,
+   "piV": 0.0008,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.1,
+   "piV": 0.0007,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.15,
+   "piV": 0.0006,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.2,
+   "piV": 0.0006,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.25,
+   "piV": 0.0005,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.3,
+   "piV": 0.0004,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.35,
+   "piV": 0.0003,
+   "kmh": 76.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.4,
+   "piV": 0.2829,
+   "kmh": 61.1,
+   "brakes": 3.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.45,
+   "piV": 0.2874,
+   "kmh": 59,
+   "brakes": 3.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.5,
+   "piV": 0.2889,
+   "kmh": 57.7,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.55,
+   "piV": 0.2904,
+   "kmh": 57.7,
+   "brakes": 4.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.6,
+   "piV": 0.2916,
+   "kmh": 57.8,
+   "brakes": 4.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.65,
+   "piV": 0.2928,
+   "kmh": 57.7,
+   "brakes": 4.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.7,
+   "piV": 0.2793,
+   "kmh": 44,
+   "brakes": 7.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.75,
+   "piV": 0.2847,
+   "kmh": 49.5,
+   "brakes": 5.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.8,
+   "R": 1.8,
+   "piV": 0.2786,
+   "kmh": 53,
+   "brakes": 6.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.2,
+   "piV": 0.0003,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.25,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.3,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.35,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.4,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.45,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.5,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.55,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.6,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.65,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.7,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.75,
+   "piV": 0.0002,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.8,
+   "piV": 0.0001,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.85,
+   "piV": 0.0004,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.9,
+   "piV": 0.0004,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 0.95,
+   "piV": 0.0004,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1,
+   "piV": 0.0003,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.05,
+   "piV": 0.0001,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.1,
+   "piV": 0.0011,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.15,
+   "piV": 0.0005,
+   "kmh": 73.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.2,
+   "piV": 0.2688,
+   "kmh": 53.4,
+   "brakes": 3.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.25,
+   "piV": 0.2791,
+   "kmh": 54.4,
+   "brakes": 3.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.3,
+   "piV": 0.2827,
+   "kmh": 56.8,
+   "brakes": 3.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.35,
+   "piV": 0.285,
+   "kmh": 56.8,
+   "brakes": 4.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.4,
+   "piV": 0.2867,
+   "kmh": 56.5,
+   "brakes": 4.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.45,
+   "piV": 0.2622,
+   "kmh": 49,
+   "brakes": 5.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.5,
+   "piV": 0.2856,
+   "kmh": 55.9,
+   "brakes": 5.07,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.55,
+   "piV": 0.2804,
+   "kmh": 39,
+   "brakes": 6.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.6,
+   "piV": 0.2716,
+   "kmh": 39.7,
+   "brakes": 6.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.65,
+   "piV": 0.2738,
+   "kmh": 46,
+   "brakes": 5.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.7,
+   "piV": 0.2635,
+   "kmh": 43.5,
+   "brakes": 4.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.75,
+   "piV": 0.2472,
+   "kmh": 36.9,
+   "brakes": 4.83,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 0.9,
+   "R": 1.8,
+   "piV": 0.2238,
+   "kmh": 30.5,
+   "brakes": 4.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.2,
+   "piV": 0.0002,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.25,
+   "piV": 0.0002,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.3,
+   "piV": 0.0002,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.35,
+   "piV": 0.0002,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.4,
+   "piV": 0.0002,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.45,
+   "piV": 0.0001,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.5,
+   "piV": 0.0001,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.55,
+   "piV": 0.0001,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.6,
+   "piV": 0.0001,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.65,
+   "piV": 0.0001,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.7,
+   "piV": 0.0001,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.75,
+   "piV": 0.0001,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.8,
+   "piV": 0.0002,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.85,
+   "piV": 0.1845,
+   "kmh": 57.8,
+   "brakes": 2.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.9,
+   "piV": 0.2013,
+   "kmh": 55.9,
+   "brakes": 2.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 0.95,
+   "piV": 0.0028,
+   "kmh": 69.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1,
+   "piV": 0.2352,
+   "kmh": 49.5,
+   "brakes": 3.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.05,
+   "piV": 0.249,
+   "kmh": 56.2,
+   "brakes": 3.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.1,
+   "piV": 0.2609,
+   "kmh": 55,
+   "brakes": 3.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.15,
+   "piV": 0.273,
+   "kmh": 52.5,
+   "brakes": 3.73,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.2,
+   "piV": 0.2762,
+   "kmh": 52.4,
+   "brakes": 4.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.25,
+   "piV": 0.2464,
+   "kmh": 40.1,
+   "brakes": 4.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.3,
+   "piV": 0.2712,
+   "kmh": 53.1,
+   "brakes": 5,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.35,
+   "piV": 0.253,
+   "kmh": 51,
+   "brakes": 5.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.4,
+   "piV": 0.2553,
+   "kmh": 43.9,
+   "brakes": 5.7,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.45,
+   "piV": 0.2603,
+   "kmh": 40.3,
+   "brakes": 4.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.5,
+   "piV": 0.2621,
+   "kmh": 40.1,
+   "brakes": 5.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.55,
+   "piV": 0.2301,
+   "kmh": 33.4,
+   "brakes": 4.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.6,
+   "piV": 0.2319,
+   "kmh": 32.5,
+   "brakes": 4.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.65,
+   "piV": 0.2684,
+   "kmh": 39.7,
+   "brakes": 6,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.7,
+   "piV": 0.2695,
+   "kmh": 41.5,
+   "brakes": 6.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.75,
+   "piV": 0.2361,
+   "kmh": 33.9,
+   "brakes": 5.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1,
+   "R": 1.8,
+   "piV": 0.2378,
+   "kmh": 34.3,
+   "brakes": 5.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.2,
+   "piV": 0.0003,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.25,
+   "piV": 0.0003,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.3,
+   "piV": 0.0003,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.35,
+   "piV": 0.0003,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.4,
+   "piV": 0.0003,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.45,
+   "piV": 0.0003,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.5,
+   "piV": 0.0003,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.55,
+   "piV": 0.0003,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.6,
+   "piV": 0.0003,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.65,
+   "piV": 0.0002,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.7,
+   "piV": 0.0004,
+   "kmh": 65.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.75,
+   "piV": 0.1254,
+   "kmh": 63.3,
+   "brakes": 1.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.8,
+   "piV": 0.2148,
+   "kmh": 55.8,
+   "brakes": 3.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.85,
+   "piV": 0.2024,
+   "kmh": 60.6,
+   "brakes": 2.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.9,
+   "piV": 0.1675,
+   "kmh": 48.7,
+   "brakes": 2.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 0.95,
+   "piV": 0.2255,
+   "kmh": 55.5,
+   "brakes": 3.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1,
+   "piV": 0.2582,
+   "kmh": 49,
+   "brakes": 3.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.05,
+   "piV": 0.2234,
+   "kmh": 39.9,
+   "brakes": 4.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.1,
+   "piV": 0.267,
+   "kmh": 49.2,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.15,
+   "piV": 0.2537,
+   "kmh": 40.6,
+   "brakes": 5.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.2,
+   "piV": 0.2336,
+   "kmh": 41.2,
+   "brakes": 4.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.25,
+   "piV": 0.2394,
+   "kmh": 38.9,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.3,
+   "piV": 0.2433,
+   "kmh": 38.1,
+   "brakes": 4.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.35,
+   "piV": 0.2122,
+   "kmh": 31,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.4,
+   "piV": 0.2481,
+   "kmh": 37.4,
+   "brakes": 4.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.45,
+   "piV": 0.2504,
+   "kmh": 38.3,
+   "brakes": 4.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.5,
+   "piV": 0.2437,
+   "kmh": 37.4,
+   "brakes": 5.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.55,
+   "piV": 0.2206,
+   "kmh": 30.9,
+   "brakes": 5.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.6,
+   "piV": 0.2218,
+   "kmh": 30.4,
+   "brakes": 5.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.65,
+   "piV": 0.2235,
+   "kmh": 30.9,
+   "brakes": 5.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.7,
+   "piV": 0.2254,
+   "kmh": 32.2,
+   "brakes": 5.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.75,
+   "piV": 0.2268,
+   "kmh": 31.4,
+   "brakes": 6.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.1,
+   "R": 1.8,
+   "piV": 0.2027,
+   "kmh": 27,
+   "brakes": 6.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.2,
+   "piV": 0.0011,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.25,
+   "piV": 0.0011,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.3,
+   "piV": 0.0012,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.35,
+   "piV": 0.0012,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.4,
+   "piV": 0.0013,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.45,
+   "piV": 0.0013,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.5,
+   "piV": 0.0014,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.55,
+   "piV": 0.0014,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.6,
+   "piV": 0.0009,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.65,
+   "piV": 0.002,
+   "kmh": 61.9,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.7,
+   "piV": 0.0483,
+   "kmh": 61.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.75,
+   "piV": 0.1226,
+   "kmh": 53,
+   "brakes": 2.4,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.8,
+   "piV": 0.1435,
+   "kmh": 45.1,
+   "brakes": 2.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.85,
+   "piV": 0.253,
+   "kmh": 45.3,
+   "brakes": 3.67,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.9,
+   "piV": 0.2338,
+   "kmh": 43.4,
+   "brakes": 3.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 0.95,
+   "piV": 0.2206,
+   "kmh": 41.1,
+   "brakes": 4.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1,
+   "piV": 0.218,
+   "kmh": 42.8,
+   "brakes": 4.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.05,
+   "piV": 0.2559,
+   "kmh": 47.1,
+   "brakes": 4.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.1,
+   "piV": 0.217,
+   "kmh": 35.9,
+   "brakes": 4.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.15,
+   "piV": 0.224,
+   "kmh": 36.2,
+   "brakes": 4,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.2,
+   "piV": 0.2286,
+   "kmh": 35.3,
+   "brakes": 5.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.25,
+   "piV": 0.2258,
+   "kmh": 36.7,
+   "brakes": 5.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.3,
+   "piV": 0.2333,
+   "kmh": 36.2,
+   "brakes": 4.4,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.35,
+   "piV": 0.2355,
+   "kmh": 35,
+   "brakes": 5.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.4,
+   "piV": 0.2377,
+   "kmh": 36.3,
+   "brakes": 4.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.45,
+   "piV": 0.2394,
+   "kmh": 36.2,
+   "brakes": 5.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.5,
+   "piV": 0.2444,
+   "kmh": 35.9,
+   "brakes": 6.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.55,
+   "piV": 0.233,
+   "kmh": 34.3,
+   "brakes": 6.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.6,
+   "piV": 0.2132,
+   "kmh": 29.6,
+   "brakes": 6.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.65,
+   "piV": 0.2045,
+   "kmh": 29.4,
+   "brakes": 6.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.7,
+   "piV": 0.1925,
+   "kmh": 25.8,
+   "brakes": 6.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.75,
+   "piV": 0.1735,
+   "kmh": 23.4,
+   "brakes": 5.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.2,
+   "R": 1.8,
+   "piV": 0.1936,
+   "kmh": 25.9,
+   "brakes": 6.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.2,
+   "piV": 0.0057,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.25,
+   "piV": 0.0063,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.3,
+   "piV": 0.0067,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.35,
+   "piV": 0.0071,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.4,
+   "piV": 0.0075,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.45,
+   "piV": 0.0078,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.5,
+   "piV": 0.0082,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.55,
+   "piV": 0.0048,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.6,
+   "piV": 0.0085,
+   "kmh": 57.8,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.65,
+   "piV": 0.123,
+   "kmh": 50.9,
+   "brakes": 2.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.7,
+   "piV": 0.1373,
+   "kmh": 47.9,
+   "brakes": 2.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.75,
+   "piV": 0.2009,
+   "kmh": 51,
+   "brakes": 3.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.8,
+   "piV": 0.2304,
+   "kmh": 43.5,
+   "brakes": 3.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.85,
+   "piV": 0.2166,
+   "kmh": 43.6,
+   "brakes": 3.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.9,
+   "piV": 0.2054,
+   "kmh": 38.6,
+   "brakes": 3.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 0.95,
+   "piV": 0.2183,
+   "kmh": 34.4,
+   "brakes": 4.67,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1,
+   "piV": 0.2014,
+   "kmh": 34.2,
+   "brakes": 4.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.05,
+   "piV": 0.2025,
+   "kmh": 38.5,
+   "brakes": 4.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.1,
+   "piV": 0.2073,
+   "kmh": 40.1,
+   "brakes": 5.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.15,
+   "piV": 0.2126,
+   "kmh": 32,
+   "brakes": 5.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.2,
+   "piV": 0.2178,
+   "kmh": 33,
+   "brakes": 5.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.25,
+   "piV": 0.2218,
+   "kmh": 34,
+   "brakes": 4.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.3,
+   "piV": 0.2249,
+   "kmh": 32.9,
+   "brakes": 4.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.35,
+   "piV": 0.2263,
+   "kmh": 33,
+   "brakes": 5.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.4,
+   "piV": 0.1979,
+   "kmh": 27.8,
+   "brakes": 5.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.45,
+   "piV": 0.2009,
+   "kmh": 27.4,
+   "brakes": 5.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.5,
+   "piV": 0.1796,
+   "kmh": 24,
+   "brakes": 5.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.55,
+   "piV": 0.1811,
+   "kmh": 24,
+   "brakes": 6.03,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.6,
+   "piV": 0.2043,
+   "kmh": 27.1,
+   "brakes": 6.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.65,
+   "piV": 0.1821,
+   "kmh": 23.7,
+   "brakes": 6.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.7,
+   "piV": 0.184,
+   "kmh": 24.4,
+   "brakes": 6.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.75,
+   "piV": 0.1671,
+   "kmh": 21.7,
+   "brakes": 5.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.3,
+   "R": 1.8,
+   "piV": 0.1689,
+   "kmh": 22.5,
+   "brakes": 6.4,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.2,
+   "piV": 0.0259,
+   "kmh": 53.6,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.25,
+   "piV": 0.029,
+   "kmh": 53.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.3,
+   "piV": 0.0313,
+   "kmh": 53.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.35,
+   "piV": 0.0334,
+   "kmh": 53.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.4,
+   "piV": 0.0351,
+   "kmh": 53.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.45,
+   "piV": 0.0363,
+   "kmh": 53.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.5,
+   "piV": 0.036,
+   "kmh": 53.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.55,
+   "piV": 0.0363,
+   "kmh": 53.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.6,
+   "piV": 0.0384,
+   "kmh": 53.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.65,
+   "piV": 0.1174,
+   "kmh": 48.9,
+   "brakes": 2.3,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.7,
+   "piV": 0.1958,
+   "kmh": 43.1,
+   "brakes": 3.7,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.75,
+   "piV": 0.2192,
+   "kmh": 41.1,
+   "brakes": 3.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.8,
+   "piV": 0.1921,
+   "kmh": 41.1,
+   "brakes": 3.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.85,
+   "piV": 0.1856,
+   "kmh": 33.7,
+   "brakes": 4.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.9,
+   "piV": 0.1886,
+   "kmh": 31.4,
+   "brakes": 4.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 0.95,
+   "piV": 0.2305,
+   "kmh": 41.4,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1,
+   "piV": 0.1914,
+   "kmh": 32.6,
+   "brakes": 4.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.05,
+   "piV": 0.1963,
+   "kmh": 32.1,
+   "brakes": 4.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.1,
+   "piV": 0.2045,
+   "kmh": 30.5,
+   "brakes": 4.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.15,
+   "piV": 0.2082,
+   "kmh": 31.9,
+   "brakes": 4.1,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.2,
+   "piV": 0.1833,
+   "kmh": 26.5,
+   "brakes": 4.83,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.25,
+   "piV": 0.2129,
+   "kmh": 31.1,
+   "brakes": 4.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.3,
+   "piV": 0.1873,
+   "kmh": 26.7,
+   "brakes": 5.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.35,
+   "piV": 0.1887,
+   "kmh": 26.7,
+   "brakes": 5.83,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.4,
+   "piV": 0.1905,
+   "kmh": 26.6,
+   "brakes": 5.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.45,
+   "piV": 0.171,
+   "kmh": 22.7,
+   "brakes": 5.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.5,
+   "piV": 0.1938,
+   "kmh": 26.9,
+   "brakes": 6.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.55,
+   "piV": 0.1952,
+   "kmh": 26.6,
+   "brakes": 6.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.6,
+   "piV": 0.1747,
+   "kmh": 23.6,
+   "brakes": 6.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.65,
+   "piV": 0.1761,
+   "kmh": 23.3,
+   "brakes": 7.33,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.7,
+   "piV": 0.1604,
+   "kmh": 20.4,
+   "brakes": 6.2,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.75,
+   "piV": 0.1336,
+   "kmh": 16.1,
+   "brakes": 5.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.4,
+   "R": 1.8,
+   "piV": 0.1471,
+   "kmh": 18,
+   "brakes": 6.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.2,
+   "piV": 0.0792,
+   "kmh": 48.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.25,
+   "piV": 0.0853,
+   "kmh": 48.5,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.3,
+   "piV": 0.088,
+   "kmh": 48.4,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.35,
+   "piV": 0.09,
+   "kmh": 48.3,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.4,
+   "piV": 0.0908,
+   "kmh": 48.2,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.45,
+   "piV": 0.0904,
+   "kmh": 48.2,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.5,
+   "piV": 0.0685,
+   "kmh": 48.7,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.55,
+   "piV": 0.0905,
+   "kmh": 48.2,
+   "brakes": 0,
+   "smooth": true
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.6,
+   "piV": 0.1237,
+   "kmh": 46.9,
+   "brakes": 1.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.65,
+   "piV": 0.1271,
+   "kmh": 41.6,
+   "brakes": 2.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.7,
+   "piV": 0.1682,
+   "kmh": 41.7,
+   "brakes": 2.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.75,
+   "piV": 0.1743,
+   "kmh": 40.3,
+   "brakes": 2.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.8,
+   "piV": 0.1679,
+   "kmh": 39.3,
+   "brakes": 3.4,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.85,
+   "piV": 0.169,
+   "kmh": 30.2,
+   "brakes": 3.67,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.9,
+   "piV": 0.1813,
+   "kmh": 32.6,
+   "brakes": 4,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 0.95,
+   "piV": 0.182,
+   "kmh": 29.2,
+   "brakes": 4,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1,
+   "piV": 0.1893,
+   "kmh": 29.3,
+   "brakes": 3.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.05,
+   "piV": 0.1698,
+   "kmh": 24.8,
+   "brakes": 4.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.1,
+   "piV": 0.1963,
+   "kmh": 29.6,
+   "brakes": 4.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.15,
+   "piV": 0.1749,
+   "kmh": 25.4,
+   "brakes": 5.27,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.2,
+   "piV": 0.1765,
+   "kmh": 25.3,
+   "brakes": 5.4,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.25,
+   "piV": 0.1785,
+   "kmh": 25,
+   "brakes": 5.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.3,
+   "piV": 0.1803,
+   "kmh": 25.2,
+   "brakes": 5.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.35,
+   "piV": 0.1805,
+   "kmh": 25.6,
+   "brakes": 5.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.4,
+   "piV": 0.1833,
+   "kmh": 25.5,
+   "brakes": 6,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.45,
+   "piV": 0.1651,
+   "kmh": 21.9,
+   "brakes": 6.4,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.5,
+   "piV": 0.1487,
+   "kmh": 19.8,
+   "brakes": 5.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.55,
+   "piV": 0.1679,
+   "kmh": 22.6,
+   "brakes": 7.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.6,
+   "piV": 0.1377,
+   "kmh": 18.4,
+   "brakes": 5.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.65,
+   "piV": 0.1532,
+   "kmh": 19.5,
+   "brakes": 6.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.7,
+   "piV": 0.1273,
+   "kmh": 15.7,
+   "brakes": 5.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.75,
+   "piV": 0.1284,
+   "kmh": 15.7,
+   "brakes": 5.53,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.5,
+   "R": 1.8,
+   "piV": 0.1298,
+   "kmh": 15.8,
+   "brakes": 5.7,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.2,
+   "piV": 0.1445,
+   "kmh": 42.1,
+   "brakes": 0,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.25,
+   "piV": 0.1494,
+   "kmh": 41.9,
+   "brakes": 0,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.3,
+   "piV": 0.1495,
+   "kmh": 41.9,
+   "brakes": 0,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.35,
+   "piV": 0.1488,
+   "kmh": 42,
+   "brakes": 0,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.4,
+   "piV": 0.147,
+   "kmh": 42.2,
+   "brakes": 0,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.45,
+   "piV": 0.1435,
+   "kmh": 42.4,
+   "brakes": 0,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.5,
+   "piV": 0.1333,
+   "kmh": 42.7,
+   "brakes": 0,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.55,
+   "piV": 0.1185,
+   "kmh": 43.3,
+   "brakes": 0.5,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.6,
+   "piV": 0.1322,
+   "kmh": 42.5,
+   "brakes": 1.9,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.65,
+   "piV": 0.1004,
+   "kmh": 34.9,
+   "brakes": 2.8,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.7,
+   "piV": 0.1455,
+   "kmh": 29.7,
+   "brakes": 3.37,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.75,
+   "piV": 0.1393,
+   "kmh": 29.3,
+   "brakes": 3.87,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.8,
+   "piV": 0.164,
+   "kmh": 29.1,
+   "brakes": 4,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.85,
+   "piV": 0.2009,
+   "kmh": 31.3,
+   "brakes": 4.17,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.9,
+   "piV": 0.1709,
+   "kmh": 28.6,
+   "brakes": 3.77,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 0.95,
+   "piV": 0.1761,
+   "kmh": 27.1,
+   "brakes": 4.07,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1,
+   "piV": 0.1616,
+   "kmh": 23.7,
+   "brakes": 4.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.05,
+   "piV": 0.1637,
+   "kmh": 23.7,
+   "brakes": 4.67,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.1,
+   "piV": 0.1663,
+   "kmh": 23.8,
+   "brakes": 5.13,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.15,
+   "piV": 0.1684,
+   "kmh": 24,
+   "brakes": 5.47,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.2,
+   "piV": 0.1518,
+   "kmh": 20.7,
+   "brakes": 5,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.25,
+   "piV": 0.1533,
+   "kmh": 21.3,
+   "brakes": 5.63,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.3,
+   "piV": 0.1549,
+   "kmh": 21,
+   "brakes": 5.93,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.35,
+   "piV": 0.1564,
+   "kmh": 21,
+   "brakes": 6.23,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.4,
+   "piV": 0.1575,
+   "kmh": 21,
+   "brakes": 6.57,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.45,
+   "piV": 0.1591,
+   "kmh": 21.4,
+   "brakes": 6.97,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.5,
+   "piV": 0.1302,
+   "kmh": 15.6,
+   "brakes": 5.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.55,
+   "piV": 0.1459,
+   "kmh": 19.4,
+   "brakes": 6.43,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.6,
+   "piV": 0.1205,
+   "kmh": 15.5,
+   "brakes": 5.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.65,
+   "piV": 0.1342,
+   "kmh": 16.7,
+   "brakes": 5.73,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.7,
+   "piV": 0.1232,
+   "kmh": 14.8,
+   "brakes": 5.6,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.75,
+   "piV": 0.1247,
+   "kmh": 15.8,
+   "brakes": 5.83,
+   "smooth": false
+  },
+  {
+   "tap": "dip50",
+   "lambda": 1.6,
+   "R": 1.8,
+   "piV": 0.1255,
+   "kmh": 15.7,
+   "brakes": 6.17,
+   "smooth": false
+  }
+ ]
+}

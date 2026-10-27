@@ -1,0 +1,98 @@
+{
+ "ringSize": [
+  {
+   "lambda": 0.9,
+   "cars": 30,
+   "tiny": 1.45,
+   "dip50": 1.2
+  },
+  {
+   "lambda": 0.9,
+   "cars": 60,
+   "tiny": 1.4,
+   "dip50": 0.9
+  },
+  {
+   "lambda": 0.9,
+   "cars": 120,
+   "tiny": 1.35,
+   "dip50": 0.9
+  },
+  {
+   "lambda": 1.05,
+   "cars": 30,
+   "tiny": 1.1,
+   "dip50": 0.85
+  },
+  {
+   "lambda": 1.05,
+   "cars": 60,
+   "tiny": 1.1,
+   "dip50": 0.75
+  },
+  {
+   "lambda": 1.05,
+   "cars": 120,
+   "tiny": 1,
+   "dip50": 0.8
+  },
+  {
+   "lambda": 1.2,
+   "cars": 30,
+   "tiny": 0.9,
+   "dip50": 0.75
+  },
+  {
+   "lambda": 1.2,
+   "cars": 60,
+   "tiny": 0.9,
+   "dip50": 0.65
+  },
+  {
+   "lambda": 1.2,
+   "cars": 120,
+   "tiny": 0.85,
+   "dip50": 0.7
+  },
+  {
+   "lambda": 1.5,
+   "cars": 30,
+   "tiny": 0.65,
+   "dip50": 0.6
+  },
+  {
+   "lambda": 1.5,
+   "cars": 60,
+   "tiny": 0.6,
+   "dip50": 0.2
+  },
+  {
+   "lambda": 1.5,
+   "cars": 120,
+   "tiny": 0.6,
+   "dip50": 0.2
+  }
+ ],
+ "noise": [
+  {
+   "distraction": 0,
+   "piN": 0,
+   "tiny": 1.1
+  },
+  {
+   "distraction": 0.25,
+   "piN": 0.000324,
+   "tiny": 0.85
+  },
+  {
+   "distraction": 0.5,
+   "piN": 0.0013,
+   "tiny": 0.6
+  },
+  {
+   "distraction": 1,
+   "piN": 0.00518,
+   "tiny": 0.2
+  }
+ ]
+}

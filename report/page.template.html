@@ -1,0 +1,252 @@
+<title>The Jam Nobody Started</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Overpass:wght@400;600;700;800&family=Overpass+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a documentary book with a highway-sign voice. A sticky contents rail on the left
+   (a drawer on phones), one reading column, figures a little wider than the text. */
+:root {
+  --bg: #eaeee9;        /* roadside haze */
+  --paper: #f7f9f6;     /* the page */
+  --ink: #14211b;
+  --muted: #56675e;
+  --grid: rgba(20, 33, 27, 0.10);
+  --axis: #8b9a92;
+  --sign: #0a6a46;      /* guide-sign green, the one accent */
+  --sign-ink: #ffffff;
+  --blue: #1c6cd6;      /* drivers who leave room, as in the lab */
+  --red: #d33a2c;
+  --amber: #e39c16;
+  --green: #23985f;
+  --road: #2b3531;
+  --lane: #d8ddd2;
+  --rule: #cfd8d1;
+  --display: "Overpass", "Highway Gothic", "Arial Narrow", system-ui, sans-serif;
+  --body: "Literata", "Iowan Old Style", Georgia, serif;
+  --mono: "Overpass Mono", ui-monospace, Menlo, monospace;
+  --rail: 18rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b120f; --paper: #111a16; --ink: #e2ebe5; --muted: #93a69c; --grid: rgba(226, 235, 229, 0.09);
+    --axis: #5f6f67; --sign: #13875b; --sign-ink: #ffffff; --blue: #5b9ff7; --red: #f0614d; --amber: #f2b234;
+    --green: #3cc585; --road: #1d2622; --lane: #59655f; --rule: #24312b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b120f; --paper: #111a16; --ink: #e2ebe5; --muted: #93a69c; --grid: rgba(226, 235, 229, 0.09);
+  --axis: #5f6f67; --sign: #13875b; --sign-ink: #ffffff; --blue: #5b9ff7; --red: #f0614d; --amber: #f2b234;
+  --green: #3cc585; --road: #1d2622; --lane: #59655f; --rule: #24312b; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.68 var(--body); }
+a { color: var(--sign); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 3px; }
+
+/* ---------------------------------------------------------------- frame */
+.frame { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); min-height: 100vh; transition: grid-template-columns 0.25s ease; }
+.frame.closed { grid-template-columns: 0 minmax(0, 1fr); }
+@media (prefers-reduced-motion: reduce) { .frame { transition: none; } }
+
+/* ---------------------------------------------------------------- contents rail */
+.rail { position: sticky; top: env(safe-area-inset-top, 0px); height: 100vh; overflow: hidden; background: var(--sign); color: var(--sign-ink); }
+.rail-inner { width: var(--rail); height: 100%; display: flex; flex-direction: column; padding: 1.25rem 0.75rem 1rem max(1rem, env(safe-area-inset-left, 0px)); }
+.frame.closed .rail-inner { visibility: hidden; }
+.rail-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0 0.25rem 0.9rem 0.5rem; border-bottom: 2px solid rgba(255,255,255,0.85); margin-bottom: 0.75rem; }
+.rail-head .label { font: 800 0.8rem/1 var(--display); letter-spacing: 0.14em; text-transform: uppercase; }
+.rail nav { overflow-y: auto; flex: 1; scrollbar-width: thin; padding-right: 0.25rem; }
+.toc, .toc ol { list-style: none; margin: 0; padding: 0; }
+.toc-group { margin: 0.1rem 0; }
+.toc-row { display: flex; align-items: center; }
+.toc a { display: block; flex: 1; color: var(--sign-ink); text-decoration: none; font: 600 0.92rem/1.3 var(--display); padding: 0.42rem 0.5rem; border-radius: 6px; opacity: 0.82; }
+.toc ol a { font-weight: 400; font-size: 0.86rem; padding: 0.3rem 0.5rem 0.3rem 1.25rem; opacity: 0.75; }
+.toc a:hover { opacity: 1; background: rgba(255,255,255,0.10); }
+.toc a.active { opacity: 1; background: rgba(255,255,255,0.16); box-shadow: inset 3px 0 0 var(--sign-ink); }
+.toc-twisty { flex: none; width: 1.9rem; height: 1.9rem; display: grid; place-items: center; border: 0; background: none; color: var(--sign-ink); border-radius: 6px; cursor: pointer; opacity: 0.8; }
+.toc-twisty:hover { opacity: 1; background: rgba(255,255,255,0.12); }
+.toc-twisty svg { width: 0.8rem; height: 0.8rem; transition: transform 0.2s ease; }
+.toc-twisty[aria-expanded="true"] svg { transform: rotate(90deg); }
+.rail-foot { padding: 0.9rem 0.5rem 0; border-top: 1px solid rgba(255,255,255,0.35); font: 400 0.8rem/1.45 var(--display); }
+.rail-foot a { color: var(--sign-ink); font-weight: 700; }
+.icon-btn { flex: none; display: inline-grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 8px; border: 1.5px solid currentColor; background: none; color: inherit; cursor: pointer; }
+.icon-btn svg { width: 1rem; height: 1rem; }
+.open-btn { position: fixed; z-index: 20; top: calc(0.9rem + env(safe-area-inset-top, 0px)); left: max(0.9rem, env(safe-area-inset-left, 0px)); display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.85rem 0.45rem; border: 0; border-radius: 8px; background: var(--sign); color: var(--sign-ink); font: 700 0.8rem/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.18); }
+.open-btn svg { width: 1rem; height: 1rem; }
+.scrim { display: none; }
+
+/* ---------------------------------------------------------------- reading column */
+main { min-width: 0; padding-block: 2.5rem 5rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.col { max-width: 41rem; margin: 0 auto; }
+.wide { max-width: 50rem; margin: 2rem auto; }
+
+.hero { max-width: 50rem; margin: 0 auto 2.5rem; }
+.sign { background: var(--sign); color: var(--sign-ink); border-radius: 18px; padding: 0.5rem; box-shadow: 0 1px 0 rgba(0,0,0,0.25); }
+.sign-face { border: 3px solid var(--sign-ink); border-radius: 12px; padding: clamp(1.25rem, 4vw, 2.25rem) clamp(1.25rem, 4vw, 2.5rem); display: grid; gap: 0.6rem; }
+.sign .kicker { font: 700 0.78rem/1 var(--display); letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.9; }
+.sign h1 { margin: 0; font: 800 clamp(2.2rem, 6.4vw, 3.9rem)/0.98 var(--display); letter-spacing: -0.01em; text-wrap: balance; }
+.sign .sub { font: 600 clamp(1.05rem, 2.4vw, 1.35rem)/1.25 var(--display); opacity: 0.92; }
+.sign .exit { justify-self: start; margin-top: 0.5rem; display: inline-flex; align-items: center; gap: 0.55rem; background: var(--sign-ink); color: var(--sign); border-radius: 7px; padding: 0.45rem 0.8rem 0.38rem; font: 800 0.82rem/1 var(--display); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+.sign .exit svg { width: 0.95rem; height: 0.95rem; }
+.byline { display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; margin: 0.9rem 0.4rem 0; color: var(--muted); font: 400 0.85rem/1.4 var(--mono); }
+
+article h2 { font: 800 clamp(1.6rem, 3.6vw, 2.15rem)/1.12 var(--display); margin: 3.75rem 0 1rem; text-wrap: balance; letter-spacing: -0.005em; }
+article h2::before { content: ""; display: block; width: 3rem; height: 6px; border-radius: 3px; background: var(--sign); margin-bottom: 1rem; }
+article h3 { font: 700 1.2rem/1.25 var(--display); margin: 2.2rem 0 0.6rem; text-wrap: balance; }
+article p { margin: 0 0 1.05rem; }
+article ul, article ol { padding-left: 1.3rem; margin: 0 0 1.2rem; }
+article li { margin: 0.35rem 0; }
+article li::marker { color: var(--muted); }
+article strong { font-weight: 600; }
+code { font: 400 0.86em var(--mono); background: var(--grid); padding: 0.08em 0.32em; border-radius: 4px; overflow-wrap: anywhere; }
+.math { margin: 1.25rem 0; padding: 0.9rem 1rem; background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; overflow-x: auto; font-size: 1.05rem; }
+.math math { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", serif; }
+
+.table-wrap { overflow-x: auto; margin: 1.25rem 0 1.5rem; background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font: 400 0.9rem/1.4 var(--display); font-variant-numeric: tabular-nums; }
+th { text-align: left; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 0.7rem 0.9rem; border-bottom: 2px solid var(--rule); white-space: nowrap; }
+td { padding: 0.55rem 0.9rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+
+/* ---------------------------------------------------------------- figures */
+.fig { margin: 2rem -0.25rem 2.25rem; }
+@media (min-width: 72rem) { .fig { margin-inline: -4.5rem; } }
+.fig > svg, .fig img { display: block; width: 100%; height: auto; background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; }
+.fig > svg { padding: 0.25rem; font-family: var(--display); }
+.fig svg text { font-family: var(--display); }
+figcaption { margin: 0.7rem 0.25rem 0; font: 400 0.88rem/1.5 var(--display); color: var(--muted); max-width: 46rem; }
+.fig-no { font-weight: 800; color: var(--ink); letter-spacing: 0.02em; }
+.fig-src { display: block; margin-top: 0.2rem; font: 400 0.76rem/1.4 var(--mono); opacity: 0.85; }
+.fig-src a { color: inherit; }
+.anim { position: relative; }
+.anim-toggle { position: absolute; right: 0.7rem; top: 0.7rem; border: 0; border-radius: 6px; padding: 0.38rem 0.65rem 0.32rem; background: var(--sign); color: var(--sign-ink); font: 700 0.72rem/1 var(--display); letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; opacity: 0.92; }
+.anim-toggle:hover { opacity: 1; }
+
+/* the Sources list and glossary read as reference */
+#glossary ~ ul, #sources ~ ul { font-size: 0.95rem; }
+#sources ~ ul a { overflow-wrap: anywhere; }
+
+footer.colophon { max-width: 41rem; margin: 4rem auto 0; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font: 400 0.8rem/1.5 var(--mono); }
+
+/* ---------------------------------------------------------------- phones and narrow windows: the rail becomes a drawer */
+@media (max-width: 60rem) {
+  .frame, .frame.closed { grid-template-columns: minmax(0, 1fr); }
+  .rail { position: fixed; z-index: 30; inset: 0 auto 0 0; width: min(20rem, 86vw); height: 100%; transform: translateX(-102%); transition: transform 0.25s ease; padding-top: env(safe-area-inset-top, 0px); box-shadow: 0 0 30px rgba(0,0,0,0.3); }
+  .rail-inner, .frame.closed .rail-inner { width: 100%; visibility: visible; }
+  .frame.drawer .rail { transform: none; }
+  .frame.drawer .scrim { display: block; position: fixed; inset: 0; z-index: 25; background: rgba(0,0,0,0.35); }
+  main { padding-top: 4.25rem; }
+  @media (prefers-reduced-motion: reduce) { .rail { transition: none; } }
+}
+</style>
+
+<div class="frame" id="frame">
+  <aside class="rail" id="rail" aria-label="Contents">
+    <div class="rail-inner">
+      <div class="rail-head">
+        <span class="label">Contents</span>
+        <button class="icon-btn" id="closeRail" type="button" aria-label="Hide contents"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <nav><ol class="toc" id="toc">{{TOC}}</ol></nav>
+      <div class="rail-foot">Try every scene yourself in <a href="{{SIM_URL}}" target="_blank" rel="noopener">Phantom Jam Lab</a>.</div>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+  <button class="open-btn" id="openRail" type="button" aria-controls="rail" aria-expanded="true" hidden><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Contents</button>
+
+  <main>
+    <header class="hero">
+      <div class="sign">
+        <div class="sign-face">
+          <span class="kicker">A documentary report</span>
+          <h1>The Jam Nobody Started</h1>
+          <span class="sub">The Ideas Behind Phantom Jam Lab</span>
+          <a class="exit" href="{{SIM_URL}}" target="_blank" rel="noopener">Open the lab <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="byline"><span>Michael L. Thompson with Claude Code</span><span>October 2026</span></div>
+    </header>
+    <article class="col" id="article">
+{{BODY}}
+    </article>
+    <footer class="colophon">Built from <code>report/the-jam-nobody-started.md</code> by <code>report/build-html.mjs</code>. Drawn figures are computed from the analysis results; animations are filmed from the lab with a fixed clock, so a rebuild reproduces them.</footer>
+  </main>
+</div>
+
+<script>
+(() => {
+  const frame = document.getElementById('frame');
+  const openBtn = document.getElementById('openRail');
+  const narrow = matchMedia('(max-width: 60rem)');
+  const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+
+  // ---- show and hide the contents rail (a drawer on narrow screens)
+  function sync() {
+    const open = narrow.matches ? frame.classList.contains('drawer') : !frame.classList.contains('closed');
+    openBtn.hidden = open;
+    openBtn.setAttribute('aria-expanded', String(open));
+  }
+  function setOpen(open) {
+    if (narrow.matches) frame.classList.toggle('drawer', open);
+    else { frame.classList.toggle('closed', !open); store.set('jam-rail', open ? 'open' : 'closed'); }
+    sync();
+  }
+  if (store.get('jam-rail') === 'closed') frame.classList.add('closed');
+  openBtn.addEventListener('click', () => setOpen(true));
+  document.getElementById('closeRail').addEventListener('click', () => setOpen(false));
+  document.getElementById('scrim').addEventListener('click', () => setOpen(false));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && frame.classList.contains('drawer')) setOpen(false); });
+  narrow.addEventListener('change', () => { frame.classList.remove('drawer'); sync(); });
+  sync();
+
+  // ---- expandable sections in the contents
+  const twisty = (group, open) => {
+    const b = group.querySelector('.toc-twisty'), list = group.querySelector('ol');
+    if (!b) return;
+    b.setAttribute('aria-expanded', String(open)); list.hidden = !open;
+  };
+  document.querySelectorAll('.toc-twisty').forEach(b => b.addEventListener('click', () => twisty(b.closest('.toc-group'), b.getAttribute('aria-expanded') !== 'true')));
+  document.querySelectorAll('.toc a').forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
+
+  // ---- highlight where the reader is, and open that section's subsections
+  const links = new Map([...document.querySelectorAll('.toc a')].map(a => [a.getAttribute('href').slice(1), a]));
+  const heads = [...document.querySelectorAll('article h2[id], article h3[id]')];
+  let current = null;
+  function spy() {
+    let id = heads[0]?.id;
+    for (const h of heads) { if (h.getBoundingClientRect().top < 120) id = h.id; else break; }
+    if (id === current) return;
+    current = id;
+    links.forEach(a => a.classList.remove('active'));
+    const a = links.get(id); if (!a) return;
+    a.classList.add('active');
+    const group = a.closest('.toc-group');
+    document.querySelectorAll('.toc-group').forEach(g => twisty(g, g === group));
+    // Keep the highlighted entry visible by scrolling the contents panel only. scrollIntoView would
+    // also cancel the page's own smooth scroll toward a clicked section.
+    const nav = a.closest('nav'), r = a.getBoundingClientRect(), n = nav.getBoundingClientRect();
+    if (r.top < n.top) nav.scrollTop -= n.top - r.top + 8;
+    else if (r.bottom > n.bottom) nav.scrollTop += r.bottom - n.bottom + 8;
+  }
+  addEventListener('scroll', () => requestAnimationFrame(spy), { passive: true });
+  spy();
+
+  // ---- animations: pause and play; start paused when the reader prefers less motion
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.anim').forEach(box => {
+    const img = box.querySelector('img'), btn = box.querySelector('.anim-toggle');
+    const set = playing => {
+      img.src = playing ? img.dataset.gif : img.dataset.still;
+      btn.textContent = playing ? 'Pause' : 'Play';
+      btn.setAttribute('aria-label', playing ? 'Pause animation' : 'Play animation');
+      box.dataset.playing = String(playing);
+    };
+    set(!still);
+    btn.addEventListener('click', () => set(box.dataset.playing !== 'true'));
+  });
+})();
+</script>

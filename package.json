@@ -1,0 +1,19 @@
+{
+  "name": "phantom-jam-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "analysis": "node analysis/dimensional-set.mjs && node analysis/linear-stability.mjs && node analysis/regime-sweep.mjs && node analysis/relevancy.mjs && node analysis/absorber-sweep.mjs && node analysis/similarity.mjs && node analysis/pi-sweep.mjs && node analysis/scene2.mjs",
+    "report:check": "node report/facts.mjs && node report/regime-chart.mjs && node report/check-sources.mjs",
+    "report:media": "npm run build && node report/media.mjs",
+    "report:build": "node report/build-html.mjs",
+    "report:test-page": "node report/test-page.mjs"
+  },
+  "devDependencies": {
+    "katex": "^0.16.11",
+    "marked": "^15.0.12",
+    "playwright": "^1.55.0"
+  }
+}

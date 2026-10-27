@@ -1,0 +1,100 @@
+{
+ "playback": {
+  "lambda": 1.099,
+  "R": 0.8,
+  "none": {
+   "slowestPer30s": [
+    1.5,
+    0,
+    6.3,
+    21.8,
+    13.1,
+    6,
+    15,
+    24.7,
+    1.1,
+    19
+   ],
+   "settledBySeconds": null,
+   "finalKmh": 59.4
+  },
+  "one": {
+   "slowestPer30s": [
+    32,
+    36.3,
+    55,
+    59.6,
+    62.9,
+    63.5,
+    63.8,
+    64.1,
+    64.3,
+    64.4
+   ],
+   "settledBySeconds": 90,
+   "finalKmh": 64.6
+  }
+ },
+ "seeds": {
+  "lambda": 1.05,
+  "R": 0.8,
+  "tally": {
+   "rescued": 3,
+   "bothSmooth": 5,
+   "bothJam": 2,
+   "other": 0
+  },
+  "runs": [
+   {
+    "seed": 1,
+    "noneSmooth": true,
+    "oneSmooth": true
+   },
+   {
+    "seed": 2,
+    "noneSmooth": false,
+    "oneSmooth": true
+   },
+   {
+    "seed": 3,
+    "noneSmooth": false,
+    "oneSmooth": false
+   },
+   {
+    "seed": 4,
+    "noneSmooth": true,
+    "oneSmooth": true
+   },
+   {
+    "seed": 5,
+    "noneSmooth": false,
+    "oneSmooth": true
+   },
+   {
+    "seed": 6,
+    "noneSmooth": false,
+    "oneSmooth": false
+   },
+   {
+    "seed": 7,
+    "noneSmooth": false,
+    "oneSmooth": true
+   },
+   {
+    "seed": 8,
+    "noneSmooth": true,
+    "oneSmooth": true
+   },
+   {
+    "seed": 9,
+    "noneSmooth": true,
+    "oneSmooth": true
+   },
+   {
+    "seed": 10,
+    "noneSmooth": true,
+    "oneSmooth": true
+   }
+  ]
+ }
+}
