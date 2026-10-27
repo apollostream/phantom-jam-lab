@@ -7,8 +7,10 @@
 //   3. How much of the shortfall is the tailgaters' random speed wobble (distraction off).
 //   4. How much is the hard-acceleration term (b2 = 0).
 //   Each run also reports stressful moments per km (firm brakes plus close calls).
+//   Parts 2–4 run under both driver models for those who leave room: A (classic) and
+//   B (three-state); results are keyed by model. Roads where everyone tailgates match.
 // Writes analysis/results/fuel.json.  Run: node analysis/fuel.mjs
-// docs/fuel-prototype.md explains the model and the parameter values.
+// docs/fuel-stress-and-variant-b.md explains the model and the parameter values.
 import { writeFileSync } from 'node:fs';
 import { Sim, VEHICLES, fuelRate, cruiseFuelPerM } from './lib.mjs';
 
@@ -65,19 +67,19 @@ function play(scene, cfg) {
 }
 VEHICLES.suvNoB2 = { ...VEHICLES.suv, label: 'Midsize SUV without the hard-acceleration term', b2: 0 };
 
-const scenes = [];
-for (const scene of SCENES) {
+const scenes = { A: [], B: [] };
+for (const driverModel of ['A', 'B']) for (const scene of SCENES) {
   const row = { key: scene.key };
   for (const vehicle of ['suv', 'compact']) {
-    const mix = play(scene, { vehicle });
+    const mix = play(scene, { vehicle, driverModel });
     const tailgaters = play(scene, { vehicle, absorbers: 0, manual: null });
     row[vehicle] = { mix, tailgaters, savingPct: r1((1 - mix.l100 / tailgaters.l100) * 100) };
   }
-  row.noWobble = { mix: play(scene, { distraction: 0 }), tailgaters: play(scene, { distraction: 0, absorbers: 0, manual: null }) };
-  row.noB2 = { mix: play(scene, { vehicle: 'suvNoB2' }), tailgaters: play(scene, { vehicle: 'suvNoB2', absorbers: 0, manual: null }) };
-  scenes.push(row);
+  row.noWobble = { mix: play(scene, { distraction: 0, driverModel }), tailgaters: play(scene, { distraction: 0, absorbers: 0, manual: null }) };
+  row.noB2 = { mix: play(scene, { vehicle: 'suvNoB2', driverModel }), tailgaters: play(scene, { vehicle: 'suvNoB2', absorbers: 0, manual: null }) };
+  scenes[driverModel].push(row);
   const s = row.suv, c = row.compact;
-  console.log(`${scene.key.padEnd(5)} SUV mix ${s.mix.eff}% (${s.mix.l100} L/100) vs tailgaters ${s.tailgaters.eff}% (${s.tailgaters.l100}), saving ${s.savingPct}%` +
+  console.log(`${driverModel} ${scene.key.padEnd(5)} SUV mix ${s.mix.eff}% (${s.mix.l100} L/100) vs tailgaters ${s.tailgaters.eff}% (${s.tailgaters.l100}), saving ${s.savingPct}%` +
     ` | compact ${c.mix.eff}% vs ${c.tailgaters.eff}%, saving ${c.savingPct}%` +
     ` | stress ${s.mix.stressPerKm} vs ${s.tailgaters.stressPerKm} per km` +
     ` | no wobble ${row.noWobble.mix.eff}% vs ${row.noWobble.tailgaters.eff}% | no b2 ${row.noB2.mix.eff}% vs ${row.noB2.tailgaters.eff}%`);

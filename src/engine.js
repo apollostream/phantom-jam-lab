@@ -11,18 +11,22 @@ const CAR_LEN = 4.5;          // m, default car length
 const DEFAULTS = {
   accel: 1.2, decel: 2.0, carLen: CAR_LEN, jamGap: 2, noiseMemory: 2,
   tapDecel: 4.5, tapHold: 4,    // a brake tap: braking rate (m/s^2) and longest hold (s)
-  liftDecel: 0.6,               // slowing with the foot off both pedals: drag, rolling, engine braking (m/s^2)
+  liftDecel: 0.6,               // variant B: coasting, foot off both pedals: drag, rolling, engine braking (m/s^2)
   firmBrake: 2.0,               // braking that counts toward stress, about 0.2 g (m/s^2)
   unitL: 1, unitT: 1,
   vehicle: 'suv',
+  // Driver model for those who leave room. 'A' (classic) is the model the report and the
+  // dimensional analysis use. 'B' (three-state) adds coasting and a single panic threshold;
+  // docs/fuel-stress-and-variant-b.md describes it.
+  driverModel: 'A',
 };
 const HIST = 48;              // perception history steps (covers up to 2.4 s delay)
 
-// Fuel (prototype). Akcelik's power-based instantaneous model, in the form of Akcelik,
+// Fuel. Akcelik's power-based instantaneous model, in the form of Akcelik,
 // Smit & Besley (2012): while the engine pushes (tractive power P_T > 0) the fuel rate is
 // idle + b1*P_T + b2*a*P_I (the last only when speeding up); otherwise it is the idle
 // rate, so energy shed in the brakes earns nothing back. A and B are the fuel cost of
-// rolling resistance and of air drag per km. docs/fuel-prototype.md derives each value.
+// rolling resistance and of air drag per km. docs/fuel-stress-and-variant-b.md derives each value.
 const VEHICLES = {
   compact: { label: 'Compact car', mass: 1250, pMax: 100, idle: 889, A: 12.2, B: 0.0036, b1: 0.0926, b2: 0.030 },
   suv: { label: 'Midsize SUV', mass: 2000, pMax: 200, idle: 1700, A: 19.5, B: 0.0059, b1: 0.0926, b2: 0.030 },
@@ -235,6 +239,7 @@ class Sim {
     const dt = this.dt;
     const uL = c.unitL, uT = c.unitT, uV = uL / uT, uA = uL / (uT * uT);
     const acc = new Float32Array(n);
+    const threeState = c.driverModel === 'B';
     // Fuel is counted only in real units; a rescaled model has no physical car.
     const veh = uL === 1 && uT === 1 ? VEHICLES[c.vehicle] : null;
     const idealPerM = veh && this.equilibriumSpeed() > 1 ? cruiseFuelPerM(veh, this.equilibriumSpeed()) : 0;
@@ -262,10 +267,11 @@ class Sim {
           : gapNow > sHi ? Math.min(2 * uV, (0.06 / uT) * (gapNow - sHi)) : 0;
         const vCmd = Math.max(0, Math.min(vlim * car.speedFactor, car.vAvg + corr));
         a = Math.max(-3 * uA, Math.min(1.0 * uA, (0.6 / uT) * (vCmd - car.v)));
-        // Three pedal states. With a long gap, the rule above holds the average speed and lets
-        // the gap absorb a dip. Closing in with under 1.5 s of gap left, ease off the gas; brake
-        // only as hard as it takes to match the car ahead before the gap reaches the band's floor.
-        if (dvNow > 0 && gapNow < c.jamGap + car.v * 1.5 * uT) {
+        // Variant B, three states (gas, coast, brake). With a long gap, the rule above holds the
+        // average speed and lets the gap absorb a dip. Closing in with under 1.5 s of gap left,
+        // coast; brake only as hard as it takes to match the car ahead before the gap reaches the
+        // band's floor.
+        if (threeState && dvNow > 0 && gapNow < c.jamGap + car.v * 1.5 * uT) {
           const room = gapNow - sLo;
           const need = room > 0.1 * uL ? (dvNow * dvNow) / (2 * room) : 3 * uA;
           a = Math.min(a, -Math.min(3 * uA, Math.max(c.liftDecel * uA, need)));
@@ -288,9 +294,11 @@ class Sim {
       if (n > 1) {
         const room = gapNow - 1 * uL + (ld.v * ld.v) / (2 * 8 * uA);
         const bReq = room > 0.05 * uL ? (car.v * car.v) / (2 * room) : 9 * uA;
-        // one threshold for every driver: at 3.5 m/s^2 the check fired at equal speeds in steady
-        // flow when ample-distance drivers shared tailgater-length gaps, jolting them every few seconds
-        if (bReq > 5 * uA) a = Math.min(a, -Math.min(9 * uA, bReq * 1.1));
+        // Variant A keeps a lower threshold for drivers who leave room. Variant B uses one threshold
+        // for everyone: at 3.5 m/s^2 the check fired at equal speeds in steady flow when ample-distance
+        // drivers shared tailgater-length gaps, jolting them every few seconds.
+        const panic = !threeState && car.absorber ? 3.5 : 5;
+        if (bReq > panic * uA) a = Math.min(a, -Math.min(9 * uA, bReq * 1.1));
       }
 
       if (car.tap) {
@@ -313,8 +321,8 @@ class Sim {
       // count hard-brake onsets with hysteresis so one stop counts once
       if (!car.hardBraking && a < -2.5 * uA) { car.hardBraking = true; car.brakeCount++; this.stats.hardBrakes++; }
       else if (car.hardBraking && a > -0.5 * uA) car.hardBraking = false;
-      // brake lights and the stress count follow the brake pedal: slowing faster than lifting off
-      car.braking = a < -c.liftDecel * uA;
+      // brake lights: in variant B, slowing faster than coasting means the brake pedal
+      car.braking = a < -(threeState ? c.liftDecel : 1.0) * uA;
       // a firm brake event lasts until the driver is back on the gas (after Stern et al. 2018)
       if (!car.onBrake && a < -c.firmBrake * uA) { car.onBrake = true; this.stats.brakeEvents++; }
       else if (car.onBrake && a > 0) car.onBrake = false;

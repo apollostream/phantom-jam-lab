@@ -40,420 +40,838 @@
    "kmAt50ForOneStart": 0.4
   }
  },
- "scenes": [
-  {
-   "key": "tap",
-   "suv": {
-    "mix": {
-     "eff": 47,
-     "l100": 15.27,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
+ "scenes": {
+  "A": [
+   {
+    "key": "tap",
+    "suv": {
+     "mix": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "savingPct": 0
     },
-    "tailgaters": {
-     "eff": 47,
-     "l100": 15.27,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
+    "compact": {
+     "mix": {
+      "eff": 45.7,
+      "l100": 9.18,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 45.7,
+      "l100": 9.18,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "savingPct": 0
     },
-    "savingPct": 0
-   },
-   "compact": {
-    "mix": {
-     "eff": 45.7,
-     "l100": 9.18,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
+    "noWobble": {
+     "mix": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     }
     },
-    "tailgaters": {
-     "eff": 45.7,
-     "l100": 9.18,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
-    },
-    "savingPct": 0
-   },
-   "noWobble": {
-    "mix": {
-     "eff": 47,
-     "l100": 15.27,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
-    },
-    "tailgaters": {
-     "eff": 47,
-     "l100": 15.27,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
+    "noB2": {
+     "mix": {
+      "eff": 52.3,
+      "l100": 13.73,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 52.3,
+      "l100": 13.73,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     }
     }
    },
-   "noB2": {
-    "mix": {
-     "eff": 52.3,
-     "l100": 13.73,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
+   {
+    "key": "one",
+    "suv": {
+     "mix": {
+      "eff": 96.5,
+      "l100": 7.29,
+      "stressPerKm": 0.06,
+      "meanKmh": 64.6,
+      "steadyKmh": 64.3
+     },
+     "tailgaters": {
+      "eff": 53.6,
+      "l100": 13.24,
+      "stressPerKm": 2.01,
+      "meanKmh": 59.4,
+      "steadyKmh": 66.1
+     },
+     "savingPct": 44.9
     },
-    "tailgaters": {
-     "eff": 52.3,
-     "l100": 13.73,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
+    "compact": {
+     "mix": {
+      "eff": 96.2,
+      "l100": 4.25,
+      "stressPerKm": 0.06,
+      "meanKmh": 64.6,
+      "steadyKmh": 64.3
+     },
+     "tailgaters": {
+      "eff": 52.1,
+      "l100": 7.94,
+      "stressPerKm": 2.01,
+      "meanKmh": 59.4,
+      "steadyKmh": 66.1
+     },
+     "savingPct": 46.5
+    },
+    "noWobble": {
+     "mix": {
+      "eff": 96.5,
+      "l100": 7.29,
+      "stressPerKm": 0.06,
+      "meanKmh": 64.6,
+      "steadyKmh": 64.3
+     },
+     "tailgaters": {
+      "eff": 53.6,
+      "l100": 13.24,
+      "stressPerKm": 2.01,
+      "meanKmh": 59.4,
+      "steadyKmh": 66.1
+     }
+    },
+    "noB2": {
+     "mix": {
+      "eff": 97,
+      "l100": 7.25,
+      "stressPerKm": 0.06,
+      "meanKmh": 64.6,
+      "steadyKmh": 64.3
+     },
+     "tailgaters": {
+      "eff": 58.5,
+      "l100": 12.14,
+      "stressPerKm": 2.01,
+      "meanKmh": 59.4,
+      "steadyKmh": 66.1
+     }
+    }
+   },
+   {
+    "key": "all",
+    "suv": {
+     "mix": {
+      "eff": 92.3,
+      "l100": 7.78,
+      "stressPerKm": 16.9,
+      "meanKmh": 55.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "savingPct": 49.1
+    },
+    "compact": {
+     "mix": {
+      "eff": 92.6,
+      "l100": 4.53,
+      "stressPerKm": 16.9,
+      "meanKmh": 55.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 45.7,
+      "l100": 9.18,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "savingPct": 50.7
+    },
+    "noWobble": {
+     "mix": {
+      "eff": 92.3,
+      "l100": 7.78,
+      "stressPerKm": 16.9,
+      "meanKmh": 55.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     }
+    },
+    "noB2": {
+     "mix": {
+      "eff": 93.7,
+      "l100": 7.66,
+      "stressPerKm": 16.9,
+      "meanKmh": 55.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 52.3,
+      "l100": 13.73,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     }
+    }
+   },
+   {
+    "key": "ring",
+    "suv": {
+     "mix": {
+      "eff": 37.9,
+      "l100": 37.32,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     },
+     "tailgaters": {
+      "eff": 37.9,
+      "l100": 37.32,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     },
+     "savingPct": 0
+    },
+    "compact": {
+     "mix": {
+      "eff": 36,
+      "l100": 21.11,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     },
+     "tailgaters": {
+      "eff": 36,
+      "l100": 21.11,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     },
+     "savingPct": 0
+    },
+    "noWobble": {
+     "mix": {
+      "eff": 33.8,
+      "l100": 41.8,
+      "stressPerKm": 153.75,
+      "meanKmh": 6.8,
+      "steadyKmh": 14.1
+     },
+     "tailgaters": {
+      "eff": 33.8,
+      "l100": 41.8,
+      "stressPerKm": 153.75,
+      "meanKmh": 6.8,
+      "steadyKmh": 14.1
+     }
+    },
+    "noB2": {
+     "mix": {
+      "eff": 42,
+      "l100": 33.72,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     },
+     "tailgaters": {
+      "eff": 42,
+      "l100": 33.72,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     }
+    }
+   },
+   {
+    "key": "rush",
+    "suv": {
+     "mix": {
+      "eff": 38.8,
+      "l100": 17.69,
+      "stressPerKm": 8.46,
+      "meanKmh": 38.5,
+      "steadyKmh": 58.3
+     },
+     "tailgaters": {
+      "eff": 33.4,
+      "l100": 21.16,
+      "stressPerKm": 7.64,
+      "meanKmh": 37.5,
+      "steadyKmh": 65.1
+     },
+     "savingPct": 16.4
+    },
+    "compact": {
+     "mix": {
+      "eff": 37.4,
+      "l100": 10.6,
+      "stressPerKm": 8.46,
+      "meanKmh": 38.5,
+      "steadyKmh": 58.3
+     },
+     "tailgaters": {
+      "eff": 32.2,
+      "l100": 12.78,
+      "stressPerKm": 7.64,
+      "meanKmh": 37.5,
+      "steadyKmh": 65.1
+     },
+     "savingPct": 17.1
+    },
+    "noWobble": {
+     "mix": {
+      "eff": 47.5,
+      "l100": 14.47,
+      "stressPerKm": 7.23,
+      "meanKmh": 42.2,
+      "steadyKmh": 58.3
+     },
+     "tailgaters": {
+      "eff": 34.3,
+      "l100": 20.56,
+      "stressPerKm": 7.13,
+      "meanKmh": 43.9,
+      "steadyKmh": 65.1
+     }
+    },
+    "noB2": {
+     "mix": {
+      "eff": 45.2,
+      "l100": 15.21,
+      "stressPerKm": 8.46,
+      "meanKmh": 38.5,
+      "steadyKmh": 58.3
+     },
+     "tailgaters": {
+      "eff": 39.5,
+      "l100": 17.88,
+      "stressPerKm": 7.64,
+      "meanKmh": 37.5,
+      "steadyKmh": 65.1
+     }
+    }
+   },
+   {
+    "key": "half",
+    "suv": {
+     "mix": {
+      "eff": 84.6,
+      "l100": 8.11,
+      "stressPerKm": 5.87,
+      "meanKmh": 35,
+      "steadyKmh": 47.3
+     },
+     "tailgaters": {
+      "eff": 34.2,
+      "l100": 20.41,
+      "stressPerKm": 7.5,
+      "meanKmh": 39,
+      "steadyKmh": 62.6
+     },
+     "savingPct": 60.3
+    },
+    "compact": {
+     "mix": {
+      "eff": 84.5,
+      "l100": 4.62,
+      "stressPerKm": 5.87,
+      "meanKmh": 35,
+      "steadyKmh": 47.3
+     },
+     "tailgaters": {
+      "eff": 32.9,
+      "l100": 12.3,
+      "stressPerKm": 7.5,
+      "meanKmh": 39,
+      "steadyKmh": 62.6
+     },
+     "savingPct": 62.4
+    },
+    "noWobble": {
+     "mix": {
+      "eff": 88.3,
+      "l100": 7.77,
+      "stressPerKm": 5.71,
+      "meanKmh": 35,
+      "steadyKmh": 47.3
+     },
+     "tailgaters": {
+      "eff": 38.9,
+      "l100": 17.93,
+      "stressPerKm": 6.5,
+      "meanKmh": 40.1,
+      "steadyKmh": 62.6
+     }
+    },
+    "noB2": {
+     "mix": {
+      "eff": 86.6,
+      "l100": 7.92,
+      "stressPerKm": 5.87,
+      "meanKmh": 35,
+      "steadyKmh": 47.3
+     },
+     "tailgaters": {
+      "eff": 40,
+      "l100": 17.46,
+      "stressPerKm": 7.5,
+      "meanKmh": 39,
+      "steadyKmh": 62.6
+     }
     }
    }
-  },
-  {
-   "key": "one",
-   "suv": {
-    "mix": {
-     "eff": 96.5,
-     "l100": 7.29,
-     "stressPerKm": 0.06,
-     "meanKmh": 64.6,
-     "steadyKmh": 64.3
+  ],
+  "B": [
+   {
+    "key": "tap",
+    "suv": {
+     "mix": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "savingPct": 0
     },
-    "tailgaters": {
-     "eff": 53.6,
-     "l100": 13.24,
-     "stressPerKm": 2.01,
-     "meanKmh": 59.4,
-     "steadyKmh": 66.1
+    "compact": {
+     "mix": {
+      "eff": 45.7,
+      "l100": 9.18,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 45.7,
+      "l100": 9.18,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "savingPct": 0
     },
-    "savingPct": 44.9
-   },
-   "compact": {
-    "mix": {
-     "eff": 96.2,
-     "l100": 4.25,
-     "stressPerKm": 0.06,
-     "meanKmh": 64.6,
-     "steadyKmh": 64.3
+    "noWobble": {
+     "mix": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     }
     },
-    "tailgaters": {
-     "eff": 52.1,
-     "l100": 7.94,
-     "stressPerKm": 2.01,
-     "meanKmh": 59.4,
-     "steadyKmh": 66.1
-    },
-    "savingPct": 46.5
-   },
-   "noWobble": {
-    "mix": {
-     "eff": 96.5,
-     "l100": 7.29,
-     "stressPerKm": 0.06,
-     "meanKmh": 64.6,
-     "steadyKmh": 64.3
-    },
-    "tailgaters": {
-     "eff": 53.6,
-     "l100": 13.24,
-     "stressPerKm": 2.01,
-     "meanKmh": 59.4,
-     "steadyKmh": 66.1
+    "noB2": {
+     "mix": {
+      "eff": 52.3,
+      "l100": 13.73,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 52.3,
+      "l100": 13.73,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     }
     }
    },
-   "noB2": {
-    "mix": {
-     "eff": 97,
-     "l100": 7.25,
-     "stressPerKm": 0.06,
-     "meanKmh": 64.6,
-     "steadyKmh": 64.3
+   {
+    "key": "one",
+    "suv": {
+     "mix": {
+      "eff": 96.5,
+      "l100": 7.29,
+      "stressPerKm": 0.06,
+      "meanKmh": 64.6,
+      "steadyKmh": 64.3
+     },
+     "tailgaters": {
+      "eff": 53.6,
+      "l100": 13.24,
+      "stressPerKm": 2.01,
+      "meanKmh": 59.4,
+      "steadyKmh": 66.1
+     },
+     "savingPct": 44.9
     },
-    "tailgaters": {
-     "eff": 58.5,
-     "l100": 12.14,
-     "stressPerKm": 2.01,
-     "meanKmh": 59.4,
-     "steadyKmh": 66.1
+    "compact": {
+     "mix": {
+      "eff": 96.2,
+      "l100": 4.25,
+      "stressPerKm": 0.06,
+      "meanKmh": 64.6,
+      "steadyKmh": 64.3
+     },
+     "tailgaters": {
+      "eff": 52.1,
+      "l100": 7.94,
+      "stressPerKm": 2.01,
+      "meanKmh": 59.4,
+      "steadyKmh": 66.1
+     },
+     "savingPct": 46.5
+    },
+    "noWobble": {
+     "mix": {
+      "eff": 96.5,
+      "l100": 7.29,
+      "stressPerKm": 0.06,
+      "meanKmh": 64.6,
+      "steadyKmh": 64.3
+     },
+     "tailgaters": {
+      "eff": 53.6,
+      "l100": 13.24,
+      "stressPerKm": 2.01,
+      "meanKmh": 59.4,
+      "steadyKmh": 66.1
+     }
+    },
+    "noB2": {
+     "mix": {
+      "eff": 97,
+      "l100": 7.25,
+      "stressPerKm": 0.06,
+      "meanKmh": 64.6,
+      "steadyKmh": 64.3
+     },
+     "tailgaters": {
+      "eff": 58.5,
+      "l100": 12.14,
+      "stressPerKm": 2.01,
+      "meanKmh": 59.4,
+      "steadyKmh": 66.1
+     }
+    }
+   },
+   {
+    "key": "all",
+    "suv": {
+     "mix": {
+      "eff": 101.3,
+      "l100": 7.09,
+      "stressPerKm": 0.04,
+      "meanKmh": 55.3,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "savingPct": 53.6
+    },
+    "compact": {
+     "mix": {
+      "eff": 102.4,
+      "l100": 4.1,
+      "stressPerKm": 0.04,
+      "meanKmh": 55.3,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 45.7,
+      "l100": 9.18,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     },
+     "savingPct": 55.3
+    },
+    "noWobble": {
+     "mix": {
+      "eff": 101.3,
+      "l100": 7.09,
+      "stressPerKm": 0.04,
+      "meanKmh": 55.3,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 47,
+      "l100": 15.27,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     }
+    },
+    "noB2": {
+     "mix": {
+      "eff": 102.2,
+      "l100": 7.03,
+      "stressPerKm": 0.04,
+      "meanKmh": 55.3,
+      "steadyKmh": 68.1
+     },
+     "tailgaters": {
+      "eff": 52.3,
+      "l100": 13.73,
+      "stressPerKm": 3.52,
+      "meanKmh": 49.8,
+      "steadyKmh": 68.1
+     }
+    }
+   },
+   {
+    "key": "ring",
+    "suv": {
+     "mix": {
+      "eff": 37.9,
+      "l100": 37.32,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     },
+     "tailgaters": {
+      "eff": 37.9,
+      "l100": 37.32,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     },
+     "savingPct": 0
+    },
+    "compact": {
+     "mix": {
+      "eff": 36,
+      "l100": 21.11,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     },
+     "tailgaters": {
+      "eff": 36,
+      "l100": 21.11,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     },
+     "savingPct": 0
+    },
+    "noWobble": {
+     "mix": {
+      "eff": 33.8,
+      "l100": 41.8,
+      "stressPerKm": 153.75,
+      "meanKmh": 6.8,
+      "steadyKmh": 14.1
+     },
+     "tailgaters": {
+      "eff": 33.8,
+      "l100": 41.8,
+      "stressPerKm": 153.75,
+      "meanKmh": 6.8,
+      "steadyKmh": 14.1
+     }
+    },
+    "noB2": {
+     "mix": {
+      "eff": 42,
+      "l100": 33.72,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     },
+     "tailgaters": {
+      "eff": 42,
+      "l100": 33.72,
+      "stressPerKm": 82.64,
+      "meanKmh": 8.4,
+      "steadyKmh": 14.1
+     }
+    }
+   },
+   {
+    "key": "rush",
+    "suv": {
+     "mix": {
+      "eff": 38.5,
+      "l100": 17.84,
+      "stressPerKm": 6.75,
+      "meanKmh": 36.9,
+      "steadyKmh": 58.3
+     },
+     "tailgaters": {
+      "eff": 33.4,
+      "l100": 21.16,
+      "stressPerKm": 7.64,
+      "meanKmh": 37.5,
+      "steadyKmh": 65.1
+     },
+     "savingPct": 15.7
+    },
+    "compact": {
+     "mix": {
+      "eff": 37.1,
+      "l100": 10.69,
+      "stressPerKm": 6.75,
+      "meanKmh": 36.9,
+      "steadyKmh": 58.3
+     },
+     "tailgaters": {
+      "eff": 32.2,
+      "l100": 12.78,
+      "stressPerKm": 7.64,
+      "meanKmh": 37.5,
+      "steadyKmh": 65.1
+     },
+     "savingPct": 16.4
+    },
+    "noWobble": {
+     "mix": {
+      "eff": 47.6,
+      "l100": 14.42,
+      "stressPerKm": 5.9,
+      "meanKmh": 39.3,
+      "steadyKmh": 58.3
+     },
+     "tailgaters": {
+      "eff": 34.3,
+      "l100": 20.56,
+      "stressPerKm": 7.13,
+      "meanKmh": 43.9,
+      "steadyKmh": 65.1
+     }
+    },
+    "noB2": {
+     "mix": {
+      "eff": 44.8,
+      "l100": 15.35,
+      "stressPerKm": 6.75,
+      "meanKmh": 36.9,
+      "steadyKmh": 58.3
+     },
+     "tailgaters": {
+      "eff": 39.5,
+      "l100": 17.88,
+      "stressPerKm": 7.64,
+      "meanKmh": 37.5,
+      "steadyKmh": 65.1
+     }
+    }
+   },
+   {
+    "key": "half",
+    "suv": {
+     "mix": {
+      "eff": 79.8,
+      "l100": 8.6,
+      "stressPerKm": 0.97,
+      "meanKmh": 28.8,
+      "steadyKmh": 47.3
+     },
+     "tailgaters": {
+      "eff": 34.2,
+      "l100": 20.41,
+      "stressPerKm": 7.5,
+      "meanKmh": 39,
+      "steadyKmh": 62.6
+     },
+     "savingPct": 57.9
+    },
+    "compact": {
+     "mix": {
+      "eff": 79.8,
+      "l100": 4.9,
+      "stressPerKm": 0.97,
+      "meanKmh": 28.8,
+      "steadyKmh": 47.3
+     },
+     "tailgaters": {
+      "eff": 32.9,
+      "l100": 12.3,
+      "stressPerKm": 7.5,
+      "meanKmh": 39,
+      "steadyKmh": 62.6
+     },
+     "savingPct": 60.2
+    },
+    "noWobble": {
+     "mix": {
+      "eff": 83.1,
+      "l100": 8.26,
+      "stressPerKm": 0.96,
+      "meanKmh": 29.4,
+      "steadyKmh": 47.3
+     },
+     "tailgaters": {
+      "eff": 38.9,
+      "l100": 17.93,
+      "stressPerKm": 6.5,
+      "meanKmh": 40.1,
+      "steadyKmh": 62.6
+     }
+    },
+    "noB2": {
+     "mix": {
+      "eff": 82.1,
+      "l100": 8.36,
+      "stressPerKm": 0.97,
+      "meanKmh": 28.8,
+      "steadyKmh": 47.3
+     },
+     "tailgaters": {
+      "eff": 40,
+      "l100": 17.46,
+      "stressPerKm": 7.5,
+      "meanKmh": 39,
+      "steadyKmh": 62.6
+     }
     }
    }
-  },
-  {
-   "key": "all",
-   "suv": {
-    "mix": {
-     "eff": 101.3,
-     "l100": 7.09,
-     "stressPerKm": 0.04,
-     "meanKmh": 55.3,
-     "steadyKmh": 68.1
-    },
-    "tailgaters": {
-     "eff": 47,
-     "l100": 15.27,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
-    },
-    "savingPct": 53.6
-   },
-   "compact": {
-    "mix": {
-     "eff": 102.4,
-     "l100": 4.1,
-     "stressPerKm": 0.04,
-     "meanKmh": 55.3,
-     "steadyKmh": 68.1
-    },
-    "tailgaters": {
-     "eff": 45.7,
-     "l100": 9.18,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
-    },
-    "savingPct": 55.3
-   },
-   "noWobble": {
-    "mix": {
-     "eff": 101.3,
-     "l100": 7.09,
-     "stressPerKm": 0.04,
-     "meanKmh": 55.3,
-     "steadyKmh": 68.1
-    },
-    "tailgaters": {
-     "eff": 47,
-     "l100": 15.27,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
-    }
-   },
-   "noB2": {
-    "mix": {
-     "eff": 102.2,
-     "l100": 7.03,
-     "stressPerKm": 0.04,
-     "meanKmh": 55.3,
-     "steadyKmh": 68.1
-    },
-    "tailgaters": {
-     "eff": 52.3,
-     "l100": 13.73,
-     "stressPerKm": 3.52,
-     "meanKmh": 49.8,
-     "steadyKmh": 68.1
-    }
-   }
-  },
-  {
-   "key": "ring",
-   "suv": {
-    "mix": {
-     "eff": 37.9,
-     "l100": 37.32,
-     "stressPerKm": 82.64,
-     "meanKmh": 8.4,
-     "steadyKmh": 14.1
-    },
-    "tailgaters": {
-     "eff": 37.9,
-     "l100": 37.32,
-     "stressPerKm": 82.64,
-     "meanKmh": 8.4,
-     "steadyKmh": 14.1
-    },
-    "savingPct": 0
-   },
-   "compact": {
-    "mix": {
-     "eff": 36,
-     "l100": 21.11,
-     "stressPerKm": 82.64,
-     "meanKmh": 8.4,
-     "steadyKmh": 14.1
-    },
-    "tailgaters": {
-     "eff": 36,
-     "l100": 21.11,
-     "stressPerKm": 82.64,
-     "meanKmh": 8.4,
-     "steadyKmh": 14.1
-    },
-    "savingPct": 0
-   },
-   "noWobble": {
-    "mix": {
-     "eff": 33.8,
-     "l100": 41.8,
-     "stressPerKm": 153.75,
-     "meanKmh": 6.8,
-     "steadyKmh": 14.1
-    },
-    "tailgaters": {
-     "eff": 33.8,
-     "l100": 41.8,
-     "stressPerKm": 153.75,
-     "meanKmh": 6.8,
-     "steadyKmh": 14.1
-    }
-   },
-   "noB2": {
-    "mix": {
-     "eff": 42,
-     "l100": 33.72,
-     "stressPerKm": 82.64,
-     "meanKmh": 8.4,
-     "steadyKmh": 14.1
-    },
-    "tailgaters": {
-     "eff": 42,
-     "l100": 33.72,
-     "stressPerKm": 82.64,
-     "meanKmh": 8.4,
-     "steadyKmh": 14.1
-    }
-   }
-  },
-  {
-   "key": "rush",
-   "suv": {
-    "mix": {
-     "eff": 38.5,
-     "l100": 17.84,
-     "stressPerKm": 6.75,
-     "meanKmh": 36.9,
-     "steadyKmh": 58.3
-    },
-    "tailgaters": {
-     "eff": 33.4,
-     "l100": 21.16,
-     "stressPerKm": 7.64,
-     "meanKmh": 37.5,
-     "steadyKmh": 65.1
-    },
-    "savingPct": 15.7
-   },
-   "compact": {
-    "mix": {
-     "eff": 37.1,
-     "l100": 10.69,
-     "stressPerKm": 6.75,
-     "meanKmh": 36.9,
-     "steadyKmh": 58.3
-    },
-    "tailgaters": {
-     "eff": 32.2,
-     "l100": 12.78,
-     "stressPerKm": 7.64,
-     "meanKmh": 37.5,
-     "steadyKmh": 65.1
-    },
-    "savingPct": 16.4
-   },
-   "noWobble": {
-    "mix": {
-     "eff": 47.6,
-     "l100": 14.42,
-     "stressPerKm": 5.9,
-     "meanKmh": 39.3,
-     "steadyKmh": 58.3
-    },
-    "tailgaters": {
-     "eff": 34.3,
-     "l100": 20.56,
-     "stressPerKm": 7.13,
-     "meanKmh": 43.9,
-     "steadyKmh": 65.1
-    }
-   },
-   "noB2": {
-    "mix": {
-     "eff": 44.8,
-     "l100": 15.35,
-     "stressPerKm": 6.75,
-     "meanKmh": 36.9,
-     "steadyKmh": 58.3
-    },
-    "tailgaters": {
-     "eff": 39.5,
-     "l100": 17.88,
-     "stressPerKm": 7.64,
-     "meanKmh": 37.5,
-     "steadyKmh": 65.1
-    }
-   }
-  },
-  {
-   "key": "half",
-   "suv": {
-    "mix": {
-     "eff": 79.8,
-     "l100": 8.6,
-     "stressPerKm": 0.97,
-     "meanKmh": 28.8,
-     "steadyKmh": 47.3
-    },
-    "tailgaters": {
-     "eff": 34.2,
-     "l100": 20.41,
-     "stressPerKm": 7.5,
-     "meanKmh": 39,
-     "steadyKmh": 62.6
-    },
-    "savingPct": 57.9
-   },
-   "compact": {
-    "mix": {
-     "eff": 79.8,
-     "l100": 4.9,
-     "stressPerKm": 0.97,
-     "meanKmh": 28.8,
-     "steadyKmh": 47.3
-    },
-    "tailgaters": {
-     "eff": 32.9,
-     "l100": 12.3,
-     "stressPerKm": 7.5,
-     "meanKmh": 39,
-     "steadyKmh": 62.6
-    },
-    "savingPct": 60.2
-   },
-   "noWobble": {
-    "mix": {
-     "eff": 83.1,
-     "l100": 8.26,
-     "stressPerKm": 0.96,
-     "meanKmh": 29.4,
-     "steadyKmh": 47.3
-    },
-    "tailgaters": {
-     "eff": 38.9,
-     "l100": 17.93,
-     "stressPerKm": 6.5,
-     "meanKmh": 40.1,
-     "steadyKmh": 62.6
-    }
-   },
-   "noB2": {
-    "mix": {
-     "eff": 82.1,
-     "l100": 8.36,
-     "stressPerKm": 0.97,
-     "meanKmh": 28.8,
-     "steadyKmh": 47.3
-    },
-    "tailgaters": {
-     "eff": 40,
-     "l100": 17.46,
-     "stressPerKm": 7.5,
-     "meanKmh": 39,
-     "steadyKmh": 62.6
-    }
-   }
-  }
- ]
+  ]
+ }
 }

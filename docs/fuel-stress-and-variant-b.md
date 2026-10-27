@@ -1,8 +1,21 @@
-# The prototype branch: fuel, stress and driver changes
+# Fuel, stress and driver model B
 
-**Status:** a prototype on the `prototype/fuel` branch, previewed at
-<https://claude.ai/artifact/3qFrceiTDLRSq6mjoLUccF>. It may be kept, changed or dropped. The `main`
-branch, GitHub Pages, the claude.ai simulator and both reports do not include any of it.
+This document covers what the `prototype/fuel` branch adds to Phantom Jam Lab: fuel and stress scores
+for every road, a second driver model for the drivers who leave room, and several display changes. The
+branch is being prepared for a merge into `main`. Until then it is previewed at
+<https://claude.ai/artifact/3qFrceiTDLRSq6mjoLUccF>, and `main`, GitHub Pages and the published
+claude.ai simulator do not include it.
+
+**Two driver models, side by side.** The owner chose to keep the original drivers and the new ones as
+two variants, rather than have the new replace the old:
+- **Model A, classic,** is the original driver who leaves room, unchanged. The report, the technical
+  report and every result in `analysis/results/` (except `fuel.json`) come from it. It is the default.
+- **Model B, three-state,** coasts before it brakes and shares the tailgaters' emergency threshold
+  (sections 7 and 8).
+
+Tailgaters are the same in both. The app sets the model with "How they drive" under Drivers, and the
+second road can show the same drivers under the other model, so the two can be watched on one road at
+once (section 9). In code, the setting is `driverModel: 'A'` or `'B'`.
 
 **What the branch adds:**
 
@@ -10,9 +23,9 @@ branch, GitHub Pages, the claude.ai simulator and both reports do not include an
 | --- | --- | --- |
 | Fuel | fuel efficiency (100% = steady flow at the road's load) and litres per 100 km for each road; a vehicle switch (midsize SUV or compact car) | 1–5 |
 | Stress | the average distance driven between stressful moments (firm braking or a close call), with a face | 6 |
-| Engine | one emergency-reflex threshold for every driver, fixing a bug that jolted drivers who leave room | 7 |
-| Engine | three pedal states (gas, lift off, brake) for drivers who leave room | 8 |
-| Display and controls | the fuel and stress gauges; regime-map clicks that vary the number of cars; a cars slider capped at what fits; crowded rings drawn closer to scale | 9 |
+| Model B | one emergency-reflex threshold for every driver, which removes jolts that model A gives drivers who leave room | 7 |
+| Model B | three states (gas, coast, brake) for drivers who leave room | 8 |
+| Display and controls | the fuel and stress gauges; the driver-model switch and the A-against-B comparison; regime-map clicks that vary the number of cars; a cars slider capped at what fits; crowded rings drawn closer to scale | 9 |
 
 The decisions still open are listed in section 11.
 
@@ -190,8 +203,8 @@ All of it lives in `src/engine.js`:
 `node analysis/fuel.mjs` plays each scene as the app does for 300 simulated seconds, with the scene's
 mix and with everyone tailgating, and writes `analysis/results/fuel.json`. Each road is scored against
 its own steady flow. **Saving** is the drop in litres per 100 km from everyone tailgating to the scene's
-mix. The figures below are from the engine with the three-pedal driver (section 8). Where that changed a
-figure, the earlier value is in brackets.
+mix. The figures below are for model B. Where model A differs, its figure is in brackets. Roads where
+everyone tailgates are the same under both models.
 
 **Midsize SUV:**
 
@@ -246,8 +259,9 @@ make room.
   above 3 s. The 1.5 s threshold is the conflict threshold of the US Federal Highway Administration's
   Surrogate Safety Assessment Model. Studies use 1.5 to 4 s.
 
-Gentle braking and easing off the gas do not count. The brake lights now light only when the brake is
-pressed, which means slowing faster than the lift-off rate.
+Gentle braking and coasting do not count. In model B the brake lights light only when the brake is
+pressed, which means slowing faster than the coasting rate. In model A they light, as before, when a car
+slows faster than 1 m/s².
 
 **Research on stress itself.** Physiological studies tie driving stress to acceleration events: a
 University of Houston and Texas A&M Transportation Institute team found about half their drivers
@@ -284,26 +298,32 @@ Details of the display:
 **Results** (SUV; `npm run analysis:fuel`), stressful moments per km, with the distance between them in
 brackets:
 
-| Scene | Your mix | Everyone tailgates |
-| --- | --- | --- |
-| 1. One tap of the brakes | 3.5 (280 m) | 3.5 (280 m) |
-| 2. One driver leaves room | 0.06 (17 km) | 2.0 (500 m) |
-| 3. Everyone leaves room | 0.04 (25 km) | 3.5 (280 m) |
-| 4. The ring-road experiment | 83 (10 m) | 83 (10 m) |
-| 5. Rush hour | 6.8 (150 m) | 7.6 (130 m) |
-| 6. Half and half | 1.0 (1.0 km) | 7.5 (130 m) |
+| Scene | Your mix, model B | Your mix, model A | Everyone tailgates |
+| --- | --- | --- | --- |
+| 1. One tap of the brakes | 3.5 (280 m) | 3.5 (280 m) | 3.5 (280 m) |
+| 2. One driver leaves room | 0.06 (17 km) | 0.06 (17 km) | 2.0 (500 m) |
+| 3. Everyone leaves room | 0.04 (25 km) | 17 (60 m) | 3.5 (280 m) |
+| 4. The ring-road experiment | 83 (10 m) | 83 (10 m) | 83 (10 m) |
+| 5. Rush hour | 6.8 (150 m) | 8.5 (120 m) | 7.6 (130 m) |
+| 6. Half and half | 1.0 (1.0 km) | 5.9 (170 m) | 7.5 (130 m) |
+
+Model A's high counts where many drivers leave room come from its emergency threshold (section 7): the
+check fires at equal speeds, and each firing is a firm brake.
 
 The ring-road figure is extreme because its cars average 8 km/h: every stop-and-go cycle is spread over
 very little distance.
 
 **Tests:**
-- a quiet road has no stressful moments;
+- a quiet road has no stressful moments: tailgaters under either model, and drivers who leave room
+  under model B;
+- under model A, a quiet road of only drivers who leave room still logs firm brakes, which pins down
+  section 7's quirk as part of model A;
 - a tapped knife-edge road scores above 1 per km, and below 0.5 with one driver who leaves room;
 - drivers sharing a crowded road ease off instead of braking hard after a tap.
 
 # Part III. Changes to the drivers
 
-## 7. The emergency reflex (bug fix)
+## 7. Model B: one emergency threshold for every driver
 
 **What was wrong.** Every car carries an emergency reflex. Each step it asks whether the car could stop
 in time if the car ahead braked at 8 m/s², and brakes hard if stopping would take more than a set rate.
@@ -321,19 +341,23 @@ moment, its normal control sped it up again, and the reflex fired again: 85 time
 | Half and half | 11.2 | 0.4 |
 | Rush hour | 24.1 | 4.8 |
 
-**The fix.** One threshold, 5 m/s², for every driver. On a quiet road where everyone leaves room, hard
-decelerations fell from 6.9 to 0 per km. Scene 2 did not change.
+**Model B's change.** One threshold, 5 m/s², for every driver. On a quiet road where everyone leaves
+room, hard decelerations fell from 6.9 to 0 per km. Scene 2 did not change.
+
+**Model A keeps the original thresholds,** so that it reproduces the published analysis exactly: with
+model A, `npm run analysis` leaves every results file unchanged. The jolts are part of model A, recorded
+by a test (section 6).
 
 **An attempt that failed.** Firing the reflex only when the time to collision is under 3 s made things
 worse. The reflex's early braking turned out to be part of how drivers who leave room absorbed a wave:
 scene 2 lost its rescue, and two tests failed.
 
-## 8. The three-pedal driver who leaves room
+## 8. Model B: the three-state driver who leaves room
 
-The owner pointed out that a driver has three states: on the gas, on neither pedal, or on the brake. With
-the foot off both, the car slows by itself. Tailgaters keep the Intelligent Driver Model, whose one
-continuous acceleration can be read the same way. Drivers who leave room now use the three states
-explicitly.
+The owner pointed out that a driver has three states: on the gas, on neither pedal (coasting), or on the
+brake. With the foot off both, the car slows by itself. Tailgaters keep the Intelligent Driver Model,
+whose one continuous acceleration can be read the same way. In model B, drivers who leave room use the
+three states explicitly.
 
 **Why it was needed.** Even with the reflex fixed, drivers who leave room braked hard after a wave
 arrived. Their rule holds the average speed of the traffic ahead and corrects only when the gap leaves a
@@ -343,43 +367,48 @@ on the gas while closing at 7 km/h on an 18 m gap, until the reflex fired. Burst
 **The rule now:**
 1. **Gas:** with more than 1.5 s of gap, or the gap opening, hold the average speed as before and let the
    gap absorb a dip.
-2. **Lift off:** closing in with under 1.5 s of gap, ease off the gas, slowing at the lift-off rate
-   (`liftDecel`, 0.6 m/s²).
-3. **Brake:** only if lifting off would not match the speed of the car ahead before the gap reaches the
+2. **Coast:** closing in with under 1.5 s of gap, take the foot off the gas, slowing at the coasting
+   rate (`liftDecel`, 0.6 m/s²).
+3. **Brake:** only if coasting would not match the speed of the car ahead before the gap reaches the
    band's floor. The braking is as gentle as that allows, at most 3 m/s². The emergency reflex stays as
    a last resort.
 
-**The lift-off rate.** About 0.6 m/s², an estimate. Rolling resistance and air drag give about 0.36 m/s²
+**The coasting rate.** About 0.6 m/s², an estimate. Rolling resistance and air drag give about 0.36 m/s²
 for the midsize SUV at 90 km/h (section 3), and engine braking in gear adds roughly 0.3–0.7 m/s². The
 engine-braking range is general knowledge, not yet checked against a source.
 
 **Two designs that failed.** Both made drivers who leave room *pass on* dips instead of absorbing them:
 - **Slowing whenever closing in,** just enough to match the car ahead before a 1 s gap. Each driver
   reacted to every small dip as if it would last.
-- **The same rule, but waiting until it needed nearly a lift-off.** On scene 2's second lap of the wave,
+- **The same rule, but waiting until it needed nearly the coasting rate.** On scene 2's second lap of the wave,
   the driver matched the car ahead's lowest speed, 42 km/h, where the original rule rode it out at
   55 km/h.
 
-**Before and after** (300 s per scene; the slowest car is counted after the first minute):
+**Model A against model B** (300 s per scene; the slowest car is counted after the first minute; a hard
+deceleration is one braking episode beyond 3 m/s², counted per vehicle-km over all cars):
 
 | Road | Average speed | Slowest car | Fuel efficiency | Hard decelerations per km |
 | --- | --- | --- | --- | --- |
-| 2. One driver leaves room | 65 → 65 km/h | 55 → 55 km/h | 96% → 96% | 0.04 → 0.04 |
-| 3. Everyone leaves room | 40 → 55 km/h | 29 → 55 km/h | 92% → 101% | 15.2 → 0.01 |
-| 5. Rush hour, with its drivers who leave room | 38 → 37 km/h | 0 → 0 | 39% → 39% | 5.9 → 4.4 |
-| 6. Half and half | 34 → 29 km/h | 0 → 0 | 85% → 80% | 2.3 → 0.4 |
+| 2. One driver leaves room | 65 → 65 km/h | 55 → 55 km/h | 96% → 96% | 0.05 → 0.05 |
+| 3. Everyone leaves room | 56 → 55 km/h | 53 → 55 km/h | 92% → 101% | 16.9 → 0.01 |
+| 5. Rush hour, with its drivers who leave room | 39 → 37 km/h | 0 → 0 | 39% → 39% | 8.1 → 5.5 |
+| 6. Half and half | 35 → 29 km/h | 2 → 0 km/h | 85% → 80% | 6.4 → 0.5 |
 
-The "before" column already includes the reflex fix of section 7. Roads where everyone tailgates do not
-change.
+Roads where everyone tailgates do not change. An earlier draft of this table compared model B with an
+intermediate engine that had only section 7's change; these figures replace it.
 
-**What it costs.** Under heavy random wobble, the three-pedal drivers are slightly less effective. The
-test "absorbers in the mix lower speed variation under noise" (4 drivers who leave room among 40, with
-distraction 0.6) now fails, because speed variation falls to 0.79 of the all-tailgater level against
-its limit of 0.75. Across five random seeds, the average ratio was:
-- **before:** 0.89, from 0.72 to 1.16 depending on the seed;
-- **after:** 0.93, from 0.79 to 1.08.
+**What it costs.** Under heavy random wobble, model B's drivers damp a little less than model A's. On the
+test road (4 drivers who leave room among 40, with distraction 0.6), speed variation falls to 0.69 of
+the all-tailgater level under model A and to 0.79 under model B. Across five random seeds, the average
+ratio was:
+- **model A:** 0.85, from 0.69 to 1.02 depending on the seed;
+- **model B:** 0.93, from 0.79 to 1.08.
 
-The test was already fragile, passing on one seed. It is left failing on this branch, pending a decision.
+Both are fragile on a single seed; the tests use seed 7, the most favourable for both.
+
+The tests record this. The original test, "absorbers in the mix lower speed variation under noise",
+runs model A and still requires a ratio under 0.75. A second test requires model B to stay under 0.85
+and to damp less than model A.
 
 # Part IV. Display and controls
 
@@ -397,7 +426,18 @@ every 0.3 s.
 - **Narrow screens:** both pills shrink below 480 px.
 
 The results table gains three rows: fuel efficiency, fuel per 100 km, and km between stressful
-moments. The vehicle switch sits under Vehicles, marked "prototype".
+moments. The vehicle switch sits under Vehicles.
+
+**The driver model and the A-against-B comparison.**
+- **"How they drive"** under Drivers picks model A or B for the drivers who leave room. It defaults to A,
+  and a scene change keeps the choice.
+- **The second road** (under View, "Second road for comparison") shows either everyone tailgating, as
+  before, or "Other driver model": the same cars and drivers under the model not chosen. Both roads
+  restart together, so they share a clock and every brake tap.
+- **Labels** name the model wherever drivers who leave room are on the road, for example
+  "1 of 30 leave room · model B", and the results table heads its columns "Model A" and "Model B".
+- **Loading a scene** sets the second road back to everyone tailgating, because each scene's story
+  compares against tailgaters.
 
 **Regime-map clicks hold the road length.** On `main`, clicking the regime map sets the delay R through
 the reaction time and the load Λ through the lap length. On this branch the lap length stays fixed, and
@@ -442,41 +482,43 @@ fixed minimum dot size made 300 cars on a 6 km ring look bumper to bumper, thoug
     deceleration in their data, not a fixed 0.2 g.
 - **Distance between stressful moments collapses at crawling speeds.** On the ring-road scene, cars at
   8 km/h cover little distance, so the figure falls to about 10 m.
-- **The lift-off rate, 0.6 m/s², is an estimate.** Its engine-braking part is general knowledge, not
+- **The coasting rate, 0.6 m/s², is an estimate.** Its engine-braking part is general knowledge, not
   yet checked against a source.
-- **Only drivers who leave room use three pedal states.** Tailgaters keep the Intelligent Driver Model's
-  single continuous acceleration. Their brake lights and stress count follow the same pedal reading.
-- **The three-pedal drivers cost a little under heavy noise** (section 8). Half and half averages 29 km/h
-  against 34 km/h before, and one test fails.
+- **Only drivers who leave room use three states, and only in model B.** Tailgaters keep the Intelligent
+  Driver Model's single continuous acceleration. In model B their brake lights follow the same pedal
+  reading.
+- **Model B costs a little under heavy noise** (section 8). Half and half averages 29 km/h against model
+  A's 35 km/h, though model A gets there with thirteen times as many hard decelerations.
+- **The regime map and the report describe model A.** No analysis yet maps model B across load and
+  delay.
 
-## 11. Decisions open
+## 11. Decisions
 
-1. **Keep, change or drop the prototype.** Dropping it means deleting the branch and the preview page.
-2. **The failing test** ("absorbers in the mix lower speed variation under noise", section 8). The
-   options:
-   - accept the trade and rewrite the test to average over several random seeds;
-   - rework the three-pedal driver until it passes;
-   - return to the old driver.
-3. **The reflex bug is also on `main`.** It is in the published simulator, and possibly in report
-   numbers that involve many drivers who leave room, such as the cost of keeping a road smooth
-   (`analysis/results/absorbers.json`). Scene 2 is unaffected. Fixing it on `main` means rerunning
-   `npm run analysis` and `npm run report:check`, revising any numbers that move, and republishing the
-   simulator and both reports.
-4. **Close calls in the stress measure.** Keep them, or count braking only, for a true "brake-free"
+**Made:**
+1. **Keep the work,** and merge it into `main`.
+2. **Keep both driver models** as variants A and B, with A the default, rather than replace A with B.
+   This also settles two earlier questions:
+   - **The noise test:** model A passes it as before; model B has its own test (section 8).
+   - **The emergency threshold on `main`:** it stays, as part of model A, so the report and the
+     published analysis remain correct for model A. Model B has the single threshold.
+
+**Still open:**
+1. **Close calls in the stress measure.** Keep them, or count braking only, for a true "brake-free"
    distance.
-5. **Facts to confirm:**
-   - the lift-off rate;
+2. **Facts to confirm:**
+   - the coasting rate;
    - the 2024 average vehicle mass and power in the EPA report itself.
+3. **The reports.** *The Jam Nobody Started* describes model A and stays correct. A later revision could
+   add fuel, stress and model B, registering each number in `report/facts.mjs` and each source in
+   `report/sources.json`.
+4. **Analysis of model B.** Add `analysis/fuel.mjs` to `npm run analysis`, and run the regime sweep
+   under model B, so the regime map could show both models.
 
-**If the prototype is kept:**
-- **Merge:** merge `prototype/fuel` into `main`.
-- **Analysis:** add `analysis/fuel.mjs` to `npm run analysis`, and fuel and stress to the regime sweep, so
-  the regime map can show both across load and reaction ratio.
-- **Checks:** rerun `npm run report:check`, because the engine change can move report numbers.
-- **Reports:** add fuel and stress sections to *The Jam Nobody Started*, registering each number in
-  `report/facts.mjs` and each source in `report/sources.json`. Revise the technical report if any shared
-  number moved.
-- **Publishing:** republish the claude.ai simulator and reports. GitHub Pages updates on the merge.
+**The merge:**
+- **Before:** tag the current `main` as `v1.0.0`, so the original is easy to find.
+- **Merge:** a pull request from `prototype/fuel` into `main`. Merging redeploys GitHub Pages.
+- **After:** republish the claude.ai simulator from `dist/phantom-jam-lab.html` at its existing link,
+  retire the preview page, and tag `v2.0.0`.
 
 ## 12. Sources
 
@@ -517,14 +559,17 @@ fixed minimum dot size made 300 cars on a 6 km ring look bumper to bumper, thoug
 
 ```sh
 git switch prototype/fuel
-npm test                      # 18 tests; one known failure (section 8)
-npm run analysis:fuel         # fuel and stress for every scene, into analysis/results/fuel.json
-npm run build                 # the simulator with the prototype, in dist/
+npm test                      # 20 tests, all passing
+npm run analysis              # model A: every published result, unchanged
+npm run report:check          # the report's numbers against those results
+npm run analysis:fuel         # fuel and stress for every scene under both models, into analysis/results/fuel.json
+npm run build                 # the simulator, in dist/
 ```
 
-**Tests the branch adds** (`test/engine.test.mjs`): the five fuel tests (section 4), the two stress tests,
-and one three-pedal test (sections 6 and 8).
+**Tests the branch adds** (`test/engine.test.mjs`): five fuel tests (section 4); two stress tests and
+one for model A's jolts (section 6); and two for model B, its coasting and its damping under noise
+(section 8).
 
-**Publishing the preview.** Publish a renamed copy of `dist/phantom-jam-lab.html` (title "Jam Lab Fuel
+**Publishing the preview, until the merge.** Publish a renamed copy of `dist/phantom-jam-lab.html` (title "Jam Lab Fuel
 Preview") to <https://claude.ai/artifact/3qFrceiTDLRSq6mjoLUccF>. Never publish
 `dist/phantom-jam-lab.html` itself from this branch, because that file is the main simulator's artifact.
