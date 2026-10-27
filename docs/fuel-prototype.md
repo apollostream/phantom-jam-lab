@@ -1,6 +1,6 @@
 # Fuel efficiency: research and analysis behind the prototype
 
-**Status:** a prototype on the `prototype/fuel` branch. It may be kept or dropped. GitHub Pages and the
+**Status:** a prototype on the `prototype/fuel` branch, previewed at https://claude.ai/artifact/3qFrceiTDLRSq6mjoLUccF. It may be kept or dropped. GitHub Pages and the
 claude.ai pages still show the simulator without it.
 
 The prototype adds two readouts to every scene, for each road:
