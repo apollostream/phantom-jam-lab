@@ -223,6 +223,26 @@ button, input, select { font: inherit; color: inherit; }
   font-weight: 700;
   pointer-events: none;
 }
+.fuel-gauge {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 3px 8px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  font-family: var(--mono);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--ink);
+  pointer-events: none;
+}
+.fuel-gauge svg { width: 24px; height: 24px; fill: none; stroke: var(--gauge, var(--muted)); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.fuel-gauge svg .win { fill: var(--gauge, var(--muted)); stroke: none; }
+.fuel-gauge { border-color: var(--gauge, var(--line)); }
 .chip {
   display: inline-flex;
   align-items: center;
@@ -532,10 +552,12 @@ footer a { color: inherit; }
         <div class="road" id="roadA">
           <canvas id="canvasA" aria-label="Road with your driver mix"></canvas>
           <div class="road-label" id="labelA"></div>
+          <div class="fuel-gauge" id="fuelA" title="Fuel efficiency: steady-flow fuel at this load as a share of fuel burned (prototype)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="10" height="18" rx="1.5"/><rect class="win" x="6.5" y="5.75" width="5" height="4.5" rx="0.5"/><path d="M2 21h14M14 9h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/></svg><b>–</b></div>
         </div>
         <div class="road" id="roadB" hidden>
           <canvas id="canvasB" aria-label="Same road where everyone tailgates"></canvas>
           <div class="road-label" id="labelB"></div>
+          <div class="fuel-gauge" id="fuelB" title="Fuel efficiency: steady-flow fuel at this load as a share of fuel burned (prototype)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="10" height="18" rx="1.5"/><rect class="win" x="6.5" y="5.75" width="5" height="4.5" rx="0.5"/><path d="M2 21h14M14 9h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/></svg><b>–</b></div>
         </div>
         <div class="car-card" id="carCard" hidden>
           <header><h3 id="ccTitle">Car 1</h3><button class="x" id="ccClose" aria-label="Close car details">×</button></header>
@@ -1776,6 +1798,13 @@ footer a { color: inherit; }
     statsAcc.A = smoothStats(statsAcc.A, simA.snapshot());
     statsAcc.B = simB ? smoothStats(statsAcc.B, simB.snapshot()) : null;
     const a = statsAcc.A, b = statsAcc.B;
+    // dashboard fuel lamp, coloured on the speed ramp: 0% red, 50% amber, 100% green
+    for (const [id, st] of [['#fuelA', a], ['#fuelB', b]]) {
+      const g = $(id), e = st ? st.fuelEff : null;
+      g.hidden = !st;
+      g.querySelector('b').textContent = e == null ? '–' : `${Math.round(e)}%`;
+      if (e == null) g.style.removeProperty('--gauge'); else g.style.setProperty('--gauge', speedColor(e / 100));
+    }
     $('#statBody').innerHTML = ROWS.map((r) => {
       const va = a[r.key], vb = b ? b[r.key] : null;
       if (va == null) return '';
