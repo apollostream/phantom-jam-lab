@@ -290,3 +290,12 @@ the load is set by the number of cars instead: N = Λ × L ÷ (ℓ + s₀ + v₀
   car 30, are kept only while their car is still on the road.
 - **Everything else is held:** speed limit, following times, vehicle settings, distraction and taps.
 - **Resolution:** Λ moves in steps of one car, (ℓ + s₀ + v₀T) ÷ L. On scene 2's 860 m ring that is about 0.04.
+
+**The cars slider stops at what fits.** Its maximum is the road length divided by the room a stopped car
+needs (car length plus stopped gap), up to the slider's 300. On the shortest road, 150 m with default cars,
+that is 23. Shortening the road, or lengthening the cars or their stopped gap, removes cars that no longer
+fit, by the same rules as a regime-map click.
+
+**Crowded rings are drawn closer to scale.** Zoomed out, each car is a dot. The dots now shrink with the
+average spacing between cars, down to a small minimum, so the gaps between cars stay visible. Before, a
+fixed minimum dot size made 300 cars on a 6 km ring look bumper to bumper, though they had 15.5 m gaps.
