@@ -19,9 +19,10 @@ Its source text, figures and build scripts are in [`report/`](report/).
 
 ## Other editions
 
-- **The simulator:** [Phantom Jam Lab](https://claude.ai/artifact/MHSiC7wxrhT9haM1Y5FpnF). Run any number
-  of cars on two rings side by side, and choose how many of them leave ample room ahead instead of
-  tailgating.
+- **The simulator:** [Phantom Jam Lab](https://apollostream.github.io/phantom-jam-lab/) on GitHub Pages,
+  also published on claude.ai as [Phantom Jam Lab](https://claude.ai/artifact/MHSiC7wxrhT9haM1Y5FpnF). Run
+  any number of cars on two rings side by side, and choose how many of them leave ample room ahead instead
+  of tailgating.
 - **The technical report:** [Phantom Traffic Jams: A Szirtes Dimensional Analysis](https://claude.ai/artifact/Nid5md6VqM4DPfdRkrQWe7),
   with every matrix and table, in the notation of Thomas Szirtes' *Applied Dimensional Analysis and
   Modeling*.
@@ -54,7 +55,7 @@ You need Node 24. The report steps also need ffmpeg and a Chromium for Playwrigh
 
 ```sh
 npm install
-npm run build             # writes dist/phantom-jam-lab.html, a single-file copy of the simulator
+npm run build             # writes the simulator: dist/index.html (standalone) and dist/phantom-jam-lab.html (for claude.ai)
 npm test                  # tests of the traffic model
 npm run analysis          # reruns the analysis into analysis/results/ (about 2 minutes)
 npm run report:check      # checks every number in the report against the results, and citations against Crossref
@@ -63,7 +64,8 @@ npm run report:build      # writes the report page to report/dist/
 npm run report:test-page  # checks that every contents link lands on its heading
 ```
 
-Open `dist/phantom-jam-lab.html` in a browser to run the simulator locally. [`report/README.md`](report/README.md)
+Open `dist/index.html` in a browser to run the simulator locally. Every push to `main` rebuilds it and
+deploys it to GitHub Pages (`.github/workflows/pages.yml`); the claude.ai pages are republished by hand. [`report/README.md`](report/README.md)
 gives the details of the report pipeline.
 
 ## Background
