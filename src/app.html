@@ -225,7 +225,7 @@ button, input, select { font: inherit; color: inherit; }
 }
 .fuel-gauge {
   position: absolute;
-  right: 14px;
+  left: 14px;
   bottom: 12px;
   display: flex;
   align-items: center;
@@ -241,7 +241,9 @@ button, input, select { font: inherit; color: inherit; }
   pointer-events: none;
 }
 .fuel-gauge svg { width: 24px; height: 24px; fill: none; stroke: var(--gauge, var(--muted)); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.fuel-gauge svg .win { fill: var(--gauge, var(--muted)); stroke: none; }
+.fuel-gauge svg .win, .fuel-gauge svg .eye { fill: var(--gauge, var(--muted)); stroke: none; }
+.stress-gauge { left: auto; right: 14px; }
+@media (max-width: 480px) { .fuel-gauge { font-size: var(--fs-xs); gap: 4px; padding: 3px 8px 2px 6px; } .fuel-gauge svg { width: 18px; height: 18px; } }
 .fuel-gauge { border-color: var(--gauge, var(--line)); }
 /* digits take the gauge colour, nudged toward the ink so amber stays readable on either theme */
 .fuel-gauge b { color: color-mix(in srgb, var(--gauge, var(--ink)) 78%, var(--ink)); }
@@ -554,11 +556,13 @@ footer a { color: inherit; }
         <div class="road" id="roadA">
           <canvas id="canvasA" aria-label="Road with your driver mix"></canvas>
           <div class="road-label" id="labelA"></div>
+          <div class="fuel-gauge stress-gauge" id="stressA" title="Stressful moments per km of driving: firm braking (over 0.2 g) and close calls (under 1.5 s to collision). Prototype."><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle class="eye" cx="8.8" cy="9.6" r="1.25"/><circle class="eye" cx="15.2" cy="9.6" r="1.25"/><path class="mouth" d="M7.8 15.6h8.4"/></svg><b>–</b></div>
           <div class="fuel-gauge" id="fuelA" title="Fuel efficiency: steady-flow fuel at this load as a share of fuel burned (prototype)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="10" height="18" rx="1.5"/><rect class="win" x="6.5" y="5.75" width="5" height="4.5" rx="0.5"/><path d="M2 21h14M14 9h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/></svg><b>–</b></div>
         </div>
         <div class="road" id="roadB" hidden>
           <canvas id="canvasB" aria-label="Same road where everyone tailgates"></canvas>
           <div class="road-label" id="labelB"></div>
+          <div class="fuel-gauge stress-gauge" id="stressB" title="Stressful moments per km of driving: firm braking (over 0.2 g) and close calls (under 1.5 s to collision). Prototype."><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle class="eye" cx="8.8" cy="9.6" r="1.25"/><circle class="eye" cx="15.2" cy="9.6" r="1.25"/><path class="mouth" d="M7.8 15.6h8.4"/></svg><b>–</b></div>
           <div class="fuel-gauge" id="fuelB" title="Fuel efficiency: steady-flow fuel at this load as a share of fuel burned (prototype)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="10" height="18" rx="1.5"/><rect class="win" x="6.5" y="5.75" width="5" height="4.5" rx="0.5"/><path d="M2 21h14M14 9h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/></svg><b>–</b></div>
         </div>
         <div class="car-card" id="carCard" hidden>
@@ -1809,13 +1813,14 @@ footer a { color: inherit; }
     { key: 'sdKmh', label: 'Speed spread (±)', unit: 'km/h', dp: 1, higher: false },
     { key: 'fuelEff', label: 'Fuel efficiency', unit: '%', dp: 0, higher: true },
     { key: 'fuelL100', label: 'Fuel per 100 km', unit: 'L', dp: 1, higher: false },
+    { key: 'stressPerKm', label: 'Stressful moments per km', unit: '', dp: 1, higher: false },
   ];
   const statsAcc = { A: null, B: null };
   function smoothStats(prev, cur) {
     if (!prev) return { ...cur };
     const o = {};
     // fuel figures are already whole-run totals, so they are shown as they are
-    for (const k in cur) o[k] = k === 'brakesPerMin' || k === 'density' || k.startsWith('fuel') ? cur[k] : prev[k] + (cur[k] - prev[k]) * 0.35;
+    for (const k in cur) o[k] = k === 'brakesPerMin' || k === 'density' || k.startsWith('fuel') || k === 'stressPerKm' ? cur[k] : prev[k] + (cur[k] - prev[k]) * 0.35;
     return o;
   }
   function renderStats() {
@@ -1829,6 +1834,17 @@ footer a { color: inherit; }
       g.hidden = !st;
       g.querySelector('b').textContent = e == null ? '–' : `${Math.round(e)}%`;
       if (e == null) g.style.removeProperty('--gauge'); else g.style.setProperty('--gauge', speedColor(e / 100));
+    }
+    // stress face: firm brakes plus close calls per km, on a log scale against Stern et al.'s
+    // ring (about 0.1-0.2 per km smooth, 1.7 before waves, 9 with waves)
+    const MOUTH = { happy: 'M7.6 14.4q4.4 4.2 8.8 0', neutral: 'M7.8 15.6h8.4', sad: 'M7.6 17.2q4.4-4.2 8.8 0' };
+    for (const [id, st] of [['#stressA', a], ['#stressB', b]]) {
+      const g = $(id), x = st ? st.stressPerKm : null;
+      g.hidden = !st;
+      g.querySelector('b').textContent = x == null ? '–' : `${x < 10 ? x.toFixed(1) : Math.round(x)}/km`;
+      if (x == null) { g.style.removeProperty('--gauge'); continue; }
+      g.style.setProperty('--gauge', speedColor(1 - Math.max(0, Math.min(1, Math.log10(Math.max(x, 0.1) / 0.1) / 2))));
+      g.querySelector('.mouth').setAttribute('d', MOUTH[x < 0.5 ? 'happy' : x < 2 ? 'neutral' : 'sad']);
     }
     $('#statBody').innerHTML = ROWS.map((r) => {
       const va = a[r.key], vb = b ? b[r.key] : null;

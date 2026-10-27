@@ -6,6 +6,7 @@
 //      tailgating, with the saving between them.
 //   3. How much of the shortfall is the tailgaters' random speed wobble (distraction off).
 //   4. How much is the hard-acceleration term (b2 = 0).
+//   Each run also reports stressful moments per km (firm brakes plus close calls).
 // Writes analysis/results/fuel.json.  Run: node analysis/fuel.mjs
 // docs/fuel-prototype.md explains the model and the parameter values.
 import { writeFileSync } from 'node:fs';
@@ -60,7 +61,7 @@ function play(scene, cfg) {
     sim.step();
   }
   const s = sim.snapshot();
-  return { eff: r1(s.fuelEff), l100: r2(s.fuelL100), meanKmh: r1(s.meanKmh), steadyKmh: r1(sim.equilibriumSpeed() * 3.6) };
+  return { eff: r1(s.fuelEff), l100: r2(s.fuelL100), stressPerKm: r2(s.stressPerKm), meanKmh: r1(s.meanKmh), steadyKmh: r1(sim.equilibriumSpeed() * 3.6) };
 }
 VEHICLES.suvNoB2 = { ...VEHICLES.suv, label: 'Midsize SUV without the hard-acceleration term', b2: 0 };
 
@@ -78,6 +79,7 @@ for (const scene of SCENES) {
   const s = row.suv, c = row.compact;
   console.log(`${scene.key.padEnd(5)} SUV mix ${s.mix.eff}% (${s.mix.l100} L/100) vs tailgaters ${s.tailgaters.eff}% (${s.tailgaters.l100}), saving ${s.savingPct}%` +
     ` | compact ${c.mix.eff}% vs ${c.tailgaters.eff}%, saving ${c.savingPct}%` +
+    ` | stress ${s.mix.stressPerKm} vs ${s.tailgaters.stressPerKm} per km` +
     ` | no wobble ${row.noWobble.mix.eff}% vs ${row.noWobble.tailgaters.eff}% | no b2 ${row.noB2.mix.eff}% vs ${row.noB2.tailgaters.eff}%`);
 }
 delete VEHICLES.suvNoB2;

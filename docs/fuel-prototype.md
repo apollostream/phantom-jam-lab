@@ -9,6 +9,9 @@ The prototype adds two readouts to every scene, for each road:
   road's load, as a share of the fuel they actually burned. 100% is the best that road allows.
 - **Fuel per 100 km:** litres per 100 km, all cars together.
 
+The branch has since gained a stress score per road (section 11), a fix to the emergency reflex
+(section 9) and three pedal states for drivers who leave room (section 10).
+
 A switch under Vehicles chooses the car the fuel model describes: a **midsize SUV** (the default) or a
 **compact car**.
 
@@ -184,7 +187,8 @@ All of it lives in `src/engine.js`:
 `node analysis/fuel.mjs` plays each scene as the app does for 300 simulated seconds, with the scene's
 mix and with everyone tailgating, and writes `analysis/results/fuel.json`. Each road is scored against
 its own steady flow. **Saving** is the drop in litres per 100 km from everyone tailgating to the scene's
-mix.
+mix. The figures below are from the engine with the three-pedal driver (section 10). Where that changed a
+figure, the earlier value is in brackets.
 
 **Midsize SUV:**
 
@@ -192,10 +196,10 @@ mix.
 | --- | --- | --- | --- | --- | --- | --- |
 | 1. One tap of the brakes | 47% | 47% | 15.3 | 15.3 | none (no drivers leave room) | none |
 | 2. One driver leaves room | 96.5% | 53.6% | 7.3 | 13.2 | 44.9% | 46.5% |
-| 3. Everyone leaves room | 92.3% | 47.0% | 7.8 | 15.3 | 49.1% | 50.7% |
+| 3. Everyone leaves room | 101.3% (92.3%) | 47.0% | 7.1 (7.8) | 15.3 | 53.6% (49.1%) | 55.3% (50.7%) |
 | 4. The ring-road experiment | 37.9% | 37.9% | 37.3 | 37.3 | none (no drivers leave room) | none |
-| 5. Rush hour | 38.8% | 33.4% | 17.7 | 21.2 | 16.4% | 17.1% |
-| 6. Half and half | 84.6% | 34.2% | 8.1 | 20.4 | 60.3% | 62.4% |
+| 5. Rush hour | 38.5% (38.8%) | 33.4% | 17.8 (17.7) | 21.2 | 15.7% (16.4%) | 16.4% (17.1%) |
+| 6. Half and half | 79.8% (84.6%) | 34.2% | 8.6 (8.1) | 20.4 | 57.9% (60.3%) | 60.2% (62.4%) |
 
 **What the results show:**
 
@@ -214,8 +218,10 @@ mix.
   efficiency and saving differ by only one or two points. Both are ratios, and in this model the cost of
   stop-and-go scales with the car's overall thirst.
 - **Speed wobble costs efficiency only where wobble is switched on** (scenes 4 to 6). Turning it off
-  lifts rush hour's mix from 38.8% to 47.5% and half-and-half from 84.6% to 88.3%. On the crowded ring it
+  lifts rush hour's mix from 38.5% to 47.6% and half-and-half from 79.8% to 83.1%. On the crowded ring it
   *lowers* the score, from 37.9% to 33.8%: without noise the wave forms later but deeper.
+- **A score above 100% happens.** With everyone leaving room, the road scores 101.3%: after the tap
+  the cars settle a little slower than the steady speed, nearer the thriftiest 50 km/h (section 1).
 - **The hard-acceleration term matters, but less than the basic energy cost.** Setting β₂ to zero
   lifts the jammed roads by about 5 points (47% to 52% on the tapped road). Most of the waste is the
   plain cost of buying back kinetic energy.
@@ -299,3 +305,147 @@ fit, by the same rules as a regime-map click.
 **Crowded rings are drawn closer to scale.** Zoomed out, each car is a dot. The dots now shrink with the
 average spacing between cars, down to a small minimum, so the gaps between cars stay visible. Before, a
 fixed minimum dot size made 300 cars on a 6 km ring look bumper to bumper, though they had 15.5 m gaps.
+
+
+## 9. The emergency reflex (bug fix)
+
+**What was wrong.** Every car carries an emergency reflex. Each step it asks whether the car could stop
+in time if the car ahead braked at 8 m/s², and brakes hard if stopping would take more than a set rate.
+That rate was 3.5 m/s² for drivers who leave room and 5 m/s² for tailgaters. When many drivers leave
+room, they share the road's space and end up with gaps close to the tailgaters'. At 67 km/h with a 25 m
+gap, the 3.5 m/s² check fired with both cars at the same speed. The car braked at about 4.2 m/s² for a
+moment, its normal control sped it up again, and the reflex fired again: 85 times in five minutes per car.
+
+**Measured, hard decelerations (over 3 m/s²) per driver per km, before the fix:**
+
+| Road | Drivers who leave room | Tailgaters |
+| --- | --- | --- |
+| Everyone leaves room, no tap | 6.9 | none on the road |
+| Everyone leaves room, with tap | 16.9 | none on the road |
+| Half and half | 11.2 | 0.4 |
+| Rush hour | 24.1 | 4.8 |
+
+**The fix.** One threshold, 5 m/s², for every driver. On a quiet road where everyone leaves room, hard
+decelerations fell from 6.9 to 0 per km. Scene 2 did not change.
+
+**An attempt that failed.** Firing the reflex only when the time to collision is under 3 s made things
+worse. The reflex's early braking turned out to be part of how drivers who leave room absorbed a wave:
+scene 2 lost its rescue, and two tests failed.
+
+## 10. The three-pedal driver who leaves room
+
+The owner pointed out that a driver has three states: on the gas, on neither pedal, or on the brake. With
+the foot off both, the car slows by itself. Tailgaters keep the Intelligent Driver Model, whose one
+continuous acceleration can be read the same way. Drivers who leave room now use the three states
+explicitly.
+
+**Why it was needed.** Even with the reflex fixed, drivers who leave room braked hard after a wave
+arrived. Their rule holds the average speed of the traffic ahead and corrects only when the gap leaves a
+band, whose floor is 0.8 s of travel. Car 21 of the "everyone leaves room" scene, for example, was still
+on the gas while closing at 7 km/h on an 18 m gap, until the reflex fired. Bursts followed every 0.3 s.
+
+**The rule now:**
+1. **Gas:** with more than 1.5 s of gap, or the gap opening, hold the average speed as before and let the
+   gap absorb a dip.
+2. **Lift off:** closing in with under 1.5 s of gap, ease off the gas, slowing at the lift-off rate
+   (`liftDecel`, 0.6 m/s²).
+3. **Brake:** only if lifting off would not match the speed of the car ahead before the gap reaches the
+   band's floor. The braking is as gentle as that allows, at most 3 m/s². The emergency reflex stays as
+   a last resort.
+
+**The lift-off rate.** About 0.6 m/s², an estimate. Rolling resistance and air drag give about 0.36 m/s²
+for the midsize SUV at 90 km/h (section 3), and engine braking in gear adds roughly 0.3–0.7 m/s². The
+engine-braking range is general knowledge, not yet checked against a source.
+
+**Two designs that failed.** Both made drivers who leave room *pass on* dips instead of absorbing them:
+- **Slowing whenever closing in,** just enough to match the car ahead before a 1 s gap. Each driver
+  reacted to every small dip as if it would last.
+- **The same rule, but waiting until it needed nearly a lift-off.** On scene 2's second lap of the wave,
+  the driver matched the car ahead's lowest speed, 42 km/h, where the original rule rode it out at
+  55 km/h.
+
+**Before and after** (300 s per scene; the slowest car is counted after the first minute):
+
+| Road | Average speed | Slowest car | Fuel efficiency | Hard decelerations per km |
+| --- | --- | --- | --- | --- |
+| 2. One driver leaves room | 65 → 65 km/h | 55 → 55 km/h | 96% → 96% | 0.04 → 0.04 |
+| 3. Everyone leaves room | 40 → 55 km/h | 29 → 55 km/h | 92% → 101% | 15.2 → 0.01 |
+| 5. Rush hour, with its drivers who leave room | 38 → 37 km/h | 0 → 0 | 39% → 39% | 5.9 → 4.4 |
+| 6. Half and half | 34 → 29 km/h | 0 → 0 | 85% → 80% | 2.3 → 0.4 |
+
+The "before" column already includes the reflex fix of section 9. Roads where everyone tailgates do not
+change.
+
+**What it costs.** Under heavy random wobble, the three-pedal drivers are slightly less effective. The
+test "absorbers in the mix lower speed variation under noise" (4 drivers who leave room among 40, with
+distraction 0.6) now fails, because speed variation falls to 0.79 of the all-tailgater level against
+its limit of 0.75. Across five random seeds, the average ratio was:
+- **before:** 0.89, from 0.72 to 1.16 depending on the seed;
+- **after:** 0.93, from 0.79 to 1.08.
+
+The test was already fragile, passing on one seed. It is left failing on this branch, pending a decision.
+
+## 11. Stress per km
+
+Each road gets a face in its lower-right corner, coloured by how stressful a kilometre of driving was.
+The fuel pump moved to the lower-left corner.
+
+**The measure:** stressful moments per vehicle-km, the sum of:
+- **Firm brake events.** Braking harder than 2 m/s², about 0.2 g. One event lasts until the driver is
+  back on the gas, after the brake-event definition of Stern et al. (2018). The 0.2 g threshold is the
+  one a New Jersey highway study used to flag harsh braking; telematics vendors use 0.3–0.6 g. It is
+  also the model's own comfortable braking rate.
+- **Close calls.** Moments when the time to collision with the car ahead falls below 1.5 s, cleared
+  above 3 s. The 1.5 s threshold is the conflict threshold of the US Federal Highway Administration's
+  Surrogate Safety Assessment Model. Studies use 1.5 to 4 s.
+
+Gentle braking and easing off the gas do not count. The brake lights now light only when the brake is
+pressed, which means slowing faster than the lift-off rate.
+
+**Research on stress itself.** Physiological studies tie driving stress to acceleration events: a
+University of Houston and Texas A&M Transportation Institute team found about half their drivers
+stressed by ordinary stop-and-go accelerations. No study found here gives stress per braking event, so
+the score counts jolts. It does not measure stress directly.
+
+**The face.** Its thresholds are anchored on Stern et al.'s braking counts from their real ring:
+- smooth, wave damped: 0.12–0.21 per km;
+- before waves formed: about 1.7 per km;
+- with waves: 8.6–9.7 per km.
+
+Hence:
+- **happy:** below 0.5 per km;
+- **neutral:** 0.5 to 2 per km;
+- **frowning:** 2 per km or more.
+
+The colour runs continuously on the speed ramp, on a log scale: green at 0.1 per km, amber near 1, red at
+10 and above.
+
+**Results** (SUV; `npm run analysis:fuel`):
+
+| Scene | Your mix | Everyone tailgates |
+| --- | --- | --- |
+| 1. One tap of the brakes | 3.5 | 3.5 |
+| 2. One driver leaves room | 0.06 | 2.0 |
+| 3. Everyone leaves room | 0.04 | 3.5 |
+| 4. The ring-road experiment | 83 | 83 |
+| 5. Rush hour | 6.8 | 7.6 |
+| 6. Half and half | 1.0 | 7.5 |
+
+The ring-road figure is large because its cars average 8 km/h: every stop-and-go cycle is spread over
+very little distance.
+
+**Tests:**
+- a quiet road has no stressful moments;
+- a tapped knife-edge road scores above 1 per km, and below 0.5 with one driver who leaves room;
+- drivers sharing a crowded road ease off instead of braking hard after a tap.
+
+**Sources:**
+- Stern et al. (2018), above, for the brake-event definition and the anchors.
+- Federal Highway Administration, Surrogate Safety Assessment Model, for the 1.5 s threshold.
+  Secondary source: <https://arxiv.org/abs/2010.10262>.
+- Harsh-braking thresholds, 0.2 g on New Jersey highways:
+  <https://researchwith.njit.edu/en/publications/evaluating-harsh-braking-events-as-a-surrogate-measure-of-crash-r/>.
+  Vendor practice, 0.47–0.61 g: Geotab collision reconstruction white paper,
+  <https://www.geotab.com/CMS-GeneralFiles-production/NA/White_papers/geotab-collision-reconstruction-whitepaper-2020(web).pdf%20%5BPUBLIC%5D-V2.pdf>.
+- University of Houston, *Researchers find hidden micro-stressors in routine driving* (2023),
+  <https://www.uh.edu/nsm/news-events/stories/2023/0705-routine-driving.php>.

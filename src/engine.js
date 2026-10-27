@@ -11,6 +11,8 @@ const CAR_LEN = 4.5;          // m, default car length
 const DEFAULTS = {
   accel: 1.2, decel: 2.0, carLen: CAR_LEN, jamGap: 2, noiseMemory: 2,
   tapDecel: 4.5, tapHold: 4,    // a brake tap: braking rate (m/s^2) and longest hold (s)
+  liftDecel: 0.6,               // slowing with the foot off both pedals: drag, rolling, engine braking (m/s^2)
+  firmBrake: 2.0,               // braking that counts toward stress, about 0.2 g (m/s^2)
   unitL: 1, unitT: 1,
   vehicle: 'suv',
 };
@@ -126,6 +128,8 @@ class Sim {
         braking: false,
         hardBraking: false,
         brakeCount: 0,
+        onBrake: false,     // stress count: inside a brake-pedal event
+        closeCall: false,   // stress count: inside a close call
         stoppedTime: 0,
         laps: 0,
       });
@@ -139,6 +143,8 @@ class Sim {
     }
     this.stats = { hardBrakes: 0, nearMiss: 0, distance: 0, speedSeries: [], lastSample: 0 };
     this.resetFuel();
+    this.stats.brakeEvents = 0;
+    this.stats.closeCalls = 0;
     this.brakeLog = [];
     this.nextAutoTap = 6 * c.unitT;
   }
@@ -256,6 +262,14 @@ class Sim {
           : gapNow > sHi ? Math.min(2 * uV, (0.06 / uT) * (gapNow - sHi)) : 0;
         const vCmd = Math.max(0, Math.min(vlim * car.speedFactor, car.vAvg + corr));
         a = Math.max(-3 * uA, Math.min(1.0 * uA, (0.6 / uT) * (vCmd - car.v)));
+        // Three pedal states. With a long gap, the rule above holds the average speed and lets
+        // the gap absorb a dip. Closing in with under 1.5 s of gap left, ease off the gas; brake
+        // only as hard as it takes to match the car ahead before the gap reaches the band's floor.
+        if (dvNow > 0 && gapNow < c.jamGap + car.v * 1.5 * uT) {
+          const room = gapNow - sLo;
+          const need = room > 0.1 * uL ? (dvNow * dvNow) / (2 * room) : 3 * uA;
+          a = Math.min(a, -Math.min(3 * uA, Math.max(c.liftDecel * uA, need)));
+        }
       } else {
         const tau = c.reaction * car.tauFactor;
         const d = Math.min(HIST - 1, Math.round(tau / dt));
@@ -299,7 +313,17 @@ class Sim {
       // count hard-brake onsets with hysteresis so one stop counts once
       if (!car.hardBraking && a < -2.5 * uA) { car.hardBraking = true; car.brakeCount++; this.stats.hardBrakes++; }
       else if (car.hardBraking && a > -0.5 * uA) car.hardBraking = false;
-      car.braking = a < -1.0 * uA;
+      // brake lights and the stress count follow the brake pedal: slowing faster than lifting off
+      car.braking = a < -c.liftDecel * uA;
+      // a firm brake event lasts until the driver is back on the gas (after Stern et al. 2018)
+      if (!car.onBrake && a < -c.firmBrake * uA) { car.onBrake = true; this.stats.brakeEvents++; }
+      else if (car.onBrake && a > 0) car.onBrake = false;
+      // a close call: under 1.5 s to collision, cleared above 3 s (surrogate-safety thresholds)
+      if (n > 1) {
+        const dv = car.v - this.leaderOf(i).v, ttc = dv > 0 ? this.gapOf(i) / dv : Infinity;
+        if (!car.closeCall && ttc < 1.5 * uT) { car.closeCall = true; this.stats.closeCalls++; }
+        else if (car.closeCall && ttc > 3 * uT) car.closeCall = false;
+      }
       if (v < 1.4 * uV) car.stoppedTime += dt;
       this.stats.distance += Math.max(0, dx);
       if (veh) {
@@ -364,11 +388,13 @@ class Sim {
     for (let i = 0; i < n; i++) if (slow[i] && !slow[(i + 1) % n]) waves++;
     if (waves === 0 && slow.every(Boolean)) waves = 1;
     const density = n / (this.L / 1000);
-    const st = this.stats;
+    const st = this.stats, c0 = this.cfg;
     const fuelOn = st.fuelIdeal > 0 && st.fuelDist > 0;
     return {
       // 100% = the fuel this distance needs in steady flow at the same load; lower is waste
       fuelEff: fuelOn ? (st.fuelIdeal / st.fuel) * 100 : null,
+      // stressful moments (firm brake events plus close calls) per vehicle-km
+      stressPerKm: st.distance > 0 ? (st.brakeEvents + st.closeCalls) / (st.distance / (1000 * c0.unitL)) : null,
       // litres per 100 km, all cars together
       fuelL100: fuelOn ? (st.fuel / st.fuelDist) * 100 : null,
       meanKmh: mean * 3.6,

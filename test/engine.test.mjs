@@ -157,3 +157,26 @@ test('fuel: a rescaled model reports no fuel', () => {
   const sim = run({ unitL: 2, unitT: 2 }, 20);
   assert.equal(sim.snapshot().fuelEff, null);
 });
+
+// Stress (prototype): firm brakes (over 2 m/s^2) plus close calls (under 1.5 s to collision) per km.
+test('stress: a quiet road has no stressful moments', () => {
+  assert.equal(run({}, 120).snapshot().stressPerKm, 0);
+  assert.equal(run({ absorbers: 30 }, 120).snapshot().stressPerKm, 0);
+});
+
+test('stress: a tap that becomes a jam is stressful; one driver leaving room calms it', () => {
+  const tap = s => { if (Math.abs(s.t - 4) < 0.025) s.tapBrakes(0, 0.5); };
+  const knife = { reaction: 0.8, length: 860, absorbT: 3.0 };
+  const jam = run(knife, 300, tap).snapshot().stressPerKm;
+  const calm = run({ ...knife, manual: { 29: true } }, 300, tap).snapshot().stressPerKm;
+  assert.ok(jam > 1 && calm < 0.5, `everyone tailgates ${jam.toFixed(2)}, one driver leaves room ${calm.toFixed(2)}`);
+});
+
+test('three pedals: drivers sharing a crowded road ease off instead of braking hard', () => {
+  let hard = 0;
+  run({ absorbers: 30, absorbT: 3.0 }, 300, s => {
+    if (Math.abs(s.t - 4) < 0.025) s.tapBrakes(0, 0.5);
+    else if (s.t > 10) for (const c of s.cars) if (c.a < -3) hard++;
+  });
+  assert.equal(hard, 0);
+});
